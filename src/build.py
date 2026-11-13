@@ -19,28 +19,31 @@ MK = ' class="mark"'
 mean3 = lambda r: sum(r["ratings"].values()) / 3
 
 
-def chart(w=1330, h=780):
-    """Agreement per round, 0-100 scale. Latest round in saffron, rounds without data dashed."""
-    pad_l, pad_b, top = 64, 74, 46
-    n = len(rounds); slot = (w - pad_l) / n; bw = slot * 0.56
+def chart(w=1640, h=640):
+    """Agreement per round on a 0-100 scale: mint blocks with ink outlines, the latest round pink,
+    a striped outline for a round still being tested."""
+    pad_l, pad_b, top = 70, 86, 56
+    n = len(rounds); slot = (w - pad_l) / n; bw = slot * 0.6
     y = lambda v: top + (h - top - pad_b) * (1 - v / 100)
-    o = [f'<svg class="rchart" viewBox="0 0 {w} {h}" width="100%" role="img" aria-label="ร้อยละที่ผู้ทดสอบเห็นด้วยกับผลของ AI รายรอบ">']
+    o = [f'<svg class="rchart" viewBox="0 0 {w} {h}" width="100%" role="img" aria-label="ร้อยละที่ทีมทดสอบเห็นด้วยกับผลของ AI รายรอบ">'
+         '<defs><pattern id="hatch" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">'
+         '<rect width="22" height="22" fill="#FFF0B3"/><rect width="8" height="22" fill="#141414" opacity=".35"/></pattern></defs>']
     for g in (0, 25, 50, 75, 100):
-        o.append(f'<line x1="{pad_l}" x2="{w}" y1="{y(g):.1f}" y2="{y(g):.1f}" stroke="{"#111A2E" if g == 0 else "#D9D8D0"}" stroke-width="{3 if g == 0 else 1}"/>'
-                 f'<text x="{pad_l - 12}" y="{y(g) + 8:.1f}" text-anchor="end" class="ax">{g}</text>')
+        o.append(f'<line x1="{pad_l}" x2="{w}" y1="{y(g):.1f}" y2="{y(g):.1f}" stroke="#141414" stroke-width="{4 if g == 0 else 1.5}" stroke-dasharray="{"0" if g == 0 else "3 9"}"/>'
+                 f'<text x="{pad_l - 14}" y="{y(g) + 8:.1f}" text-anchor="end" class="ax">{g}</text>')
     for i, r in enumerate(rounds):
         x = pad_l + i * slot + (slot - bw) / 2; cx = x + bw / 2
         if r.get("n"):
-            v = pct(r); col = "#F2A900" if r is last else "#0B6E6E"
-            o.append(f'<rect x="{x:.1f}" y="{y(v):.1f}" width="{bw:.1f}" height="{y(0) - y(v):.1f}" fill="{col}"/>'
-                     f'<text x="{cx:.1f}" y="{y(v) - 12:.1f}" text-anchor="middle" class="val">{fmt1(v)}</text>')
+            v = pct(r); col = "#FF4F9A" if r is last else "#3FDDB4"
+            o.append(f'<rect x="{x:.1f}" y="{y(v):.1f}" width="{bw:.1f}" height="{y(0) - y(v):.1f}" rx="10" fill="{col}" stroke="#141414" stroke-width="4"/>'
+                     f'<text x="{cx:.1f}" y="{y(v) - 14:.1f}" text-anchor="middle" class="val">{fmt1(v)}</text>')
             sub = f'{r["agree"]:,}/{r["n"]:,}'
         else:
-            o.append(f'<rect x="{x:.1f}" y="{y(100):.1f}" width="{bw:.1f}" height="{y(0) - y(100):.1f}" fill="none" stroke="#626B7C" stroke-width="2" stroke-dasharray="8 7"/>'
-                     f'<text x="{cx:.1f}" y="{y(50):.1f}" text-anchor="middle" class="wait">รอผล</text>')
+            o.append(f'<rect x="{x:.1f}" y="{y(100):.1f}" width="{bw:.1f}" height="{y(0) - y(100):.1f}" rx="10" fill="url(#hatch)" stroke="#141414" stroke-width="4" stroke-dasharray="14 10"/>'
+                     f'<text x="{cx:.1f}" y="{y(55):.1f}" text-anchor="middle" class="wait">กำลัง</text><text x="{cx:.1f}" y="{y(55) + 32:.1f}" text-anchor="middle" class="wait">ทดสอบ</text>')
             sub = "&#160;"
-        o.append(f'<text x="{cx:.1f}" y="{h - 40}" text-anchor="middle" class="rn">รอบ {r["round"]}</text>'
-                 f'<text x="{cx:.1f}" y="{h - 8}" text-anchor="middle" class="sub">{sub}</text>')
+        o.append(f'<text x="{cx:.1f}" y="{h - 44}" text-anchor="middle" class="rn">รอบ {r["round"]}</text>'
+                 f'<text x="{cx:.1f}" y="{h - 12}" text-anchor="middle" class="sub2">{sub}</text>')
     o.append("</svg>")
     return "".join(o)
 
@@ -61,9 +64,9 @@ def detail_rows(lo, hi):
     for r in rounds:
         if not lo <= r["round"] <= hi:
             continue
-        res = f'{fmt1(pct(r))}<small>{r["agree"]}/{r["n"]}</small>' if r.get("n") else "รอผล"
-        out.append(f'<tr><td class="n">{r["round"]}</td><td>{r["scope"]}</td><td class="r big">{res}</td>'
-                   f'<td>{r.get("finding") or "รอผลวิเคราะห์"}</td><td>{r.get("fix") or "รอผลวิเคราะห์"}</td></tr>')
+        res = f'{fmt1(pct(r))}%<span class="small">{r["agree"]}/{r["n"]}</span>' if r.get("n") else 'กำลังทดสอบ'
+        out.append(f'<tr><td class="n">{r["round"]}</td><td>{r["scope"]}</td><td class="r"><b class="num" style="font-size:40px">{res}</b></td>'
+                   f'<td>{r.get("finding") or "รอผล"}</td></tr>')
     return "".join(out)
 
 
@@ -77,7 +80,7 @@ def ratings_rows():
             out.append(f'<tr{MK if r is last else ""}><td>รอบ {r["round"]}</td><td class="r">{t["heard"]:.2f}</td>'
                        f'<td class="r">{t["thai"]:.2f}</td><td class="r">{t["tip"]:.2f}</td><td class="r"><b>{mean3(r):.2f}</b></td></tr>')
         else:
-            out.append(f'<tr><td>รอบ {r["round"]}</td><td class="r" colspan="4">รอผล</td></tr>')
+            out.append(f'<tr><td>รอบ {r["round"]}</td><td class="r" colspan="4">กำลังทดสอบ</td></tr>')
     return "".join(out)
 
 
@@ -87,6 +90,7 @@ TOKENS = {
     "{{ROUND_ROWS}}": round_rows(),
     "{{DETAIL_A}}": detail_rows(1, 5),
     "{{DETAIL_B}}": detail_rows(6, 99),
+    "{{NEXT_ROUND}}": str(max(r["round"] for r in rounds)),
     "{{RATINGS_ROWS}}": ratings_rows(),
     "{{TOTAL_N}}": f'{sum(r["n"] for r in done):,}',
     "{{N_ROUNDS}}": str(len(done)),
@@ -101,31 +105,7 @@ TOKENS = {
     "{{RC_POLICY}}": str(rc.get("policy", "-")), "{{RC_CONTENT}}": str(rc.get("content", "-")), "{{RC_NEW}}": str(rc.get("new", "-")),
 }
 
-EXTRA_CSS = """
-/* round chart and report additions (2026-11-13) */
-.rchart .ax{font:500 22px 'Bai Jamjuree',sans-serif;fill:#626B7C}.rchart .val{font:700 34px 'Bai Jamjuree',sans-serif;fill:#111A2E}
-.rchart .rn{font:600 25px 'Bai Jamjuree',sans-serif;fill:#111A2E}.rchart .sub{font:500 21px 'Sarabun',sans-serif;fill:#626B7C}.rchart .wait{font:600 26px 'Sarabun',sans-serif;fill:#626B7C}
-.ba td{font-size:25px;padding:14px 12px}.ba td.r{font:700 34px 'Bai Jamjuree',sans-serif}.ba td.was{color:var(--red)}.ba td.now{color:var(--teal)}
-.detail td{font-size:22px;padding:13px 10px;vertical-align:top;line-height:1.38}.detail th{font-size:20px}.detail td.n{font:700 40px/1 'Bai Jamjuree',sans-serif;color:var(--teal)}
-.detail td.big{font:700 32px/1.1 'Bai Jamjuree',sans-serif;color:var(--navy)}.detail td.big small{display:block;font:500 19px 'Sarabun',sans-serif;color:var(--ink3);margin-top:4px}
-.ex td{font-size:23px;padding:12px 10px;line-height:1.36;vertical-align:top}.ex td.en{font-family:'Bai Jamjuree',sans-serif;font-weight:500}.ex td.was{color:#94151E}.ex td.now{color:#075353}
-.split{display:grid;grid-template-columns:1fr 1fr;gap:44px;flex:1;min-height:0}.split>div{display:flex;flex-direction:column;gap:14px;min-height:0}
-.lead{font-size:27px;line-height:1.45;color:var(--ink2)}
-.navlink{font:600 15px 'Sarabun',sans-serif}
-/* page fill: tables and text grow into the slide like the approved decision pack */
-.ba td{font-size:30px;padding:30px 14px}.ba td.r{font-size:46px}.ba th{font-size:23px}
-.detail td{font-size:25px;padding:24px 12px}.detail th{font-size:22px}.detail td.n{font-size:50px}.detail td.big{font-size:38px}.detail td.big small{font-size:21px}
-.ex td{font-size:28px;padding:24px 12px}.ex th{font-size:23px}
-.measures td{font-size:26px;padding:24px 12px;line-height:1.4}.measures th{font-size:23px}
-.lead{font-size:30px;line-height:1.5}
-.split td{font-size:28px;padding:20px 12px}.split th{font-size:23px}.split h3{font-size:31px;margin-top:8px}.split .note{font-size:24px}
-.risk td{padding:30px 14px}
-.body.row>div:first-child table td{font-size:30px;padding:26px 12px}.body.row>div:first-child table th{font-size:23px}
-.def dt{font-size:31px;padding:24px 0}.def dd{font-size:29px;padding:24px 0;line-height:1.5}
-.detail td{padding:34px 12px}.ex td{padding:30px 12px}.split td{padding:26px 12px}
-.body.row .block.sun{align-self:start}
-.cap-chart .hb{min-height:70px}.cap-chart .hb label{font-size:28px}.cap-chart .hb b{font-size:32px}
-"""
+EXTRA_CSS = ""
 
 
 def build(src, out, title, other_href, other_label):

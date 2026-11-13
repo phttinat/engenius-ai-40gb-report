@@ -1,132 +1,126 @@
-<section class="slide cover">
-  <div class="c-main">
-    <div class="tile"><img src="assets/engenius-logo.png" alt="Engenius English"></div>
+<section class="slide cover g-pink tx-terrazzo">
+  <div class="c-l">
+    <div class="logo"><img src="assets/engenius-logo.png" alt="Engenius English"></div>
+    <div class="shp circle f-yellow" style="width:230px;height:230px;right:70px;top:90px"></div>
+    <div class="shp tri f-cobalt" style="width:170px;height:150px;right:300px;top:250px"></div>
+    <div class="shp squig" style="width:420px;left:420px;top:105px"></div>
     <div>
-      <h1>ผลการทดสอบระบบ AI<br>ประเมินการตอบ<br>บนเครื่อง A100 40GB</h1>
-      <p>รายงานการทดสอบ {{N_ROUNDS}} รอบ ระหว่างวันที่ 11 ถึง 13 พฤศจิกายน 2569 เพื่อประกอบการพิจารณาใช้เครื่อง 40GB แทนเครื่อง 80GB (ฉบับย่อ)</p>
+      <h1>ผลทดสอบ AI<br>ตรวจคำตอบ<br>บนเครื่อง 40GB</h1>
+      <p class="meta" style="margin-top:30px">อัปเดต 13 พ.ย. 2569 · ทดสอบแล้ว {{N_ROUNDS}} รอบ รวม {{TOTAL_N}} คำตอบ</p>
     </div>
   </div>
-  <div class="c-side">
-    <div class="teal"><b>{{TOTAL_N}}</b><span>คำตอบที่ทดสอบใน {{N_ROUNDS}} รอบ ครอบคลุมโจทย์ทั้ง 651 ข้อในแอป</span></div>
-    <div class="sun"><b>ร้อยละ {{LAST_PCT}}</b><span>ผู้ทดสอบเห็นด้วยกับผลของ AI ในรอบล่าสุด ซึ่งตรวจซ้ำข้อที่เคยมีปัญหา</span></div>
-    <div class="red"><b>{{RC_FIXED}} จาก {{RC_ITEMS}}</b><span>ปัญหาที่ผู้ทดสอบเคยบันทึกไว้และแก้ไขแล้วเมื่อตรวจซ้ำ</span></div>
-    <div class="ink"><b>{{LAST_MEAN}} / 5</b><span>คะแนนเฉลี่ยรอบล่าสุด ด้านการฟังเสียง คำแปลไทย และคำแนะนำ</span></div>
+  <div class="c-r">
+    <div class="f-mint"><span class="num">{{LAST_PCT}}%</span><span>ทีมทดสอบเห็นด้วยกับผลของ AI ในรอบล่าสุด</span></div>
+    <div class="f-yellow"><span class="num">{{RC_FIXED}}/{{RC_ITEMS}}</span><span>ปัญหาที่เคยเจอ แก้หายแล้วเมื่อตรวจซ้ำ</span></div>
+    <div class="f-cobalt" style="color:#fff"><span class="num">{{LAST_MEAN}}</span><span>คะแนนเฉลี่ยจากเต็ม 5 ด้านการฟัง คำแปล และคำแนะนำ</span></div>
   </div>
 </section>
 
-<section class="slide">
-  <aside class="rail teal"><div class="tile"><img src="assets/engenius-logo.png" alt="Engenius English"></div><h2>ผู้ทดสอบตอบโจทย์จริงจากแอป แล้วตัดสินทุกข้อว่า AI ตรวจถูกหรือไม่</h2><span class="pg-no">{{PG}}</span></aside>
-  <div class="body">
-    <dl class="def">
-      <dt>ผู้ทดสอบ</dt><dd>นักศึกษาฝึกงาน 4 คน ทดสอบผ่านหน้าเว็บสำหรับทดสอบโดยเฉพาะ รอบที่ 2 ถึง 5 มีผู้ทดสอบ 3 คน</dd>
-      <dt>โจทย์</dt><dd>ข้อพูดตอบ ข้อดูภาพ ข้อพิมพ์ และข้อพูดตามประโยค รวม 651 ข้อ ใช้ข้อความโจทย์และเกณฑ์เดียวกับแอป Engenius English</dd>
-      <dt>เครื่อง</dt><dd>A100 40GB บน Google Cloud เปิดเฉพาะช่วงทดสอบ แอปที่นักเรียนใช้งานยังเชื่อมต่อกับเครื่อง 80GB ตามเดิม</dd>
-      <dt>การวัดผล</dt><dd>ผู้ทดสอบตัดสินว่าผลของ AI ถูกหรือไม่ทุกข้อ และเขียนหมายเหตุได้ ตั้งแต่รอบ 6 ให้คะแนน 1 ถึง 5 ด้านการฟังเสียง คำแปลไทย และคำแนะนำ</dd>
-      <dt>การตรวจซ้ำ</dt><dd>หลังแก้ไขแต่ละครั้ง ส่งเสียงและคำตอบชุดเดิมเข้าเครื่องอีกครั้ง เพื่อยืนยันว่าข้อที่แก้หายจริงและข้ออื่นไม่เสีย</dd>
-    </dl>
-    <footer>ข้อมูลเสียงและผลการทดสอบเก็บในพื้นที่จัดเก็บแบบส่วนตัวของโครงการบน Google Cloud การทดสอบไม่ใช้บัญชีหรือข้อมูลของนักเรียน</footer>
+<section class="slide g-mint tx-dots">
+  <div class="shp half f-yellow" style="width:260px;height:130px;right:90px;top:0;border-top:none;border-radius:0 0 999px 999px"></div>
+  <div class="head">
+    <h2>ทีมทดสอบเห็นด้วยกับ AI จาก {{FIRST_PCT}}% ในรอบแรก ขึ้นไปสูงสุด {{BEST_PCT}}%</h2>
+    <p class="sub">รอบหลัง ๆ เลือกข้อที่เคยมีปัญหามาทดสอบซ้ำ ตัวเลขจึงขึ้นลงตามความยากของข้อ ส่วนรอบ {{NEXT_ROUND}} กำลังทดสอบอยู่</p>
   </div>
+  <div class="obj b-pink fill">{{CHART}}</div>
+  <span class="pg">{{PG}}</span>
 </section>
 
-<section class="slide">
-  <aside class="rail teal"><div class="tile"><img src="assets/engenius-logo.png" alt="Engenius English"></div><h2>ผู้ทดสอบเห็นด้วยกับผลของ AI จากร้อยละ {{FIRST_PCT}} ในรอบแรก สูงสุดร้อยละ {{BEST_PCT}}</h2><span class="pg-no">{{PG}}</span></aside>
-  <div class="body">
-    <h3>ร้อยละของคำตอบที่ผู้ทดสอบเห็นว่า AI ตัดสินถูก แยกตามรอบ</h3>
-    {{CHART}}
-    <footer>รอบที่ 2 ถึง {{LAST_ROUND}} เลือกข้อที่เคยมีปัญหาหรือข้อที่เพิ่งแก้ไขมาทดสอบ ตัวเลขแต่ละรอบจึงเทียบกันโดยตรงไม่ได้ทั้งหมด รอบ {{LAST_ROUND}} ตรวจซ้ำทุกข้อที่เคยมีหมายเหตุ ซึ่งเป็นกลุ่มข้อที่ยากที่สุด</footer>
+<section class="slide g-yellow tx-squig">
+  <div class="head">
+    <h2>ตรวจคำตอบชุดเดียวกัน 40GB ทำได้ไม่แพ้ 80GB</h2>
+    <p class="sub">ใช้คำตอบจากรอบแรก ก่อนเริ่มแก้ไขอะไร แล้วส่งเข้าเครื่อง 80GB ที่นักเรียนใช้อยู่ เพื่อเทียบกันตรง ๆ</p>
   </div>
+  <div class="pair">
+    <div class="disc f-mint"><span class="num">558</span><b>40GB ตรวจถูก</b><span>จาก 636 ข้อ</span></div>
+    <div class="disc f-white"><span class="num">543</span><b>80GB ตรวจถูก</b><span>จาก 636 ข้อเดียวกัน</span></div>
+  </div>
+  <p class="note">เสียง 465 จาก 473 คลิปถูกแปลงเป็นข้อความได้ตรงกันทั้งสองเครื่อง เครื่องที่หน่วยความจำ GPU เหลือครึ่งเดียวจึงตรวจได้ไม่แย่กว่าเดิม</p>
+  <span class="pg">{{PG}}</span>
 </section>
 
-<section class="slide">
-  <aside class="rail navy"><div class="tile"><img src="assets/engenius-logo.png" alt="Engenius English"></div><h2>เมื่อตรวจคำตอบชุดเดียวกัน เครื่อง 40GB ตัดสินถูกไม่น้อยกว่าเครื่อง 80GB</h2><span class="pg-no">{{PG}}</span></aside>
-  <div class="body">
-    <div class="stats three">
-      <div><b>558</b><span>ข้อที่เครื่อง 40GB ตัดสินถูก จาก 636 ข้อ</span></div>
-      <div><b>543</b><span>ข้อที่เครื่อง 80GB ตัดสินถูก จาก 636 ข้อเดียวกัน</span></div>
-      <div><b>465 / 473</b><span>คลิปเสียงที่ทั้งสองเครื่องแปลงเป็นข้อความได้ตรงกัน</span></div>
-    </div>
-    <p class="lead">การเปรียบเทียบใช้คำตอบของรอบที่ 1 ซึ่งทดสอบก่อนการแก้ไขใด ๆ แล้วส่งเสียงและคำตอบเดียวกันเข้าเครื่อง 80GB ที่ใช้งานจริง ผลแสดงว่าเครื่องที่มีหน่วยความจำ GPU ครึ่งหนึ่งให้คุณภาพการตรวจไม่ต่ำกว่าเดิม</p>
-    <p class="lead">ปัญหาหลักที่พบในรอบแรกเกิดกับทั้งสองเครื่องเหมือนกัน คือระบบฟังเสียงนักเรียนผิด การแก้ไขทั้งหมดหลังจากนั้นติดตั้งบนเครื่อง 40GB เท่านั้น</p>
-    <footer>ที่มา: ผลการทดสอบรอบที่ 1 วันที่ 11 พ.ย. 2569 และการส่งคำตอบชุดเดียวกันเข้าเครื่อง 80GB ในวันเดียวกัน</footer>
+<section class="slide g-cobalt tx-stripe">
+  <div class="shp circle f-pink" style="width:200px;height:200px;right:-50px;top:-40px"></div>
+  <div class="head">
+    <h2>สิ่งที่แก้ไปแล้ว วัดผลซ้ำด้วยคำตอบชุดเดิม</h2>
   </div>
-</section>
-
-<section class="slide">
-  <aside class="rail teal"><div class="tile"><img src="assets/engenius-logo.png" alt="Engenius English"></div><h2>ปัญหาหลักที่พบในรอบแรกแก้ไขแล้ว และวัดผลซ้ำด้วยคำตอบชุดเดิม</h2><span class="pg-no">{{PG}}</span></aside>
-  <div class="body">
-    <table class="ba">
-      <tr><th>เรื่องที่วัด</th><th class="r" style="width:190px">ก่อนแก้ไข</th><th class="r" style="width:190px">หลังแก้ไข</th></tr>
-      <tr><td>คำที่ผู้ทดสอบตั้งใจพูดและ AI ฟังถูก จากคลิปที่เคยฟังผิด 79 คลิป</td><td class="r was">10</td><td class="r now">49</td></tr>
-      <tr><td>คะแนนเฉลี่ยของข้อที่ผู้ทดสอบเคยแจ้งว่า AI ฟังผิด 80 ข้อ</td><td class="r was">48</td><td class="r now">70</td></tr>
-      <tr><td>ข้อพูดตามที่อ่านถูกและผ่านเกณฑ์ จาก 65 ข้อ</td><td class="r was">31</td><td class="r now">43</td></tr>
-      <tr><td>คำแปลภาษาไทยของตัวอย่างที่ใช้คำศัพท์ผิด เช่น มะละกอเป็นมะม่วงหิมพานต์</td><td class="r was">74</td><td class="r now">0</td></tr>
-      <tr><td>คู่ตัวอย่างคำตอบที่ซ้ำกัน เช่น I am a doctor และ I'm a doctor</td><td class="r was">27</td><td class="r now">0</td></tr>
+  <div class="obj b-yellow fill">
+    <table>
+      <tr><th>เรื่องที่วัด</th><th class="r" style="width:200px">ก่อนแก้</th><th class="r" style="width:200px">หลังแก้</th></tr>
+      <tr><td>คำที่ตั้งใจพูดแล้ว AI ฟังถูก จากคลิปที่เคยฟังผิด 79 คลิป</td><td class="r"><span class="was">10</span></td><td class="r"><span class="now">49</span></td></tr>
+      <tr><td>คะแนนเฉลี่ยของข้อที่ทีมเคยบอกว่า AI ฟังผิด 80 ข้อ</td><td class="r"><span class="was">48</span></td><td class="r"><span class="now">70</span></td></tr>
+      <tr><td>ข้อพูดตามที่อ่านถูกแล้วผ่านเกณฑ์ จาก 65 ข้อ</td><td class="r"><span class="was">31</span></td><td class="r"><span class="now">43</span></td></tr>
+      <tr><td>คำแปลไทยที่ใช้คำศัพท์ผิด เช่น มะละกอกลายเป็นมะม่วงหิมพานต์</td><td class="r"><span class="was">74</span></td><td class="r"><span class="now">0</span></td></tr>
+      <tr><td>ตัวอย่างคำตอบที่ซ้ำกัน เช่น I am a doctor กับ I'm a doctor</td><td class="r"><span class="was">27</span></td><td class="r"><span class="now">0</span></td></tr>
     </table>
-    <p class="strip teal">ในรอบ {{LAST_ROUND}} ผู้ทดสอบตรวจซ้ำข้อที่เคยบันทึกปัญหาไว้ในรอบ 6 ถึง 8 จำนวน {{RC_ITEMS}} ข้อ พบว่าแก้หายแล้ว {{RC_FIXED}} ข้อ</p>
-    <footer>ตัวเลขในตารางวัดจากการส่งเสียงและคำตอบชุดเดิมเข้าเครื่องก่อนและหลังการแก้ไขแต่ละครั้ง</footer>
   </div>
+  <p class="note">รอบ 9 ทีมตรวจซ้ำปัญหาที่เคยจดไว้ในรอบ 6 ถึง 8 ทั้งหมด {{RC_ITEMS}} ข้อ แก้หายแล้ว {{RC_FIXED}} ข้อ</p>
+  <span class="pg">{{PG}}</span>
 </section>
 
-<section class="slide">
-  <aside class="rail red"><div class="tile"><img src="assets/engenius-logo.png" alt="Engenius English"></div><h2>ยังมีเรื่องที่ต้องแก้ก่อนใช้งานจริง โดยเฉพาะการฟังชื่อบุคคลและคำสั้น</h2><span class="pg-no">{{PG}}</span></aside>
-  <div class="body">
-    <table class="risk">
-      <tr><th>ประเด็น</th><th>สิ่งที่พบ</th><th style="width:170px">ระดับ</th></tr>
-      <tr><td>ระบบฟังเสียงผิด</td><td>{{RC_ASR}} ข้อในรอบ {{LAST_ROUND}} ส่วนใหญ่เป็นชื่อบุคคลและคำสั้น เช่น Leah likes soda ฟังเป็น Liya Life Soda</td><td><em class="vh">สูง</em></td></tr>
-      <tr><td>ยังไม่ได้ติดตั้งจริง</td><td>การแก้ไขทั้งหมดอยู่บนเครื่องทดสอบ เครื่อง 80GB ที่นักเรียนใช้ยังเป็นรุ่นเดิม</td><td><em class="vh">สูง</em></td></tr>
-      <tr><td>คำแปลไทยบางคำ</td><td>{{RC_WRONG}} ข้อยังแปลไม่เหมาะสม เช่น short แปลว่าสั้นแทนเตี้ย และ hotdog แปลว่าไส้กรอก</td><td><em class="h">ปานกลาง</em></td></tr>
-      <tr><td>กำลังรับยังไม่ได้วัดซ้ำ</td><td>การฟังเสียงสองรอบทำให้รับงานได้ลดลงร้อยละ 6 ถึง 20 และยังไม่ได้วัดกับชุดแก้ไขล่าสุด</td><td><em class="h">ปานกลาง</em></td></tr>
-      <tr><td>โจทย์ที่ต้องเห็นภาพ</td><td>AI ไม่เห็นภาพ ข้อที่ข้อความโจทย์มีเพียงคำเดียว เช่น Tie จึงตีความผิดได้</td><td><em class="m">ต่ำ</em></td></tr>
+<section class="slide g-pink tx-terrazzo">
+  <div class="head">
+    <h2>ยังไม่พร้อมใช้งานจริง เหลืออีก 5 เรื่อง</h2>
+  </div>
+  <div class="obj b-mint fill">
+    <table>
+      <tr><th style="width:330px">เรื่อง</th><th>ตอนนี้เป็นอย่างไร</th><th style="width:170px">ระดับ</th></tr>
+      <tr><td><b>ฟังชื่อคนและคำสั้น</b></td><td>ยังฟังผิด {{RC_ASR}} ข้อในรอบ 9 เช่น Leah likes soda ได้ยินเป็น Liya Life Soda</td><td><span class="stk hi">สูง</span></td></tr>
+      <tr><td><b>ยังไม่ได้ขึ้นใช้จริง</b></td><td>ที่แก้ทั้งหมดอยู่บนเครื่องทดสอบ เครื่อง 80GB ที่นักเรียนใช้ยังเป็นรุ่นเดิม</td><td><span class="stk hi">สูง</span></td></tr>
+      <tr><td><b>คำแปลไทยบางคำ</b></td><td>รอบ 9 ยังเจอ {{RC_WRONG}} ข้อ แก้ชุดล่าสุดแล้ว รอรอบ {{NEXT_ROUND}} ยืนยัน</td><td><span class="stk mid">กลาง</span></td></tr>
+      <tr><td><b>กำลังรับของเครื่อง</b></td><td>ฟังเสียงสองรอบทำให้รับงานได้ลดลง 6 ถึง 20% และยังไม่ได้วัดใหม่</td><td><span class="stk mid">กลาง</span></td></tr>
+      <tr><td><b>โจทย์ที่ต้องดูรูป</b></td><td>AI มองไม่เห็นรูป ข้อที่เขียนโจทย์ไว้คำเดียว เช่น Tie จึงตีความผิดได้</td><td><span class="stk lo">ต่ำ</span></td></tr>
     </table>
-    <footer>นอกจากนี้ผู้ทดสอบบางคนเห็นต่างจากเกณฑ์ที่ยอมรับคำความหมายเดียวกัน เช่น large แทน big ซึ่งเป็นนโยบายที่ต้องยืนยัน</footer>
   </div>
+  <span class="pg">{{PG}}</span>
 </section>
 
-<section class="slide">
-  <aside class="rail ink"><div class="tile"><img src="assets/engenius-logo.png" alt="Engenius English"></div><h2>เครื่อง 40GB รองรับแบบจำลองชุดเดิมได้ ค่าใช้จ่ายการทดสอบใช้จากเครดิต</h2><span class="pg-no">{{PG}}</span></aside>
-  <div class="body">
-    <div class="split">
-      <div>
-        <h3>หน่วยความจำ GPU ของเครื่อง 40GB</h3>
-        <table class="res">
-          <tr><th>รายการ</th><th class="r">MiB</th></tr>
-          <tr><td>แบบจำลองภาษาสำหรับตรวจและอธิบาย</td><td class="r">34,040</td></tr>
-          <tr><td>ระบบฟังเสียงและประเมินการออกเสียง</td><td class="r">3,614</td></tr>
-          <tr><td>คงเหลือ</td><td class="r">3,287</td></tr>
-          <tr><td><b>รวม</b></td><td class="r"><b>40,960</b></td></tr>
-        </table>
-        <h3>กำลังรับที่วัดได้ วันที่ 11 พ.ย. 2569</h3>
-        <table>
-          <tr><th>ผู้ใช้พร้อมกัน</th><th class="r">คำขอต่อวินาที</th></tr>
-          <tr><td>16 คน</td><td class="r">1.85</td></tr><tr><td>32 คน</td><td class="r">2.00</td></tr><tr><td>64 คน</td><td class="r">2.48</td></tr>
-        </table>
+<section class="slide g-white tx-dots">
+  <div class="shp tri f-yellow" style="width:220px;height:190px;right:60px;top:40px"></div>
+  <div class="head">
+    <h2>เครื่อง 40GB รับไหว ค่าทดสอบใช้เครดิตของ Google</h2>
+  </div>
+  <div class="cols c2">
+    <div class="obj b-cobalt" style="display:flex;flex-direction:column">
+      <h3>หน่วยความจำ GPU ทั้งหมด 40,960 MiB</h3>
+      <div class="stack">
+        <div class="f-cobalt" style="flex:34040;color:#fff">34,040</div>
+        <div class="f-pink" style="flex:3614"></div>
+        <div class="f-white" style="flex:3287"></div>
       </div>
-      <div>
-        <h3>ค่าใช้จ่าย</h3>
-        <table>
-          <tr><th>รายการ</th><th class="r">ดอลลาร์สหรัฐ</th></tr>
-          <tr><td>อัตราค่าเครื่อง 40GB แบบจ่ายตามชั่วโมง</td><td class="r">4.01 ต่อชั่วโมง</td></tr>
-          <tr><td>ค่าใช้จ่ายการทดสอบถึงวันที่ 11 พ.ย. 2569</td><td class="r">ประมาณ 43</td></tr>
-          <tr><td>การทดสอบเพิ่ม 1 วัน (เปิดเครื่อง 8 ชั่วโมง)</td><td class="r">ประมาณ 32</td></tr>
-          <tr><td>เครดิตทดสอบที่ Google เพิ่มให้</td><td class="r">3,000</td></tr>
-        </table>
-        <p class="note">ค่าใช้จ่ายวันที่ 12 และ 13 พ.ย. ยังไม่ปิดยอดในระบบเรียกเก็บเงิน ราคาแบบสัญญาใช้งานระยะยาวของเครื่อง 40GB ยังรอใบเสนอราคา</p>
-      </div>
+      <div class="legend"><span><i class="f-cobalt"></i>AI ตรวจและอธิบาย 34,040</span><span><i class="f-pink"></i>ฟังเสียงและออกเสียง 3,614</span><span><i class="f-white"></i>ว่าง 3,287</span></div>
+      <h3 style="margin-top:34px">รับงานได้ (วัดวันที่ 11 พ.ย.)</h3>
+      <table>
+        <tr><td>ใช้พร้อมกัน 16 คน</td><td class="r"><b>1.85</b> ครั้ง/วินาที</td></tr>
+        <tr><td>ใช้พร้อมกัน 32 คน</td><td class="r"><b>2.00</b> ครั้ง/วินาที</td></tr>
+        <tr><td>ใช้พร้อมกัน 64 คน</td><td class="r"><b>2.48</b> ครั้ง/วินาที</td></tr>
+      </table>
+    </div>
+    <div class="obj b-pink" style="display:flex;flex-direction:column">
+      <h3>ค่าใช้จ่าย (ดอลลาร์สหรัฐ)</h3>
+      <table>
+        <tr><td>ค่าเครื่องแบบจ่ายรายชั่วโมง</td><td class="r"><b>4.01</b>/ชม.</td></tr>
+        <tr><td>ใช้ไปถึงวันที่ 11 พ.ย.</td><td class="r">ราว <b>43</b></td></tr>
+        <tr><td>ทดสอบเพิ่ม 1 วัน (เปิด 8 ชม.)</td><td class="r">ราว <b>32</b></td></tr>
+        <tr><td>เครดิตทดสอบที่ Google ให้</td><td class="r"><b>3,000</b></td></tr>
+      </table>
+      <p class="note">ยอดวันที่ 12–13 พ.ย. ยังไม่ปิดในระบบบิล ส่วนราคาสัญญาระยะยาวของเครื่อง 40GB ยังรอใบเสนอราคา</p>
     </div>
   </div>
+  <span class="pg">{{PG}}</span>
 </section>
 
-<section class="slide">
-  <aside class="rail navy"><div class="tile"><img src="assets/engenius-logo.png" alt="Engenius English"></div><h2>ระบบบนเครื่อง 40GB ใกล้พร้อม แต่ยังไม่ควรใช้งานจริง ขออนุมัติทดสอบต่อตามเกณฑ์</h2><span class="pg-no">{{PG}}</span></aside>
-  <div class="body">
-    <table class="plan">
-      <tr><th style="width:80px"></th><th style="width:250px">ช่วงเวลา</th><th>งาน</th><th style="width:400px">ต้องผ่านก่อนไปต่อ</th></tr>
-      <tr><td class="n">1</td><td class="w">ทันที</td><td>แก้คำแปลไทยและคะแนนข้อพูดตามที่พบในรอบ {{LAST_ROUND}} แล้วส่งคำตอบทุกรอบเข้าตรวจซ้ำ</td><td>ไม่มีข้อที่เคยผ่านกลับมาเสีย</td></tr>
-      <tr><td class="n">2</td><td class="w">สัปดาห์ถัดไป</td><td>ทดสอบเพิ่มอย่างน้อย 2 รอบ เน้นการฟังชื่อบุคคลและคำสั้น</td><td>ผู้ทดสอบเห็นด้วยไม่น้อยกว่าร้อยละ 95 สองรอบติดกัน</td></tr>
-      <tr><td class="n">3</td><td class="w">ก่อนย้ายระบบ</td><td>ทดสอบกำลังรับด้วยชุดแก้ไขล่าสุด</td><td>ไม่น้อยกว่า 2 คำขอต่อวินาที และเวลาประเมิน p95 ไม่เกิน 15 วินาที</td></tr>
-      <tr><td class="n">4</td><td class="w">ทีมเนื้อหา</td><td>ปรับข้อความโจทย์ที่ AI ต้องเห็นภาพจึงจะตีความถูก</td><td>ข้อที่ระบุแก้ครบ</td></tr>
-      <tr><td class="n">5</td><td class="w">เมื่อผ่านทุกข้อ</td><td>ย้ายระบบไปเครื่อง 40GB ตามแผนสัญญาใช้งานที่เสนอไว้เดิม</td><td>ผู้บริหารอนุมัติ</td></tr>
-    </table>
-    <p class="strip teal">ขออนุมัติใช้เครื่อง 40GB ทดสอบต่อ ประมาณ 32 ดอลลาร์สหรัฐต่อวันทดสอบ โดยใช้เครดิตทดสอบของ Google และใช้ผู้ทดสอบชุดเดิม 4 คน</p>
+<section class="slide g-mint tx-squig">
+  <div class="head">
+    <h2>ขอทดสอบต่ออีกอย่างน้อย 2 รอบ ก่อนย้ายระบบ</h2>
   </div>
+  <div class="steps">
+    <div class="step"><span class="num" style="color:var(--pink)">1</span><h3>ตอนนี้</h3><p>แก้ที่เจอในรอบ 9 แล้ว รอบ {{NEXT_ROUND}} กำลังทดสอบอยู่</p><span class="gate">ข้อที่เคยผ่านต้องไม่กลับมาเสีย</span></div>
+    <div class="step"><span class="num" style="color:var(--cobalt)">2</span><h3>สัปดาห์หน้า</h3><p>ทดสอบเพิ่ม เน้นการฟังชื่อคนและคำสั้น</p><span class="gate">เห็นด้วยกับ AI 95% ขึ้นไป 2 รอบติด</span></div>
+    <div class="step"><span class="num" style="color:var(--coral)">3</span><h3>ก่อนย้าย</h3><p>วัดกำลังรับใหม่ด้วยชุดแก้ล่าสุด</p><span class="gate">2 ครั้ง/วินาทีขึ้นไป รอผลไม่เกิน 15 วินาที</span></div>
+    <div class="step"><span class="num" style="color:#0B8A69">4</span><h3>ทีมเนื้อหา</h3><p>ปรับโจทย์ที่ AI ต้องเห็นรูปถึงจะเข้าใจ</p><span class="gate">ข้อที่ระบุไว้แก้ครบ</span></div>
+    <div class="step"><span class="num" style="color:var(--ink)">5</span><h3>ย้ายระบบ</h3><p>ย้ายไปเครื่อง 40GB ตามแผนสัญญาเดิม</p><span class="gate">หัวหน้าอนุมัติ</span></div>
+  </div>
+  <p class="ask">ค่าทดสอบเพิ่มราว 32 ดอลลาร์ต่อวัน ใช้เครดิตทดสอบของ Google และทีมทดสอบ 4 คนเดิม</p>
+  <span class="pg">{{PG}}</span>
 </section>

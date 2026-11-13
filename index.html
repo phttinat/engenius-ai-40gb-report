@@ -7,285 +7,284 @@
 <title>Engenius AI · ผลการทดสอบบนเครื่อง 40GB (ฉบับย่อ)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&family=Kanit:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#111A2E;--ink2:#3A4356;--ink3:#626B7C;--ground:#F5F4EF;--line:#D9D8D0;--track:#E7E6DF;
-  --navy:#0A1F66;--teal:#0B6E6E;--tealL:#CFE7E3;--sun:#F2A900;--sunL:#FCEBBB;--red:#C8202B;--redL:#F8D9D4}
+:root{
+  --ink:#141414;--ink2:#2E2E2E;--white:#FFFFFF;
+  --pink:#FF4F9A;--pinkL:#FFC6DE;--mint:#3FDDB4;--mintL:#BFF4E5;--yellow:#FFD23F;--yellowL:#FFF0B3;
+  --cobalt:#2E44E6;--cobaltL:#C9CFFF;--coral:#FF6A3D;
+  --line:4px solid var(--ink);
+  --display:'Kanit','Anuphan',sans-serif;--body:'Anuphan','Kanit',sans-serif;
+}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
-body{background:#111A2E;color:var(--ink);font-family:'Sarabun',Tahoma,sans-serif;overflow:hidden}
-::selection{background:var(--sun);color:var(--ink)}
-.stage{position:fixed;inset:0 0 52px 0;display:flex;align-items:center;justify-content:center}
-.slide{position:absolute;width:1920px;height:1080px;transform-origin:center center;display:none;overflow:hidden;background:var(--ground);grid-template-columns:440px 1fr;-webkit-user-select:text;user-select:text;cursor:text}
-.slide.on{display:grid}
-h1,h2,h3{font-family:'Bai Jamjuree','Sarabun',sans-serif}
-/* rail: each chapter owns a full-height colour field */
-.rail{padding:40px 44px;display:flex;flex-direction:column;gap:38px;position:relative;color:#fff}
-.rail.navy{background:var(--navy)}.rail.teal{background:var(--teal)}.rail.red{background:var(--red)}.rail.ink{background:var(--ink)}.rail.sun{background:var(--sun);color:var(--ink)}
-.tile{background:#fff;padding:9px 13px;border-radius:4px;align-self:flex-start;display:block}.tile img{height:58px;display:block}
-.rail h2{font-size:45px;font-weight:700;line-height:1.26}
-.pg-no{position:absolute;left:44px;bottom:34px;font:600 26px 'Bai Jamjuree',sans-serif;opacity:.8}
-.rail-num{margin-top:auto;margin-bottom:58px;display:flex;flex-direction:column}.rail-num b{font:700 118px/1 'Bai Jamjuree',sans-serif}.rail-num span{font-size:25px;line-height:1.35;font-weight:600}
-/* body */
-.body{padding:44px 56px 34px;display:flex;flex-direction:column;gap:22px;min-width:0;min-height:0}
-.body.row{display:grid;grid-template-columns:1fr 410px;grid-template-rows:1fr auto;gap:18px 30px}
-h3{font-size:29px;font-weight:600;line-height:1.3}
-footer{margin-top:auto;font-size:21px;line-height:1.42;color:var(--ink3)}footer.wide{grid-column:1 / -1;margin:0}
-.note{font-size:22px;line-height:1.4;color:var(--ink2);margin-top:10px}
-.strip{font-size:26px;font-weight:600;padding:15px 24px;line-height:1.36}
-.strip.red{background:var(--red);color:#fff}.strip.sun{background:var(--sun)}.strip.teal{background:var(--teal);color:#fff}
-/* stat row: numbers on the ground, hairlines between */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:4px solid var(--ink);border-bottom:1px solid var(--line)}
-.stats.three{grid-template-columns:repeat(3,1fr)}
-.stats>div{padding:14px 20px 14px 0;display:flex;flex-direction:column;gap:2px}.stats>div+div{padding-left:22px;border-left:1px solid var(--line)}
-.stats b{font:700 47px/1.14 'Bai Jamjuree',sans-serif;white-space:nowrap;color:var(--navy)}.stats.three b{font-size:39px}
-.stats>div:nth-child(2) b{color:var(--teal)}.stats>div:nth-child(3) b{color:var(--red)}.stats>div:nth-child(4) b{color:#986A00}
-.stats span{font-size:22px;color:var(--ink2);line-height:1.35}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:44px;flex:1;min-height:0}.two>div{display:flex;flex-direction:column;gap:12px;min-height:0}
-.two.peak{grid-template-columns:.9fr 1.1fr}
-/* tables */
-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
-th{font-size:21px;font-weight:600;text-align:left;padding:9px 12px;color:var(--ink3);border-bottom:2px solid var(--ink);line-height:1.25}
-td{font-size:24px;padding:11px 12px;border-bottom:1px solid var(--line);line-height:1.34}
-.r{text-align:right;white-space:nowrap}.c{text-align:center}
-tr.mark td{background:var(--sunL)}
-/* cover */
-.cover{grid-template-columns:1fr 520px;background:var(--navy)}
-.c-main{padding:64px 72px 72px;display:flex;flex-direction:column;justify-content:space-between;color:#fff}.c-main .tile img{height:82px}
-.cover h1{font-size:80px;font-weight:700;line-height:1.2;margin-bottom:26px}.c-main p{font-size:30px;line-height:1.4;color:#D3DAF2}
-.c-side{display:grid;grid-template-rows:repeat(4,1fr)}.c-side>div{padding:0 44px;display:flex;flex-direction:column;justify-content:center;gap:4px;color:#fff}
-.c-side b{font:700 72px/1.08 'Bai Jamjuree',sans-serif;white-space:nowrap}.c-side span{font-size:25px;line-height:1.3}
-.c-side .teal{background:var(--teal)}.c-side .sun{background:var(--sun);color:var(--ink)}.c-side .red{background:var(--red)}.c-side .ink{background:var(--ink)}
-/* summary */
-.def{display:grid;grid-template-columns:180px 1fr;border-top:4px solid var(--ink)}
-.def dt{font:600 27px 'Bai Jamjuree',sans-serif;padding:13px 0;color:var(--navy);border-bottom:1px solid var(--line)}.def dd{font-size:25px;line-height:1.42;padding:13px 0;border-bottom:1px solid var(--line);color:var(--ink2)}
-.cap-chart{display:flex;flex-direction:column;gap:7px;flex:1}.unit{font-size:21px;color:var(--ink3);margin-top:-6px}
-.hb{display:grid;grid-template-columns:430px 1fr 52px;gap:14px;align-items:center;min-height:32px}.hb.gap{margin-top:12px}
-.hb label{font-size:24px}.hb>div{height:22px;background:var(--track)}.hb i,.ct i{display:block;height:100%}.hb b{font:700 27px 'Bai Jamjuree',sans-serif;text-align:right}
-.t{background:var(--teal)}.s{background:var(--sun)}.x{background:var(--red)}
-/* charts */
-.vb{display:flex;align-items:flex-end;gap:18px;flex:1}.vb>div{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;justify-content:flex-end}
-.vb i{display:block;width:100%;background:#8CC6BE}.vb i.on{background:var(--teal)}.vb b{font:700 26px 'Bai Jamjuree',sans-serif}.vb span{font-size:22px;color:var(--ink3)}
-.fn{display:flex;flex-direction:column;gap:13px;flex:1;justify-content:center}.fn>div{display:grid;grid-template-columns:128px 1fr;align-items:baseline;row-gap:5px}
-.fn b{font:700 33px 'Bai Jamjuree',sans-serif}.fn p{font-size:24px;color:var(--ink2)}.fn i{grid-column:1 / -1;display:block;height:16px}
-.hours{display:flex;align-items:flex-end;gap:5px;height:330px;border-bottom:3px solid var(--ink)}.hours i{flex:1;display:block;background:#E5C777}.hours i.on{background:var(--red)}
-.axis{display:flex;justify-content:space-between;font-size:21px;color:var(--ink2)}
-/* resources */
-.res td{padding:13px 12px}.use{height:20px;background:var(--track);position:relative}.use i{position:absolute;left:0;top:0;bottom:0;display:block}.use .max{background:#8CC6BE}.use .avg{background:var(--teal)}.use .max.hot{background:#EFA69C}.use .avg.hot{background:var(--red)}
-.legend{display:flex;gap:26px;font-size:21px;color:var(--ink2);margin-top:-10px}.legend span{display:flex;align-items:center;gap:8px}.legend i{width:26px;height:14px;display:block}.legend .avg{background:var(--teal)}.legend .max{background:#8CC6BE}
-/* risk */
-.risk{flex:1}.risk td{font-size:27px;padding:25px 14px}.risk td:first-child{font-weight:600}.risk th{font-size:23px}
-em{font-style:normal;font-weight:700;font-size:24px;padding:5px 16px;display:inline-block;white-space:nowrap}.vh{background:var(--red);color:#fff}.h{background:var(--redL);color:#94151E}.m{background:var(--sunL);color:#6F4D00}
-/* cost */
-.cost{display:flex;flex-direction:column;gap:9px}
-.ct{display:grid;grid-template-columns:356px 1fr 216px;column-gap:14px;align-items:center}.ct label{font-size:24px}.ct b{font:700 25px 'Bai Jamjuree',sans-serif;white-space:nowrap}
-.tr{height:26px;background:var(--track);position:relative}.tr u{position:absolute;left:83.33%;top:-6px;bottom:-6px;border-left:3px dashed var(--ink)}
-.matrix th{font-size:20px;padding:7px 6px}.matrix td{font-size:23px;padding:12px 10px}.matrix td.c{font-weight:600;border-left:4px solid var(--ground);white-space:nowrap}
-.ok{background:var(--tealL);color:#075353}.no{background:var(--redL);color:#94151E}.mid{background:var(--sunL);color:#6F4D00}
-/* measures */
-.measures td{padding:15px 12px}.measures td:first-child{font-weight:600}
-.block{padding:28px 30px;display:flex;flex-direction:column;gap:12px}.block.sun{background:var(--sun)}.block p{font-size:23px;line-height:1.4}
-.kv{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid rgba(17,26,46,.35);padding-bottom:6px;font-size:24px}.kv b{font:700 30px 'Bai Jamjuree',sans-serif}
-/* plan */
-.tl{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:18px;counter-reset:s;border-top:6px solid var(--navy)}
-.tl li{counter-increment:s;display:flex;flex-direction:column;gap:6px;padding-top:16px}
-.tl li::before{content:counter(s);font:700 44px/1 'Bai Jamjuree',sans-serif;color:var(--teal)}
-.tl b{font:700 27px/1.25 'Bai Jamjuree',sans-serif}.tl span{font-size:23px;line-height:1.38;color:var(--ink2)}
-.asks{display:grid;grid-template-columns:1fr 1fr;gap:16px 34px;flex:1;align-content:start}.asks h3{grid-column:1 / -1;font-size:32px}
-.ask{display:flex;flex-direction:column;gap:5px;border-top:2px solid var(--ink);padding-top:12px}.ask b{font-size:26px;line-height:1.34;font-weight:700}.ask span{font-size:23px;line-height:1.36}
-/* nav */
-.nav{position:fixed;left:0;right:0;bottom:0;height:52px;display:flex;align-items:center;justify-content:center;gap:10px;background:#111A2E;z-index:5}
-.nav button,.nav a{font:600 15px 'Sarabun',sans-serif;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.4);border-radius:4px;padding:6px 15px;cursor:pointer;text-decoration:none}
-.nav button:hover,.nav a:hover{background:rgba(255,255,255,.14)}.nav a.main{background:var(--sun);border-color:var(--sun);color:var(--ink)}
-.nav button:focus-visible,.nav a:focus-visible{outline:2px solid var(--sun);outline-offset:2px}.nav .pg{color:#C4CAD6;font:500 15px 'Sarabun',sans-serif;padding:0 6px}
-body.scroll{overflow:auto}body.scroll .stage{position:static;display:block;padding:12px 0 70px}
-body.scroll .slide{display:grid;position:relative;transform-origin:top left}body.scroll .wrap{overflow:hidden;margin:0 auto 12px}
-@media print{@page{size:1920px 1080px;margin:0}html,body{background:#fff;overflow:visible;height:auto}.nav{display:none}.stage{position:static;display:block}
-  .slide{display:grid!important;position:relative;transform:none!important;break-after:page;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
-/* page fill */
-.def{grid-template-columns:225px 1fr}.def dd{font-size:27px}.def dt{font-size:29px}
-.cap-chart{justify-content:space-between;gap:0;padding-top:6px}.hb{min-height:44px}.hb>div{height:28px}.hb label{font-size:26px}
-.hours{height:430px}.two.peak td{font-size:26px;padding:17px 12px}.two.peak .note{font-size:23px}
-.res td{font-size:26px;padding:21px 12px}.res th{font-size:23px}.stats.three>div{padding-top:20px;padding-bottom:20px}.stats.three b{font-size:42px}.stats.three span{font-size:24px}
-.ct{min-height:50px}.tr{height:34px}.ct label{font-size:26px}.ct b{font-size:27px}.cost{gap:6px}
-.matrix td{font-size:25px;padding:18px 10px}.matrix th{font-size:21px;padding:9px 6px}
-.tl b{font-size:30px}.tl span{font-size:25px}.tl li::before{font-size:54px}
-.asks{align-content:space-between;padding:34px 38px;gap:22px 44px}.asks h3{font-size:36px}.ask b{font-size:31px;line-height:1.32}.ask span{font-size:26px}.ask{padding-top:18px;gap:8px}
-.plan{flex:1}.plan td{font-size:27px;padding:24px 12px}.plan th{font-size:23px}.plan .n{font:700 52px/1 'Bai Jamjuree',sans-serif;color:var(--teal)}.plan .w{font:700 29px/1.25 'Bai Jamjuree',sans-serif;color:var(--navy)}
+body{background:var(--ink);color:var(--ink);font-family:var(--body);overflow:hidden}
+::selection{background:var(--yellow);color:var(--ink)}
+:focus-visible{outline:4px solid var(--yellow);outline-offset:3px}
 
-/* round chart and report additions (2026-11-13) */
-.rchart .ax{font:500 22px 'Bai Jamjuree',sans-serif;fill:#626B7C}.rchart .val{font:700 34px 'Bai Jamjuree',sans-serif;fill:#111A2E}
-.rchart .rn{font:600 25px 'Bai Jamjuree',sans-serif;fill:#111A2E}.rchart .sub{font:500 21px 'Sarabun',sans-serif;fill:#626B7C}.rchart .wait{font:600 26px 'Sarabun',sans-serif;fill:#626B7C}
-.ba td{font-size:25px;padding:14px 12px}.ba td.r{font:700 34px 'Bai Jamjuree',sans-serif}.ba td.was{color:var(--red)}.ba td.now{color:var(--teal)}
-.detail td{font-size:22px;padding:13px 10px;vertical-align:top;line-height:1.38}.detail th{font-size:20px}.detail td.n{font:700 40px/1 'Bai Jamjuree',sans-serif;color:var(--teal)}
-.detail td.big{font:700 32px/1.1 'Bai Jamjuree',sans-serif;color:var(--navy)}.detail td.big small{display:block;font:500 19px 'Sarabun',sans-serif;color:var(--ink3);margin-top:4px}
-.ex td{font-size:23px;padding:12px 10px;line-height:1.36;vertical-align:top}.ex td.en{font-family:'Bai Jamjuree',sans-serif;font-weight:500}.ex td.was{color:#94151E}.ex td.now{color:#075353}
-.split{display:grid;grid-template-columns:1fr 1fr;gap:44px;flex:1;min-height:0}.split>div{display:flex;flex-direction:column;gap:14px;min-height:0}
-.lead{font-size:27px;line-height:1.45;color:var(--ink2)}
-.navlink{font:600 15px 'Sarabun',sans-serif}
-/* page fill: tables and text grow into the slide like the approved decision pack */
-.ba td{font-size:30px;padding:30px 14px}.ba td.r{font-size:46px}.ba th{font-size:23px}
-.detail td{font-size:25px;padding:24px 12px}.detail th{font-size:22px}.detail td.n{font-size:50px}.detail td.big{font-size:38px}.detail td.big small{font-size:21px}
-.ex td{font-size:28px;padding:24px 12px}.ex th{font-size:23px}
-.measures td{font-size:26px;padding:24px 12px;line-height:1.4}.measures th{font-size:23px}
-.lead{font-size:30px;line-height:1.5}
-.split td{font-size:28px;padding:20px 12px}.split th{font-size:23px}.split h3{font-size:31px;margin-top:8px}.split .note{font-size:24px}
-.risk td{padding:30px 14px}
-.body.row>div:first-child table td{font-size:30px;padding:26px 12px}.body.row>div:first-child table th{font-size:23px}
-.def dt{font-size:31px;padding:24px 0}.def dd{font-size:29px;padding:24px 0;line-height:1.5}
-.detail td{padding:34px 12px}.ex td{padding:30px 12px}.split td{padding:26px 12px}
-.body.row .block.sun{align-self:start}
-.cap-chart .hb{min-height:70px}.cap-chart .hb label{font-size:28px}.cap-chart .hb b{font-size:32px}
+/* ---------- stage ---------- */
+.stage{position:fixed;inset:0 0 56px 0;display:flex;align-items:center;justify-content:center}
+.slide{position:absolute;width:1920px;height:1080px;transform-origin:center center;display:none;overflow:hidden;
+  padding:70px 96px 64px;-webkit-user-select:text;user-select:text;cursor:text;isolation:isolate}
+.slide.on{display:flex;flex-direction:column}
+
+/* grounds: each slide owns one laminate colour */
+.g-pink{background:var(--pink)}.g-mint{background:var(--mint)}.g-yellow{background:var(--yellow)}
+.g-cobalt{background:var(--cobalt);color:var(--white)}.g-white{background:var(--white)}
+/* textures: terrazzo speckle, squiggle laminate, dot grid, stripe */
+.tx-terrazzo::before,.tx-dots::before,.tx-squig::before,.tx-stripe::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
+.tx-terrazzo::before{opacity:.55;background-image:
+  radial-gradient(circle at 12% 18%,var(--ink) 0 5px,transparent 6px),radial-gradient(circle at 63% 9%,var(--yellow) 0 9px,transparent 10px),
+  radial-gradient(circle at 81% 54%,var(--ink) 0 4px,transparent 5px),radial-gradient(circle at 35% 72%,var(--mint) 0 8px,transparent 9px),
+  radial-gradient(circle at 92% 88%,var(--cobalt) 0 6px,transparent 7px),radial-gradient(circle at 22% 46%,var(--white) 0 7px,transparent 8px),
+  radial-gradient(circle at 54% 38%,var(--ink) 0 3px,transparent 4px),radial-gradient(circle at 7% 91%,var(--pinkL) 0 10px,transparent 11px);
+  background-size:260px 260px}
+.tx-dots::before{opacity:.22;background-image:radial-gradient(circle,var(--ink) 0 3.5px,transparent 4px);background-size:34px 34px}
+.tx-squig::before{opacity:.16;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60'%3E%3Cpath d='M0 30 Q15 5 30 30 T60 30 T90 30 T120 30' fill='none' stroke='%23141414' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E");background-size:120px 60px}
+.tx-stripe::before{opacity:.16;background-image:repeating-linear-gradient(-45deg,var(--ink) 0 6px,transparent 6px 26px)}
+
+/* decorative shapes in the slide margins */
+.shp{position:absolute;z-index:-1;pointer-events:none}
+.shp.circle{border-radius:50%;border:var(--line)}
+.shp.tri{clip-path:polygon(50% 0,100% 100%,0 100%)}
+.shp.half{border-radius:999px 999px 0 0;border:var(--line);border-bottom:none}
+.shp.squig{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60'%3E%3Cpath d='M0 30 Q15 5 30 30 T60 30 T90 30 T120 30' fill='none' stroke='%23141414' stroke-width='9' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x;background-size:120px 60px;height:60px}
+.shp.grid{background-image:radial-gradient(circle,var(--ink) 0 5px,transparent 6px);background-size:30px 30px}
+.f-pink{background-color:var(--pink)}.f-mint{background-color:var(--mint)}.f-yellow{background-color:var(--yellow)}.f-cobalt{background-color:var(--cobalt)}.f-white{background-color:var(--white)}.f-coral{background-color:var(--coral)}.f-ink{background-color:var(--ink)}
+
+/* ---------- type ---------- */
+h1,h2,h3,.num{font-family:var(--display)}
+h1{font-size:104px;font-weight:800;line-height:1.08;letter-spacing:-.01em}
+h2{font-size:66px;font-weight:800;line-height:1.14;max-width:1500px;text-wrap:balance}
+h3{font-size:36px;font-weight:700;line-height:1.25}
+.sub{font-size:32px;line-height:1.5;font-weight:500;max-width:1380px;margin-top:14px}
+.g-cobalt .sub{color:#E6E9FF}
+p,li,td,th,dd,dt,span{font-variant-numeric:tabular-nums}
+.head{margin-bottom:34px}
+
+/* laminate panel: a white object sitting on a layered colour block */
+.obj{position:relative;background:var(--white);border:var(--line);border-radius:22px;padding:34px 40px;color:var(--ink)}
+.obj::after{content:"";position:absolute;z-index:-1;inset:0;border:var(--line);border-radius:22px;transform:translate(16px,16px);background:var(--back,var(--ink))}
+.obj.b-pink{--back:var(--pink)}.obj.b-mint{--back:var(--mint)}.obj.b-yellow{--back:var(--yellow)}.obj.b-cobalt{--back:var(--cobalt)}.obj.b-coral{--back:var(--coral)}
+.fill{flex:1;min-height:0;display:flex;flex-direction:column}
+.cols{display:grid;gap:56px;flex:1;min-height:0}.c2{grid-template-columns:1fr 1fr}.c3{grid-template-columns:repeat(3,1fr)}.c21{grid-template-columns:1.35fr 1fr}
+
+/* stickers carry status as a word and a shape */
+.stk{display:inline-flex;align-items:center;gap:10px;font:700 26px/1 var(--display);padding:12px 22px;border:var(--line);border-radius:999px;white-space:nowrap;background:var(--white)}
+.stk.hi{background:var(--coral)}.stk.mid{background:var(--yellow)}.stk.lo{background:var(--mint)}.stk.ok{background:var(--mint)}
+.note{font-size:26px;line-height:1.5;margin-top:auto;padding-top:18px;font-weight:500}
+.g-cobalt .note{color:#E6E9FF}.g-cobalt .obj .note,.g-cobalt .obj p{color:var(--ink)}
+
+/* tables in the laminate */
+table{width:100%;border-collapse:collapse}
+th{font:700 24px/1.3 var(--display);text-align:left;padding:10px 14px;border-bottom:var(--line)}
+td{font-size:31px;line-height:1.42;padding:20px 16px;border-bottom:2px solid #DADADA;vertical-align:middle}
+tr:last-child td{border-bottom:none}
+.r{text-align:right;white-space:nowrap}
+td.n{font:800 54px/1 var(--display)}
+td .small{display:block;font-size:22px;color:var(--ink2);margin-top:4px}
+tr.mark td{background:var(--yellowL)}
+.was{color:#C41E5B;font:800 46px/1 var(--display)}.now{color:#0B8A69;font:800 46px/1 var(--display)}
+td.thw{color:#B3124E}td.thn{color:#0B6E55;font-weight:600}td.en{font-family:var(--display);font-weight:500}
+
+/* cover */
+.cover{padding:0;flex-direction:row!important}
+.cover .c-l{flex:1.35;padding:84px 90px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.cover .c-r{flex:1;display:grid;grid-template-rows:1.25fr 1fr 1fr;border-left:var(--line)}
+.cover .c-r>div{border-bottom:var(--line);padding:28px 48px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.cover .c-r>div:last-child{border-bottom:none}
+.cover .c-r .num{font-size:120px;font-weight:800;line-height:1;margin:0;max-width:none}.cover .c-r span{font-size:30px;font-weight:600;line-height:1.35;margin-top:8px;max-width:520px}
+.logo{background:var(--white);border:var(--line);border-radius:18px;padding:12px 18px;align-self:flex-start}.logo img{height:64px;display:block}
+.cover .meta{font:700 32px/1.3 var(--display)}
+.pg{position:absolute;right:52px;bottom:40px;width:74px;height:74px;border-radius:50%;border:var(--line);background:var(--white);display:grid;place-items:center;font:800 32px var(--display);color:var(--ink)}
+
+/* big pair (40GB vs 80GB) */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;flex:1}
+.disc{aspect-ratio:1;border-radius:50%;border:var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;max-height:560px;margin:auto;padding:40px;position:relative}
+.disc .num{font-size:170px;font-weight:800;line-height:.95}.disc b{font:700 40px var(--display)}.disc span{font-size:28px;font-weight:600;max-width:380px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:26px;flex:1;align-items:stretch}
+.step{border:var(--line);border-radius:22px;background:var(--white);padding:28px 26px;display:flex;flex-direction:column;gap:14px;position:relative}
+.step .num{font-size:96px;font-weight:800;line-height:.9}
+.step h3{font-size:40px}.step p{font-size:30px;line-height:1.5}.step .gate{margin-top:auto;font:700 27px/1.4 var(--display);border-top:3px solid var(--ink);padding-top:14px}
+.ask{margin-top:30px;border:var(--line);border-radius:999px;background:var(--yellow);padding:22px 40px;font:700 34px/1.35 var(--display);align-self:flex-start}
+
+/* bars (hb) */
+.hb{display:grid;grid-template-columns:1fr 560px 80px;gap:22px;align-items:center;padding:14px 0}
+.hb label{font-size:30px;font-weight:600}.hb .tr{height:38px;border:var(--line);border-radius:999px;background:var(--white);overflow:hidden}.hb i{display:block;height:100%;border-right:var(--line)}
+.hb b{font:800 40px var(--display);text-align:right}
+
+/* stacked memory bar */
+.stack{display:flex;height:96px;border:var(--line);border-radius:20px;overflow:hidden;margin:18px 0 12px}
+.stack>div{display:flex;align-items:center;padding:0 18px;font:700 26px var(--display);border-right:var(--line);white-space:nowrap}.stack>div:last-child{border-right:none}
+.legend{display:flex;flex-wrap:wrap;gap:12px 28px;font-size:25px;font-weight:600}.legend i{display:inline-block;width:26px;height:26px;border:3px solid var(--ink);border-radius:6px;vertical-align:-5px;margin-right:8px}
+
+/* round chart */
+.rchart .ax{font:500 24px var(--display);fill:var(--ink)}.rchart .val{font:800 40px var(--display);fill:var(--ink)}
+.rchart .rn{font:700 28px var(--display);fill:var(--ink)}.rchart .sub2{font:500 22px var(--body);fill:var(--ink)}.rchart .wait{font:700 26px var(--display);fill:var(--ink)}
+
+/* summary list */
+.sum{display:grid;grid-template-columns:240px 1fr;border-top:var(--line)}
+.sum dt{font:800 34px var(--display);padding:22px 0;border-bottom:2px solid #DADADA}.sum dd{font-size:29px;line-height:1.5;padding:22px 0;border-bottom:2px solid #DADADA}
+.sum dt:last-of-type,.sum dd:last-of-type{border-bottom:none}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;left:0;right:0;bottom:0;height:56px;display:flex;align-items:center;justify-content:center;gap:10px;background:var(--ink);z-index:5}
+.nav button,.nav a{font:600 16px var(--body);color:var(--white);background:transparent;border:2px solid rgba(255,255,255,.55);border-radius:999px;padding:6px 18px;cursor:pointer;text-decoration:none}
+.nav button:hover,.nav a:hover{background:rgba(255,255,255,.14)}.nav a.main{background:var(--pink);border-color:var(--pink);color:var(--ink)}
+.nav .pgn{color:#DDD;font:600 16px var(--body);padding:0 6px}
+body.scroll{overflow:auto}body.scroll .stage{position:static;display:block;padding:12px 0 76px}
+body.scroll .slide{display:flex;flex-direction:column;position:relative;transform-origin:top left}body.scroll .slide.cover{flex-direction:row}
+body.scroll .wrap{overflow:hidden;margin:0 auto 14px;border-radius:10px}
+@media print{@page{size:1920px 1080px;margin:0}html,body{background:#fff;overflow:visible;height:auto}.nav{display:none}.stage{position:static;display:block}
+  .slide{display:flex!important;position:relative;transform:none!important;break-after:page;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+.obj.fill>table{height:100%}
+.obj.fill .sum{height:100%;align-content:space-between}
 
 </style>
 </head>
 <body>
 <!--
-THESIS: A test report for a manager that shows how close the 40GB machine is and asks to keep testing, refusing a dashboard of equal tiles.
-OWN-WORLD: The approved Engenius decision-pack world: navy, teal, saffron, ink and vermilion full-height rails on a warm grey page, hairline tables, Bai Jamjuree numerals, no shadows.
-STORY: The reader learns how the AI was tested, sees agreement rise round by round, sees what is fixed and what is not, then approves more testing.
-FIRST VIEWPORT: Navy title field with logo beside four colour blocks carrying rounds, answers, latest agreement and rating.
-FORM: Inherited from engenius-ai-capacity-deck (seed 945914a8), extended for round data.
+THESIS: A weekly AI test update as a Memphis showroom, every slide one laminate object on its own colour, refusing the grey decision-pack rails the reader found dull.
+OWN-WORLD: Pink, mint, yellow and cobalt laminate grounds with terrazzo, squiggle, dot and stripe textures; white objects with 4px ink outlines sitting on offset colour blocks; Kanit display, Anuphan body.
+STORY: The reader sees agreement climb, sees 40GB match 80GB, sees what is fixed and what is not, then agrees to more testing.
+FIRST VIEWPORT: Pink terrazzo field with the title and logo on the left; three stacked colour objects on the right carrying agreement, fixed issues and the rating.
+FORM: Memphis Milano showroom morning (challenger chosen by the user), seed f2cde1e4.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
 -->
 <main class="stage" id="stage">
-<section class="slide cover">
-  <div class="c-main">
-    <div class="tile"><img src="assets/engenius-logo.png" alt="Engenius English"></div>
+<section class="slide cover g-pink tx-terrazzo">
+  <div class="c-l">
+    <div class="logo"><img src="assets/engenius-logo.png" alt="Engenius English"></div>
+    <div class="shp circle f-yellow" style="width:230px;height:230px;right:70px;top:90px"></div>
+    <div class="shp tri f-cobalt" style="width:170px;height:150px;right:300px;top:250px"></div>
+    <div class="shp squig" style="width:420px;left:420px;top:105px"></div>
     <div>
-      <h1>ผลการทดสอบระบบ AI<br>ประเมินการตอบ<br>บนเครื่อง A100 40GB</h1>
-      <p>รายงานการทดสอบ 9 รอบ ระหว่างวันที่ 11 ถึง 13 พฤศจิกายน 2569 เพื่อประกอบการพิจารณาใช้เครื่อง 40GB แทนเครื่อง 80GB (ฉบับย่อ)</p>
+      <h1>ผลทดสอบ AI<br>ตรวจคำตอบ<br>บนเครื่อง 40GB</h1>
+      <p class="meta" style="margin-top:30px">อัปเดต 13 พ.ย. 2569 · ทดสอบแล้ว 9 รอบ รวม 1,555 คำตอบ</p>
     </div>
   </div>
-  <div class="c-side">
-    <div class="teal"><b>1,555</b><span>คำตอบที่ทดสอบใน 9 รอบ ครอบคลุมโจทย์ทั้ง 651 ข้อในแอป</span></div>
-    <div class="sun"><b>ร้อยละ 92.6</b><span>ผู้ทดสอบเห็นด้วยกับผลของ AI ในรอบล่าสุด ซึ่งตรวจซ้ำข้อที่เคยมีปัญหา</span></div>
-    <div class="red"><b>52 จาก 73</b><span>ปัญหาที่ผู้ทดสอบเคยบันทึกไว้และแก้ไขแล้วเมื่อตรวจซ้ำ</span></div>
-    <div class="ink"><b>4.78 / 5</b><span>คะแนนเฉลี่ยรอบล่าสุด ด้านการฟังเสียง คำแปลไทย และคำแนะนำ</span></div>
+  <div class="c-r">
+    <div class="f-mint"><span class="num">92.6%</span><span>ทีมทดสอบเห็นด้วยกับผลของ AI ในรอบล่าสุด</span></div>
+    <div class="f-yellow"><span class="num">52/73</span><span>ปัญหาที่เคยเจอ แก้หายแล้วเมื่อตรวจซ้ำ</span></div>
+    <div class="f-cobalt" style="color:#fff"><span class="num">4.78</span><span>คะแนนเฉลี่ยจากเต็ม 5 ด้านการฟัง คำแปล และคำแนะนำ</span></div>
   </div>
 </section>
 
-<section class="slide">
-  <aside class="rail teal"><div class="tile"><img src="assets/engenius-logo.png" alt="Engenius English"></div><h2>ผู้ทดสอบตอบโจทย์จริงจากแอป แล้วตัดสินทุกข้อว่า AI ตรวจถูกหรือไม่</h2><span class="pg-no">2</span></aside>
-  <div class="body">
-    <dl class="def">
-      <dt>ผู้ทดสอบ</dt><dd>นักศึกษาฝึกงาน 4 คน ทดสอบผ่านหน้าเว็บสำหรับทดสอบโดยเฉพาะ รอบที่ 2 ถึง 5 มีผู้ทดสอบ 3 คน</dd>
-      <dt>โจทย์</dt><dd>ข้อพูดตอบ ข้อดูภาพ ข้อพิมพ์ และข้อพูดตามประโยค รวม 651 ข้อ ใช้ข้อความโจทย์และเกณฑ์เดียวกับแอป Engenius English</dd>
-      <dt>เครื่อง</dt><dd>A100 40GB บน Google Cloud เปิดเฉพาะช่วงทดสอบ แอปที่นักเรียนใช้งานยังเชื่อมต่อกับเครื่อง 80GB ตามเดิม</dd>
-      <dt>การวัดผล</dt><dd>ผู้ทดสอบตัดสินว่าผลของ AI ถูกหรือไม่ทุกข้อ และเขียนหมายเหตุได้ ตั้งแต่รอบ 6 ให้คะแนน 1 ถึง 5 ด้านการฟังเสียง คำแปลไทย และคำแนะนำ</dd>
-      <dt>การตรวจซ้ำ</dt><dd>หลังแก้ไขแต่ละครั้ง ส่งเสียงและคำตอบชุดเดิมเข้าเครื่องอีกครั้ง เพื่อยืนยันว่าข้อที่แก้หายจริงและข้ออื่นไม่เสีย</dd>
-    </dl>
-    <footer>ข้อมูลเสียงและผลการทดสอบเก็บในพื้นที่จัดเก็บแบบส่วนตัวของโครงการบน Google Cloud การทดสอบไม่ใช้บัญชีหรือข้อมูลของนักเรียน</footer>
+<section class="slide g-mint tx-dots">
+  <div class="shp half f-yellow" style="width:260px;height:130px;right:90px;top:0;border-top:none;border-radius:0 0 999px 999px"></div>
+  <div class="head">
+    <h2>ทีมทดสอบเห็นด้วยกับ AI จาก 84% ในรอบแรก ขึ้นไปสูงสุด 99%</h2>
+    <p class="sub">รอบหลัง ๆ เลือกข้อที่เคยมีปัญหามาทดสอบซ้ำ ตัวเลขจึงขึ้นลงตามความยากของข้อ ส่วนรอบ 10 กำลังทดสอบอยู่</p>
   </div>
+  <div class="obj b-pink fill"><svg class="rchart" viewBox="0 0 1640 640" width="100%" role="img" aria-label="ร้อยละที่ทีมทดสอบเห็นด้วยกับผลของ AI รายรอบ"><defs><pattern id="hatch" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="22" height="22" fill="#FFF0B3"/><rect width="8" height="22" fill="#141414" opacity=".35"/></pattern></defs><line x1="70" x2="1640" y1="554.0" y2="554.0" stroke="#141414" stroke-width="4" stroke-dasharray="0"/><text x="56" y="562.0" text-anchor="end" class="ax">0</text><line x1="70" x2="1640" y1="429.5" y2="429.5" stroke="#141414" stroke-width="1.5" stroke-dasharray="3 9"/><text x="56" y="437.5" text-anchor="end" class="ax">25</text><line x1="70" x2="1640" y1="305.0" y2="305.0" stroke="#141414" stroke-width="1.5" stroke-dasharray="3 9"/><text x="56" y="313.0" text-anchor="end" class="ax">50</text><line x1="70" x2="1640" y1="180.5" y2="180.5" stroke="#141414" stroke-width="1.5" stroke-dasharray="3 9"/><text x="56" y="188.5" text-anchor="end" class="ax">75</text><line x1="70" x2="1640" y1="56.0" y2="56.0" stroke="#141414" stroke-width="1.5" stroke-dasharray="3 9"/><text x="56" y="64.0" text-anchor="end" class="ax">100</text><rect x="101.4" y="136.3" width="94.2" height="417.7" rx="10" fill="#3FDDB4" stroke="#141414" stroke-width="4"/><text x="148.5" y="122.3" text-anchor="middle" class="val">83.9</text><text x="148.5" y="596" text-anchor="middle" class="rn">รอบ 1</text><text x="148.5" y="628" text-anchor="middle" class="sub2">572/682</text><rect x="258.4" y="93.8" width="94.2" height="460.2" rx="10" fill="#3FDDB4" stroke="#141414" stroke-width="4"/><text x="305.5" y="79.8" text-anchor="middle" class="val">92.4</text><text x="305.5" y="596" text-anchor="middle" class="rn">รอบ 2</text><text x="305.5" y="628" text-anchor="middle" class="sub2">231/250</text><rect x="415.4" y="127.1" width="94.2" height="426.9" rx="10" fill="#3FDDB4" stroke="#141414" stroke-width="4"/><text x="462.5" y="113.1" text-anchor="middle" class="val">85.7</text><text x="462.5" y="596" text-anchor="middle" class="rn">รอบ 3</text><text x="462.5" y="628" text-anchor="middle" class="sub2">54/63</text><rect x="572.4" y="99.3" width="94.2" height="454.7" rx="10" fill="#3FDDB4" stroke="#141414" stroke-width="4"/><text x="619.5" y="85.3" text-anchor="middle" class="val">91.3</text><text x="619.5" y="596" text-anchor="middle" class="rn">รอบ 4</text><text x="619.5" y="628" text-anchor="middle" class="sub2">63/69</text><rect x="729.4" y="61.5" width="94.2" height="492.5" rx="10" fill="#3FDDB4" stroke="#141414" stroke-width="4"/><text x="776.5" y="47.5" text-anchor="middle" class="val">98.9</text><text x="776.5" y="596" text-anchor="middle" class="rn">รอบ 5</text><text x="776.5" y="628" text-anchor="middle" class="sub2">89/90</text><rect x="886.4" y="80.9" width="94.2" height="473.1" rx="10" fill="#3FDDB4" stroke="#141414" stroke-width="4"/><text x="933.5" y="66.9" text-anchor="middle" class="val">95</text><text x="933.5" y="596" text-anchor="middle" class="rn">รอบ 6</text><text x="933.5" y="628" text-anchor="middle" class="sub2">114/120</text><rect x="1043.4" y="101.3" width="94.2" height="452.7" rx="10" fill="#3FDDB4" stroke="#141414" stroke-width="4"/><text x="1090.5" y="87.3" text-anchor="middle" class="val">90.9</text><text x="1090.5" y="596" text-anchor="middle" class="rn">รอบ 7</text><text x="1090.5" y="628" text-anchor="middle" class="sub2">70/77</text><rect x="1200.4" y="66.4" width="94.2" height="487.6" rx="10" fill="#3FDDB4" stroke="#141414" stroke-width="4"/><text x="1247.5" y="52.4" text-anchor="middle" class="val">97.9</text><text x="1247.5" y="596" text-anchor="middle" class="rn">รอบ 8</text><text x="1247.5" y="628" text-anchor="middle" class="sub2">94/96</text><rect x="1357.4" y="92.9" width="94.2" height="461.1" rx="10" fill="#FF4F9A" stroke="#141414" stroke-width="4"/><text x="1404.5" y="78.9" text-anchor="middle" class="val">92.6</text><text x="1404.5" y="596" text-anchor="middle" class="rn">รอบ 9</text><text x="1404.5" y="628" text-anchor="middle" class="sub2">100/108</text><rect x="1514.4" y="56.0" width="94.2" height="498.0" rx="10" fill="url(#hatch)" stroke="#141414" stroke-width="4" stroke-dasharray="14 10"/><text x="1561.5" y="280.1" text-anchor="middle" class="wait">กำลัง</text><text x="1561.5" y="312.1" text-anchor="middle" class="wait">ทดสอบ</text><text x="1561.5" y="596" text-anchor="middle" class="rn">รอบ 10</text><text x="1561.5" y="628" text-anchor="middle" class="sub2">&#160;</text></svg></div>
+  <span class="pg">2</span>
 </section>
 
-<section class="slide">
-  <aside class="rail teal"><div class="tile"><img src="assets/engenius-logo.png" alt="Engenius English"></div><h2>ผู้ทดสอบเห็นด้วยกับผลของ AI จากร้อยละ 84 ในรอบแรก สูงสุดร้อยละ 99</h2><span class="pg-no">3</span></aside>
-  <div class="body">
-    <h3>ร้อยละของคำตอบที่ผู้ทดสอบเห็นว่า AI ตัดสินถูก แยกตามรอบ</h3>
-    <svg class="rchart" viewBox="0 0 1330 780" width="100%" role="img" aria-label="ร้อยละที่ผู้ทดสอบเห็นด้วยกับผลของ AI รายรอบ"><line x1="64" x2="1330" y1="706.0" y2="706.0" stroke="#111A2E" stroke-width="3"/><text x="52" y="714.0" text-anchor="end" class="ax">0</text><line x1="64" x2="1330" y1="541.0" y2="541.0" stroke="#D9D8D0" stroke-width="1"/><text x="52" y="549.0" text-anchor="end" class="ax">25</text><line x1="64" x2="1330" y1="376.0" y2="376.0" stroke="#D9D8D0" stroke-width="1"/><text x="52" y="384.0" text-anchor="end" class="ax">50</text><line x1="64" x2="1330" y1="211.0" y2="211.0" stroke="#D9D8D0" stroke-width="1"/><text x="52" y="219.0" text-anchor="end" class="ax">75</text><line x1="64" x2="1330" y1="46.0" y2="46.0" stroke="#D9D8D0" stroke-width="1"/><text x="52" y="54.0" text-anchor="end" class="ax">100</text><rect x="94.9" y="152.5" width="78.8" height="553.5" fill="#0B6E6E"/><text x="134.3" y="140.5" text-anchor="middle" class="val">83.9</text><text x="134.3" y="740" text-anchor="middle" class="rn">รอบ 1</text><text x="134.3" y="772" text-anchor="middle" class="sub">572/682</text><rect x="235.6" y="96.2" width="78.8" height="609.8" fill="#0B6E6E"/><text x="275.0" y="84.2" text-anchor="middle" class="val">92.4</text><text x="275.0" y="740" text-anchor="middle" class="rn">รอบ 2</text><text x="275.0" y="772" text-anchor="middle" class="sub">231/250</text><rect x="376.3" y="140.3" width="78.8" height="565.7" fill="#0B6E6E"/><text x="415.7" y="128.3" text-anchor="middle" class="val">85.7</text><text x="415.7" y="740" text-anchor="middle" class="rn">รอบ 3</text><text x="415.7" y="772" text-anchor="middle" class="sub">54/63</text><rect x="516.9" y="103.4" width="78.8" height="602.6" fill="#0B6E6E"/><text x="556.3" y="91.4" text-anchor="middle" class="val">91.3</text><text x="556.3" y="740" text-anchor="middle" class="rn">รอบ 4</text><text x="556.3" y="772" text-anchor="middle" class="sub">63/69</text><rect x="657.6" y="53.3" width="78.8" height="652.7" fill="#0B6E6E"/><text x="697.0" y="41.3" text-anchor="middle" class="val">98.9</text><text x="697.0" y="740" text-anchor="middle" class="rn">รอบ 5</text><text x="697.0" y="772" text-anchor="middle" class="sub">89/90</text><rect x="798.3" y="79.0" width="78.8" height="627.0" fill="#0B6E6E"/><text x="837.7" y="67.0" text-anchor="middle" class="val">95</text><text x="837.7" y="740" text-anchor="middle" class="rn">รอบ 6</text><text x="837.7" y="772" text-anchor="middle" class="sub">114/120</text><rect x="938.9" y="106.0" width="78.8" height="600.0" fill="#0B6E6E"/><text x="978.3" y="94.0" text-anchor="middle" class="val">90.9</text><text x="978.3" y="740" text-anchor="middle" class="rn">รอบ 7</text><text x="978.3" y="772" text-anchor="middle" class="sub">70/77</text><rect x="1079.6" y="59.7" width="78.8" height="646.2" fill="#0B6E6E"/><text x="1119.0" y="47.7" text-anchor="middle" class="val">97.9</text><text x="1119.0" y="740" text-anchor="middle" class="rn">รอบ 8</text><text x="1119.0" y="772" text-anchor="middle" class="sub">94/96</text><rect x="1220.3" y="94.9" width="78.8" height="611.1" fill="#F2A900"/><text x="1259.7" y="82.9" text-anchor="middle" class="val">92.6</text><text x="1259.7" y="740" text-anchor="middle" class="rn">รอบ 9</text><text x="1259.7" y="772" text-anchor="middle" class="sub">100/108</text></svg>
-    <footer>รอบที่ 2 ถึง 9 เลือกข้อที่เคยมีปัญหาหรือข้อที่เพิ่งแก้ไขมาทดสอบ ตัวเลขแต่ละรอบจึงเทียบกันโดยตรงไม่ได้ทั้งหมด รอบ 9 ตรวจซ้ำทุกข้อที่เคยมีหมายเหตุ ซึ่งเป็นกลุ่มข้อที่ยากที่สุด</footer>
+<section class="slide g-yellow tx-squig">
+  <div class="head">
+    <h2>ตรวจคำตอบชุดเดียวกัน 40GB ทำได้ไม่แพ้ 80GB</h2>
+    <p class="sub">ใช้คำตอบจากรอบแรก ก่อนเริ่มแก้ไขอะไร แล้วส่งเข้าเครื่อง 80GB ที่นักเรียนใช้อยู่ เพื่อเทียบกันตรง ๆ</p>
   </div>
+  <div class="pair">
+    <div class="disc f-mint"><span class="num">558</span><b>40GB ตรวจถูก</b><span>จาก 636 ข้อ</span></div>
+    <div class="disc f-white"><span class="num">543</span><b>80GB ตรวจถูก</b><span>จาก 636 ข้อเดียวกัน</span></div>
+  </div>
+  <p class="note">เสียง 465 จาก 473 คลิปถูกแปลงเป็นข้อความได้ตรงกันทั้งสองเครื่อง เครื่องที่หน่วยความจำ GPU เหลือครึ่งเดียวจึงตรวจได้ไม่แย่กว่าเดิม</p>
+  <span class="pg">3</span>
 </section>
 
-<section class="slide">
-  <aside class="rail navy"><div class="tile"><img src="assets/engenius-logo.png" alt="Engenius English"></div><h2>เมื่อตรวจคำตอบชุดเดียวกัน เครื่อง 40GB ตัดสินถูกไม่น้อยกว่าเครื่อง 80GB</h2><span class="pg-no">4</span></aside>
-  <div class="body">
-    <div class="stats three">
-      <div><b>558</b><span>ข้อที่เครื่อง 40GB ตัดสินถูก จาก 636 ข้อ</span></div>
-      <div><b>543</b><span>ข้อที่เครื่อง 80GB ตัดสินถูก จาก 636 ข้อเดียวกัน</span></div>
-      <div><b>465 / 473</b><span>คลิปเสียงที่ทั้งสองเครื่องแปลงเป็นข้อความได้ตรงกัน</span></div>
-    </div>
-    <p class="lead">การเปรียบเทียบใช้คำตอบของรอบที่ 1 ซึ่งทดสอบก่อนการแก้ไขใด ๆ แล้วส่งเสียงและคำตอบเดียวกันเข้าเครื่อง 80GB ที่ใช้งานจริง ผลแสดงว่าเครื่องที่มีหน่วยความจำ GPU ครึ่งหนึ่งให้คุณภาพการตรวจไม่ต่ำกว่าเดิม</p>
-    <p class="lead">ปัญหาหลักที่พบในรอบแรกเกิดกับทั้งสองเครื่องเหมือนกัน คือระบบฟังเสียงนักเรียนผิด การแก้ไขทั้งหมดหลังจากนั้นติดตั้งบนเครื่อง 40GB เท่านั้น</p>
-    <footer>ที่มา: ผลการทดสอบรอบที่ 1 วันที่ 11 พ.ย. 2569 และการส่งคำตอบชุดเดียวกันเข้าเครื่อง 80GB ในวันเดียวกัน</footer>
+<section class="slide g-cobalt tx-stripe">
+  <div class="shp circle f-pink" style="width:200px;height:200px;right:-50px;top:-40px"></div>
+  <div class="head">
+    <h2>สิ่งที่แก้ไปแล้ว วัดผลซ้ำด้วยคำตอบชุดเดิม</h2>
   </div>
-</section>
-
-<section class="slide">
-  <aside class="rail teal"><div class="tile"><img src="assets/engenius-logo.png" alt="Engenius English"></div><h2>ปัญหาหลักที่พบในรอบแรกแก้ไขแล้ว และวัดผลซ้ำด้วยคำตอบชุดเดิม</h2><span class="pg-no">5</span></aside>
-  <div class="body">
-    <table class="ba">
-      <tr><th>เรื่องที่วัด</th><th class="r" style="width:190px">ก่อนแก้ไข</th><th class="r" style="width:190px">หลังแก้ไข</th></tr>
-      <tr><td>คำที่ผู้ทดสอบตั้งใจพูดและ AI ฟังถูก จากคลิปที่เคยฟังผิด 79 คลิป</td><td class="r was">10</td><td class="r now">49</td></tr>
-      <tr><td>คะแนนเฉลี่ยของข้อที่ผู้ทดสอบเคยแจ้งว่า AI ฟังผิด 80 ข้อ</td><td class="r was">48</td><td class="r now">70</td></tr>
-      <tr><td>ข้อพูดตามที่อ่านถูกและผ่านเกณฑ์ จาก 65 ข้อ</td><td class="r was">31</td><td class="r now">43</td></tr>
-      <tr><td>คำแปลภาษาไทยของตัวอย่างที่ใช้คำศัพท์ผิด เช่น มะละกอเป็นมะม่วงหิมพานต์</td><td class="r was">74</td><td class="r now">0</td></tr>
-      <tr><td>คู่ตัวอย่างคำตอบที่ซ้ำกัน เช่น I am a doctor และ I'm a doctor</td><td class="r was">27</td><td class="r now">0</td></tr>
+  <div class="obj b-yellow fill">
+    <table>
+      <tr><th>เรื่องที่วัด</th><th class="r" style="width:200px">ก่อนแก้</th><th class="r" style="width:200px">หลังแก้</th></tr>
+      <tr><td>คำที่ตั้งใจพูดแล้ว AI ฟังถูก จากคลิปที่เคยฟังผิด 79 คลิป</td><td class="r"><span class="was">10</span></td><td class="r"><span class="now">49</span></td></tr>
+      <tr><td>คะแนนเฉลี่ยของข้อที่ทีมเคยบอกว่า AI ฟังผิด 80 ข้อ</td><td class="r"><span class="was">48</span></td><td class="r"><span class="now">70</span></td></tr>
+      <tr><td>ข้อพูดตามที่อ่านถูกแล้วผ่านเกณฑ์ จาก 65 ข้อ</td><td class="r"><span class="was">31</span></td><td class="r"><span class="now">43</span></td></tr>
+      <tr><td>คำแปลไทยที่ใช้คำศัพท์ผิด เช่น มะละกอกลายเป็นมะม่วงหิมพานต์</td><td class="r"><span class="was">74</span></td><td class="r"><span class="now">0</span></td></tr>
+      <tr><td>ตัวอย่างคำตอบที่ซ้ำกัน เช่น I am a doctor กับ I'm a doctor</td><td class="r"><span class="was">27</span></td><td class="r"><span class="now">0</span></td></tr>
     </table>
-    <p class="strip teal">ในรอบ 9 ผู้ทดสอบตรวจซ้ำข้อที่เคยบันทึกปัญหาไว้ในรอบ 6 ถึง 8 จำนวน 73 ข้อ พบว่าแก้หายแล้ว 52 ข้อ</p>
-    <footer>ตัวเลขในตารางวัดจากการส่งเสียงและคำตอบชุดเดิมเข้าเครื่องก่อนและหลังการแก้ไขแต่ละครั้ง</footer>
   </div>
+  <p class="note">รอบ 9 ทีมตรวจซ้ำปัญหาที่เคยจดไว้ในรอบ 6 ถึง 8 ทั้งหมด 73 ข้อ แก้หายแล้ว 52 ข้อ</p>
+  <span class="pg">4</span>
 </section>
 
-<section class="slide">
-  <aside class="rail red"><div class="tile"><img src="assets/engenius-logo.png" alt="Engenius English"></div><h2>ยังมีเรื่องที่ต้องแก้ก่อนใช้งานจริง โดยเฉพาะการฟังชื่อบุคคลและคำสั้น</h2><span class="pg-no">6</span></aside>
-  <div class="body">
-    <table class="risk">
-      <tr><th>ประเด็น</th><th>สิ่งที่พบ</th><th style="width:170px">ระดับ</th></tr>
-      <tr><td>ระบบฟังเสียงผิด</td><td>6 ข้อในรอบ 9 ส่วนใหญ่เป็นชื่อบุคคลและคำสั้น เช่น Leah likes soda ฟังเป็น Liya Life Soda</td><td><em class="vh">สูง</em></td></tr>
-      <tr><td>ยังไม่ได้ติดตั้งจริง</td><td>การแก้ไขทั้งหมดอยู่บนเครื่องทดสอบ เครื่อง 80GB ที่นักเรียนใช้ยังเป็นรุ่นเดิม</td><td><em class="vh">สูง</em></td></tr>
-      <tr><td>คำแปลไทยบางคำ</td><td>9 ข้อยังแปลไม่เหมาะสม เช่น short แปลว่าสั้นแทนเตี้ย และ hotdog แปลว่าไส้กรอก</td><td><em class="h">ปานกลาง</em></td></tr>
-      <tr><td>กำลังรับยังไม่ได้วัดซ้ำ</td><td>การฟังเสียงสองรอบทำให้รับงานได้ลดลงร้อยละ 6 ถึง 20 และยังไม่ได้วัดกับชุดแก้ไขล่าสุด</td><td><em class="h">ปานกลาง</em></td></tr>
-      <tr><td>โจทย์ที่ต้องเห็นภาพ</td><td>AI ไม่เห็นภาพ ข้อที่ข้อความโจทย์มีเพียงคำเดียว เช่น Tie จึงตีความผิดได้</td><td><em class="m">ต่ำ</em></td></tr>
+<section class="slide g-pink tx-terrazzo">
+  <div class="head">
+    <h2>ยังไม่พร้อมใช้งานจริง เหลืออีก 5 เรื่อง</h2>
+  </div>
+  <div class="obj b-mint fill">
+    <table>
+      <tr><th style="width:330px">เรื่อง</th><th>ตอนนี้เป็นอย่างไร</th><th style="width:170px">ระดับ</th></tr>
+      <tr><td><b>ฟังชื่อคนและคำสั้น</b></td><td>ยังฟังผิด 6 ข้อในรอบ 9 เช่น Leah likes soda ได้ยินเป็น Liya Life Soda</td><td><span class="stk hi">สูง</span></td></tr>
+      <tr><td><b>ยังไม่ได้ขึ้นใช้จริง</b></td><td>ที่แก้ทั้งหมดอยู่บนเครื่องทดสอบ เครื่อง 80GB ที่นักเรียนใช้ยังเป็นรุ่นเดิม</td><td><span class="stk hi">สูง</span></td></tr>
+      <tr><td><b>คำแปลไทยบางคำ</b></td><td>รอบ 9 ยังเจอ 9 ข้อ แก้ชุดล่าสุดแล้ว รอรอบ 10 ยืนยัน</td><td><span class="stk mid">กลาง</span></td></tr>
+      <tr><td><b>กำลังรับของเครื่อง</b></td><td>ฟังเสียงสองรอบทำให้รับงานได้ลดลง 6 ถึง 20% และยังไม่ได้วัดใหม่</td><td><span class="stk mid">กลาง</span></td></tr>
+      <tr><td><b>โจทย์ที่ต้องดูรูป</b></td><td>AI มองไม่เห็นรูป ข้อที่เขียนโจทย์ไว้คำเดียว เช่น Tie จึงตีความผิดได้</td><td><span class="stk lo">ต่ำ</span></td></tr>
     </table>
-    <footer>นอกจากนี้ผู้ทดสอบบางคนเห็นต่างจากเกณฑ์ที่ยอมรับคำความหมายเดียวกัน เช่น large แทน big ซึ่งเป็นนโยบายที่ต้องยืนยัน</footer>
   </div>
+  <span class="pg">5</span>
 </section>
 
-<section class="slide">
-  <aside class="rail ink"><div class="tile"><img src="assets/engenius-logo.png" alt="Engenius English"></div><h2>เครื่อง 40GB รองรับแบบจำลองชุดเดิมได้ ค่าใช้จ่ายการทดสอบใช้จากเครดิต</h2><span class="pg-no">7</span></aside>
-  <div class="body">
-    <div class="split">
-      <div>
-        <h3>หน่วยความจำ GPU ของเครื่อง 40GB</h3>
-        <table class="res">
-          <tr><th>รายการ</th><th class="r">MiB</th></tr>
-          <tr><td>แบบจำลองภาษาสำหรับตรวจและอธิบาย</td><td class="r">34,040</td></tr>
-          <tr><td>ระบบฟังเสียงและประเมินการออกเสียง</td><td class="r">3,614</td></tr>
-          <tr><td>คงเหลือ</td><td class="r">3,287</td></tr>
-          <tr><td><b>รวม</b></td><td class="r"><b>40,960</b></td></tr>
-        </table>
-        <h3>กำลังรับที่วัดได้ วันที่ 11 พ.ย. 2569</h3>
-        <table>
-          <tr><th>ผู้ใช้พร้อมกัน</th><th class="r">คำขอต่อวินาที</th></tr>
-          <tr><td>16 คน</td><td class="r">1.85</td></tr><tr><td>32 คน</td><td class="r">2.00</td></tr><tr><td>64 คน</td><td class="r">2.48</td></tr>
-        </table>
+<section class="slide g-white tx-dots">
+  <div class="shp tri f-yellow" style="width:220px;height:190px;right:60px;top:40px"></div>
+  <div class="head">
+    <h2>เครื่อง 40GB รับไหว ค่าทดสอบใช้เครดิตของ Google</h2>
+  </div>
+  <div class="cols c2">
+    <div class="obj b-cobalt" style="display:flex;flex-direction:column">
+      <h3>หน่วยความจำ GPU ทั้งหมด 40,960 MiB</h3>
+      <div class="stack">
+        <div class="f-cobalt" style="flex:34040;color:#fff">34,040</div>
+        <div class="f-pink" style="flex:3614"></div>
+        <div class="f-white" style="flex:3287"></div>
       </div>
-      <div>
-        <h3>ค่าใช้จ่าย</h3>
-        <table>
-          <tr><th>รายการ</th><th class="r">ดอลลาร์สหรัฐ</th></tr>
-          <tr><td>อัตราค่าเครื่อง 40GB แบบจ่ายตามชั่วโมง</td><td class="r">4.01 ต่อชั่วโมง</td></tr>
-          <tr><td>ค่าใช้จ่ายการทดสอบถึงวันที่ 11 พ.ย. 2569</td><td class="r">ประมาณ 43</td></tr>
-          <tr><td>การทดสอบเพิ่ม 1 วัน (เปิดเครื่อง 8 ชั่วโมง)</td><td class="r">ประมาณ 32</td></tr>
-          <tr><td>เครดิตทดสอบที่ Google เพิ่มให้</td><td class="r">3,000</td></tr>
-        </table>
-        <p class="note">ค่าใช้จ่ายวันที่ 12 และ 13 พ.ย. ยังไม่ปิดยอดในระบบเรียกเก็บเงิน ราคาแบบสัญญาใช้งานระยะยาวของเครื่อง 40GB ยังรอใบเสนอราคา</p>
-      </div>
+      <div class="legend"><span><i class="f-cobalt"></i>AI ตรวจและอธิบาย 34,040</span><span><i class="f-pink"></i>ฟังเสียงและออกเสียง 3,614</span><span><i class="f-white"></i>ว่าง 3,287</span></div>
+      <h3 style="margin-top:34px">รับงานได้ (วัดวันที่ 11 พ.ย.)</h3>
+      <table>
+        <tr><td>ใช้พร้อมกัน 16 คน</td><td class="r"><b>1.85</b> ครั้ง/วินาที</td></tr>
+        <tr><td>ใช้พร้อมกัน 32 คน</td><td class="r"><b>2.00</b> ครั้ง/วินาที</td></tr>
+        <tr><td>ใช้พร้อมกัน 64 คน</td><td class="r"><b>2.48</b> ครั้ง/วินาที</td></tr>
+      </table>
+    </div>
+    <div class="obj b-pink" style="display:flex;flex-direction:column">
+      <h3>ค่าใช้จ่าย (ดอลลาร์สหรัฐ)</h3>
+      <table>
+        <tr><td>ค่าเครื่องแบบจ่ายรายชั่วโมง</td><td class="r"><b>4.01</b>/ชม.</td></tr>
+        <tr><td>ใช้ไปถึงวันที่ 11 พ.ย.</td><td class="r">ราว <b>43</b></td></tr>
+        <tr><td>ทดสอบเพิ่ม 1 วัน (เปิด 8 ชม.)</td><td class="r">ราว <b>32</b></td></tr>
+        <tr><td>เครดิตทดสอบที่ Google ให้</td><td class="r"><b>3,000</b></td></tr>
+      </table>
+      <p class="note">ยอดวันที่ 12–13 พ.ย. ยังไม่ปิดในระบบบิล ส่วนราคาสัญญาระยะยาวของเครื่อง 40GB ยังรอใบเสนอราคา</p>
     </div>
   </div>
+  <span class="pg">6</span>
 </section>
 
-<section class="slide">
-  <aside class="rail navy"><div class="tile"><img src="assets/engenius-logo.png" alt="Engenius English"></div><h2>ระบบบนเครื่อง 40GB ใกล้พร้อม แต่ยังไม่ควรใช้งานจริง ขออนุมัติทดสอบต่อตามเกณฑ์</h2><span class="pg-no">8</span></aside>
-  <div class="body">
-    <table class="plan">
-      <tr><th style="width:80px"></th><th style="width:250px">ช่วงเวลา</th><th>งาน</th><th style="width:400px">ต้องผ่านก่อนไปต่อ</th></tr>
-      <tr><td class="n">1</td><td class="w">ทันที</td><td>แก้คำแปลไทยและคะแนนข้อพูดตามที่พบในรอบ 9 แล้วส่งคำตอบทุกรอบเข้าตรวจซ้ำ</td><td>ไม่มีข้อที่เคยผ่านกลับมาเสีย</td></tr>
-      <tr><td class="n">2</td><td class="w">สัปดาห์ถัดไป</td><td>ทดสอบเพิ่มอย่างน้อย 2 รอบ เน้นการฟังชื่อบุคคลและคำสั้น</td><td>ผู้ทดสอบเห็นด้วยไม่น้อยกว่าร้อยละ 95 สองรอบติดกัน</td></tr>
-      <tr><td class="n">3</td><td class="w">ก่อนย้ายระบบ</td><td>ทดสอบกำลังรับด้วยชุดแก้ไขล่าสุด</td><td>ไม่น้อยกว่า 2 คำขอต่อวินาที และเวลาประเมิน p95 ไม่เกิน 15 วินาที</td></tr>
-      <tr><td class="n">4</td><td class="w">ทีมเนื้อหา</td><td>ปรับข้อความโจทย์ที่ AI ต้องเห็นภาพจึงจะตีความถูก</td><td>ข้อที่ระบุแก้ครบ</td></tr>
-      <tr><td class="n">5</td><td class="w">เมื่อผ่านทุกข้อ</td><td>ย้ายระบบไปเครื่อง 40GB ตามแผนสัญญาใช้งานที่เสนอไว้เดิม</td><td>ผู้บริหารอนุมัติ</td></tr>
-    </table>
-    <p class="strip teal">ขออนุมัติใช้เครื่อง 40GB ทดสอบต่อ ประมาณ 32 ดอลลาร์สหรัฐต่อวันทดสอบ โดยใช้เครดิตทดสอบของ Google และใช้ผู้ทดสอบชุดเดิม 4 คน</p>
+<section class="slide g-mint tx-squig">
+  <div class="head">
+    <h2>ขอทดสอบต่ออีกอย่างน้อย 2 รอบ ก่อนย้ายระบบ</h2>
   </div>
+  <div class="steps">
+    <div class="step"><span class="num" style="color:var(--pink)">1</span><h3>ตอนนี้</h3><p>แก้ที่เจอในรอบ 9 แล้ว รอบ 10 กำลังทดสอบอยู่</p><span class="gate">ข้อที่เคยผ่านต้องไม่กลับมาเสีย</span></div>
+    <div class="step"><span class="num" style="color:var(--cobalt)">2</span><h3>สัปดาห์หน้า</h3><p>ทดสอบเพิ่ม เน้นการฟังชื่อคนและคำสั้น</p><span class="gate">เห็นด้วยกับ AI 95% ขึ้นไป 2 รอบติด</span></div>
+    <div class="step"><span class="num" style="color:var(--coral)">3</span><h3>ก่อนย้าย</h3><p>วัดกำลังรับใหม่ด้วยชุดแก้ล่าสุด</p><span class="gate">2 ครั้ง/วินาทีขึ้นไป รอผลไม่เกิน 15 วินาที</span></div>
+    <div class="step"><span class="num" style="color:#0B8A69">4</span><h3>ทีมเนื้อหา</h3><p>ปรับโจทย์ที่ AI ต้องเห็นรูปถึงจะเข้าใจ</p><span class="gate">ข้อที่ระบุไว้แก้ครบ</span></div>
+    <div class="step"><span class="num" style="color:var(--ink)">5</span><h3>ย้ายระบบ</h3><p>ย้ายไปเครื่อง 40GB ตามแผนสัญญาเดิม</p><span class="gate">หัวหน้าอนุมัติ</span></div>
+  </div>
+  <p class="ask">ค่าทดสอบเพิ่มราว 32 ดอลลาร์ต่อวัน ใช้เครดิตทดสอบของ Google และทีมทดสอบ 4 คนเดิม</p>
+  <span class="pg">7</span>
 </section>
 
 </main>
 <nav class="nav" aria-label="เลื่อนสไลด์">
   <button type="button" id="prev" aria-label="สไลด์ก่อนหน้า">← ก่อนหน้า</button>
-  <span class="pg" id="pg"></span>
+  <span class="pgn" id="pg"></span>
   <button type="button" id="next" aria-label="สไลด์ถัดไป">ถัดไป →</button>
   <button type="button" id="mode">อ่านแบบเลื่อน</button>
   <a href="full.html">ฉบับเต็ม</a><a class="main" href="https://github.com/phttinat/engenius-ai-40gb-report/blob/main/data/rounds.json" target="_blank" rel="noopener">ข้อมูลรายรอบ</a>
@@ -301,7 +300,7 @@ function fit(){
       if(!sl.parentElement.classList.contains('wrap')){const d=document.createElement('div');d.className='wrap';sl.before(d);d.appendChild(sl)}
       sl.parentElement.style.width=w+'px';sl.parentElement.style.height=(1080*s)+'px'});
   }else{
-    const s=Math.min(innerWidth/1920,(innerHeight-52)/1080)*.985;
+    const s=Math.min(innerWidth/1920,(innerHeight-56)/1080)*.985;
     slides.forEach(sl=>sl.style.transform=`scale(${s})`);
   }
 }
