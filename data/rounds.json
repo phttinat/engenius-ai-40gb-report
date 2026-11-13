@@ -1,5 +1,5 @@
 {
- "_note": "Lab results of the Engenius AI scorer on the A100 40GB test machine. agree = answers the testers marked as judged correctly by the AI. Round 9 is filled from scratchpad r9_stats.json when its analysis is done (python src/build.py merges it).",
+ "_note": "Lab results of the Engenius AI scorer on the A100 40GB test machine. agree = answers the testers marked as judged correctly by the AI (pass mark 70, as in the app). fresh = items not tested since round 1. problems = every problem the testers reported, cumulative; confirmed = a tester re-tried it and it was gone, pending = gone in our replay, waiting for a tester to confirm.",
  "rounds": [
   {
    "round": 1,
@@ -123,12 +123,33 @@
   {
    "round": 10,
    "date": "13 พ.ย. 2569",
-   "n": null,
-   "agree": null,
+   "n": 108,
+   "agree": 99,
    "testers": 4,
-   "scope": "ข้อที่ทีมแจ้งในรอบ 9 (25 ข้อ) และข้อที่ไม่ได้ลองตั้งแต่รอบ 1 (83 ข้อ)",
-   "finding": null,
-   "fix": null
+   "scope": "ข้อที่แจ้งในรอบ 9 (25 ข้อ) และข้อที่ไม่ได้ลองตั้งแต่รอบ 1 (83 ข้อ)",
+   "finding": "ข้อใหม่ตรวจถูก 80 จาก 83 ข้อ ข้อที่เคยแจ้งหาย 11 จาก 25 ข้อ เจอปัญหาใหม่ 20 ข้อ ส่วนใหญ่เป็นคำแปลไทย",
+   "fix": "แก้คำแปลไทย 12 คำ แก้ข้อที่ตอบถูกแต่ได้ 0 คะแนน และตัวอย่างคำตอบที่ไม่ใช้คำศัพท์ของบท ลองใหม่แล้วหาย 14 ข้อ รอทีมยืนยัน",
+   "ratings": {
+    "heard": 4.89,
+    "thai": 4.59,
+    "tip": 4.84
+   },
+   "fresh": {
+    "n": 83,
+    "agree": 80
+   }
   }
- ]
+ ],
+ "problems": {
+  "_note": "All problems the testers reported in rounds 6-10, state after the round 10 fixes.",
+  "reported": 98,
+  "fixed": 77,
+  "confirmed": 63,
+  "pending": 14,
+  "thai": 7,
+  "asr": 5,
+  "policy": 5,
+  "content": 3,
+  "notRechecked": 1
+ }
 }

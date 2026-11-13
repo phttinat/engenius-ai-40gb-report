@@ -131,7 +131,7 @@ body.scroll .wrap{overflow:hidden;margin:0 auto 14px}
 .obj.fill .sum{height:100%;align-content:space-between}
 
 .cover h1{font-size:100px}.cover .c-r .num{white-space:nowrap;font-size:104px}
-
+span.en{font-family:var(--display);font-style:italic;font-size:1.05em}
 </style>
 </head>
 <body>
@@ -154,8 +154,8 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   </div>
   <div class="c-r">
     <div><span class="num">84% → 98%</span><span>AI ตรวจคำตอบถูกมากขึ้น ตั้งแต่เริ่มทดสอบจนถึงรอบ 8</span></div>
-    <div><span class="num">52 จาก 73</span><span>ปัญหาที่ทีมทดสอบแจ้งไว้ แก้หายแล้ว</span></div>
-    <div><span class="num">4.78 / 5</span><span>คะแนนความพอใจจากทีมทดสอบในรอบล่าสุด</span></div>
+    <div><span class="num">77 จาก 98</span><span>ปัญหาที่ทีมทดสอบแจ้งไว้ แก้แล้ว</span></div>
+    <div><span class="num">4.77 / 5</span><span>คะแนนความพอใจจากทีมทดสอบในรอบล่าสุด</span></div>
   </div>
 </section>
 
@@ -163,10 +163,10 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   <div class="head"><h2>สรุปในหน้าเดียว</h2></div>
   <div class="obj fill">
     <dl class="sum">
-      <dt>ทำอะไร</dt><dd>ทดสอบว่า AI ที่ตรวจคำตอบภาษาอังกฤษของนักเรียน ถ้าย้ายไปเครื่องที่เล็กลงครึ่งหนึ่ง (40GB) จะยังตรวจได้ดีเหมือนเครื่องเดิม (80GB) หรือไม่ ทีมทดสอบ 4 คนลองตอบโจทย์จริงทั้ง 1,555 ครั้ง</dd>
+      <dt>ทำอะไร</dt><dd>ทดสอบว่า AI ที่ตรวจคำตอบภาษาอังกฤษของนักเรียน ถ้าย้ายไปเครื่องที่เล็กลงครึ่งหนึ่ง (40GB) จะยังตรวจได้ดีเหมือนเครื่องเดิม (80GB) หรือไม่ ทีมทดสอบ 4 คนลองตอบโจทย์จริงทั้ง 1,663 ครั้ง</dd>
       <dt>ผล</dt><dd>เครื่อง 40GB ตรวจได้ไม่แพ้เครื่องเดิม และหลังแก้ปัญหาที่เจอ AI ตรวจถูกเพิ่มจาก 84% เป็น 98%</dd>
-      <dt>แก้แล้ว</dt><dd>ปัญหาที่ทีมทดสอบแจ้งไว้ 73 ข้อ ลองใหม่แล้วหายไป 52 ข้อ ที่เหลือส่วนใหญ่เป็นเรื่อง AI ฟังเสียงผิดกับคำแปลไทย</dd>
-      <dt>ยังขาด</dt><dd>AI ยังฟังชื่อคนและคำสั้นผิด ที่แก้ทั้งหมดยังไม่ได้ย้ายไปใช้กับนักเรียน และต้องวัดใหม่ว่าเครื่องรับนักเรียนพร้อมกันได้กี่คน</dd>
+      <dt>แก้แล้ว</dt><dd>ปัญหาที่ทีมทดสอบแจ้งไว้ทั้งหมด 98 ข้อ แก้แล้ว 77 ข้อ ที่เหลือส่วนใหญ่เป็นคำแปลไทย AI ฟังเสียงผิด และเกณฑ์ที่ต้องตัดสินใจ</dd>
+      <dt>ยังขาด</dt><dd>AI ยังฟังชื่อคนและคำสั้นผิด คะแนนของคำตอบที่ก้ำกึ่งยังแกว่ง ที่แก้ทั้งหมดยังไม่ได้ย้ายไปใช้กับนักเรียน และต้องวัดใหม่ว่าเครื่องรับนักเรียนพร้อมกันได้กี่คน</dd>
       <dt>ขอ</dt><dd>ทดสอบต่ออีกอย่างน้อย 2 รอบ ราว 32 ดอลลาร์ต่อวันจากเครดิตฟรีของ Google แล้วค่อยย้ายนักเรียนมาใช้เครื่องใหม่</dd>
     </dl>
   </div>
@@ -178,9 +178,27 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
     <h2>AI ตรวจคำตอบถูกมากขึ้น จาก 84% เป็น 98%</h2>
     <p class="sub">ทีมทดสอบ 4 คนลองตอบโจทย์จริงในแอป แล้วดูว่า AI ให้คะแนนถูกหรือไม่ กราฟคือร้อยละของข้อที่ AI ตรวจถูก ทดสอบแต่ละครั้งนับเป็น 1 รอบ หลังแต่ละรอบเราแก้ปัญหาที่เจอแล้วทดสอบใหม่</p>
   </div>
-  <div class="obj fill"><svg class="rchart" viewBox="0 0 1640 640" width="100%" role="img" aria-label="ร้อยละของข้อที่ AI ตรวจถูก แยกตามรอบทดสอบ"><defs><pattern id="hatch" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="22" height="22" fill="#F3F3F1"/><rect width="4" height="22" fill="#121212" opacity=".25"/></pattern></defs><line x1="70" x2="1640" y1="554.0" y2="554.0" stroke="#121212" stroke-width="2"/><text x="56" y="562.0" text-anchor="end" class="ax">0</text><line x1="70" x2="1640" y1="429.5" y2="429.5" stroke="#DCDCDC" stroke-width="1"/><text x="56" y="437.5" text-anchor="end" class="ax">25</text><line x1="70" x2="1640" y1="305.0" y2="305.0" stroke="#DCDCDC" stroke-width="1"/><text x="56" y="313.0" text-anchor="end" class="ax">50</text><line x1="70" x2="1640" y1="180.5" y2="180.5" stroke="#DCDCDC" stroke-width="1"/><text x="56" y="188.5" text-anchor="end" class="ax">75</text><line x1="70" x2="1640" y1="56.0" y2="56.0" stroke="#DCDCDC" stroke-width="1"/><text x="56" y="64.0" text-anchor="end" class="ax">100</text><rect x="101.4" y="136.3" width="94.2" height="417.7" fill="#2B2B2B"/><text x="148.5" y="122.3" text-anchor="middle" class="val">83.9</text><text x="148.5" y="596" text-anchor="middle" class="rn">รอบ 1</text><text x="148.5" y="628" text-anchor="middle" class="sub2">572/682</text><rect x="258.4" y="93.8" width="94.2" height="460.2" fill="#2B2B2B"/><text x="305.5" y="79.8" text-anchor="middle" class="val">92.4</text><text x="305.5" y="596" text-anchor="middle" class="rn">รอบ 2</text><text x="305.5" y="628" text-anchor="middle" class="sub2">231/250</text><rect x="415.4" y="127.1" width="94.2" height="426.9" fill="#2B2B2B"/><text x="462.5" y="113.1" text-anchor="middle" class="val">85.7</text><text x="462.5" y="596" text-anchor="middle" class="rn">รอบ 3</text><text x="462.5" y="628" text-anchor="middle" class="sub2">54/63</text><rect x="572.4" y="99.3" width="94.2" height="454.7" fill="#2B2B2B"/><text x="619.5" y="85.3" text-anchor="middle" class="val">91.3</text><text x="619.5" y="596" text-anchor="middle" class="rn">รอบ 4</text><text x="619.5" y="628" text-anchor="middle" class="sub2">63/69</text><rect x="729.4" y="61.5" width="94.2" height="492.5" fill="#2B2B2B"/><text x="776.5" y="47.5" text-anchor="middle" class="val">98.9</text><text x="776.5" y="596" text-anchor="middle" class="rn">รอบ 5</text><text x="776.5" y="628" text-anchor="middle" class="sub2">89/90</text><rect x="886.4" y="80.9" width="94.2" height="473.1" fill="#2B2B2B"/><text x="933.5" y="66.9" text-anchor="middle" class="val">95</text><text x="933.5" y="596" text-anchor="middle" class="rn">รอบ 6</text><text x="933.5" y="628" text-anchor="middle" class="sub2">114/120</text><rect x="1043.4" y="101.3" width="94.2" height="452.7" fill="#2B2B2B"/><text x="1090.5" y="87.3" text-anchor="middle" class="val">90.9</text><text x="1090.5" y="596" text-anchor="middle" class="rn">รอบ 7</text><text x="1090.5" y="628" text-anchor="middle" class="sub2">70/77</text><rect x="1200.4" y="66.4" width="94.2" height="487.6" fill="#2B2B2B"/><text x="1247.5" y="52.4" text-anchor="middle" class="val">97.9</text><text x="1247.5" y="596" text-anchor="middle" class="rn">รอบ 8</text><text x="1247.5" y="628" text-anchor="middle" class="sub2">94/96</text><rect x="1357.4" y="92.9" width="94.2" height="461.1" fill="#D0021B"/><text x="1404.5" y="78.9" text-anchor="middle" class="val">92.6</text><text x="1404.5" y="596" text-anchor="middle" class="rn">รอบ 9</text><text x="1404.5" y="628" text-anchor="middle" class="sub2">100/108</text><rect x="1514.4" y="56.0" width="94.2" height="498.0" fill="url(#hatch)" stroke="#7A7A7A" stroke-width="2" stroke-dasharray="10 8"/><text x="1561.5" y="280.1" text-anchor="middle" class="wait">กำลัง</text><text x="1561.5" y="312.1" text-anchor="middle" class="wait">ทดสอบ</text><text x="1561.5" y="596" text-anchor="middle" class="rn">รอบ 10</text><text x="1561.5" y="628" text-anchor="middle" class="sub2">&#160;</text></svg></div>
-  <p class="note">รอบ 9 ได้ 92.6% เพราะตั้งใจเลือกเฉพาะข้อที่ AI เคยตรวจผิดมาลองใหม่ ไม่ได้แปลว่า AI แย่ลง ส่วนรอบ 10 กำลังทดสอบอยู่</p>
+  <div class="obj fill"><svg class="rchart" viewBox="0 0 1640 640" width="100%" role="img" aria-label="ร้อยละของข้อที่ AI ตรวจถูก แยกตามรอบทดสอบ"><defs><pattern id="hatch" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="22" height="22" fill="#F3F3F1"/><rect width="4" height="22" fill="#121212" opacity=".25"/></pattern></defs><line x1="70" x2="1640" y1="554.0" y2="554.0" stroke="#121212" stroke-width="2"/><text x="56" y="562.0" text-anchor="end" class="ax">0</text><line x1="70" x2="1640" y1="429.5" y2="429.5" stroke="#DCDCDC" stroke-width="1"/><text x="56" y="437.5" text-anchor="end" class="ax">25</text><line x1="70" x2="1640" y1="305.0" y2="305.0" stroke="#DCDCDC" stroke-width="1"/><text x="56" y="313.0" text-anchor="end" class="ax">50</text><line x1="70" x2="1640" y1="180.5" y2="180.5" stroke="#DCDCDC" stroke-width="1"/><text x="56" y="188.5" text-anchor="end" class="ax">75</text><line x1="70" x2="1640" y1="56.0" y2="56.0" stroke="#DCDCDC" stroke-width="1"/><text x="56" y="64.0" text-anchor="end" class="ax">100</text><rect x="101.4" y="136.3" width="94.2" height="417.7" fill="#2B2B2B"/><text x="148.5" y="122.3" text-anchor="middle" class="val">83.9</text><text x="148.5" y="596" text-anchor="middle" class="rn">รอบ 1</text><text x="148.5" y="628" text-anchor="middle" class="sub2">572/682</text><rect x="258.4" y="93.8" width="94.2" height="460.2" fill="#2B2B2B"/><text x="305.5" y="79.8" text-anchor="middle" class="val">92.4</text><text x="305.5" y="596" text-anchor="middle" class="rn">รอบ 2</text><text x="305.5" y="628" text-anchor="middle" class="sub2">231/250</text><rect x="415.4" y="127.1" width="94.2" height="426.9" fill="#2B2B2B"/><text x="462.5" y="113.1" text-anchor="middle" class="val">85.7</text><text x="462.5" y="596" text-anchor="middle" class="rn">รอบ 3</text><text x="462.5" y="628" text-anchor="middle" class="sub2">54/63</text><rect x="572.4" y="99.3" width="94.2" height="454.7" fill="#2B2B2B"/><text x="619.5" y="85.3" text-anchor="middle" class="val">91.3</text><text x="619.5" y="596" text-anchor="middle" class="rn">รอบ 4</text><text x="619.5" y="628" text-anchor="middle" class="sub2">63/69</text><rect x="729.4" y="61.5" width="94.2" height="492.5" fill="#2B2B2B"/><text x="776.5" y="47.5" text-anchor="middle" class="val">98.9</text><text x="776.5" y="596" text-anchor="middle" class="rn">รอบ 5</text><text x="776.5" y="628" text-anchor="middle" class="sub2">89/90</text><rect x="886.4" y="80.9" width="94.2" height="473.1" fill="#2B2B2B"/><text x="933.5" y="66.9" text-anchor="middle" class="val">95</text><text x="933.5" y="596" text-anchor="middle" class="rn">รอบ 6</text><text x="933.5" y="628" text-anchor="middle" class="sub2">114/120</text><rect x="1043.4" y="101.3" width="94.2" height="452.7" fill="#2B2B2B"/><text x="1090.5" y="87.3" text-anchor="middle" class="val">90.9</text><text x="1090.5" y="596" text-anchor="middle" class="rn">รอบ 7</text><text x="1090.5" y="628" text-anchor="middle" class="sub2">70/77</text><rect x="1200.4" y="66.4" width="94.2" height="487.6" fill="#2B2B2B"/><text x="1247.5" y="52.4" text-anchor="middle" class="val">97.9</text><text x="1247.5" y="596" text-anchor="middle" class="rn">รอบ 8</text><text x="1247.5" y="628" text-anchor="middle" class="sub2">94/96</text><rect x="1357.4" y="92.9" width="94.2" height="461.1" fill="#2B2B2B"/><text x="1404.5" y="78.9" text-anchor="middle" class="val">92.6</text><text x="1404.5" y="596" text-anchor="middle" class="rn">รอบ 9</text><text x="1404.5" y="628" text-anchor="middle" class="sub2">100/108</text><rect x="1514.4" y="97.5" width="94.2" height="456.5" fill="#D0021B"/><text x="1561.5" y="83.5" text-anchor="middle" class="val">91.7</text><text x="1561.5" y="596" text-anchor="middle" class="rn">รอบ 10</text><text x="1561.5" y="628" text-anchor="middle" class="sub2">99/108</text></svg></div>
+  <p class="note">รอบ 9 และ 10 ได้ราว 92% เพราะตั้งใจเลือกข้อที่ AI เคยตรวจผิดมาลองใหม่ ไม่ได้แปลว่า AI แย่ลง ส่วนข้อที่ไม่เคยทดสอบมาก่อนในรอบ 10 AI ตรวจถูก 80 จาก 83 ข้อ (96.4%)</p>
   <span class="pg">3</span>
+</section>
+
+<section class="slide g-white">
+  <div class="head">
+    <h2>“AI ตรวจถูก” หมายความว่าอะไร</h2>
+    <p class="sub">ทีมทดสอบตอบโจทย์แบบนักเรียน แล้วตัดสินเองว่าคำตอบนั้นควรผ่านหรือไม่ ถ้า AI ให้ผลตรงกับที่ทีมตัดสิน นับว่า AI ตรวจถูก ตัวอย่างข้างล่างมาจากการทดสอบจริง คะแนนเต็ม 100 ผ่านที่ 70</p>
+  </div>
+  <div class="obj fill">
+    <table>
+      <tr><th style="width:340px">ปัญหาที่เจอ</th><th>โจทย์ และคำตอบของนักเรียน</th><th class="r" style="width:250px">ก่อนแก้</th><th class="r" style="width:250px">ตอนนี้</th></tr>
+      <tr><td><b>ตอบถูก แต่ AI ให้ตก</b></td><td>ดูรูปแล้วบอกว่าเขากำลังทำอะไร<br><span class="en">He is crossing the road at the crosswalk.</span></td><td class="r"><span class="was">0</span></td><td class="r"><span class="now">98</span></td></tr>
+      <tr><td><b>ตอบถูก แต่ AI ให้ตก</b></td><td>Leah ชอบกินหอมหัวใหญ่ชุบแป้งทอด เรียกว่าอะไร<br><span class="en">Leah likes onion rings.</span></td><td class="r"><span class="was">23</span></td><td class="r"><span class="now">98</span></td></tr>
+      <tr><td><b>ตอบไม่ตรงคำถาม แต่ AI ให้ผ่าน</b></td><td>ผู้ชายในรูปรู้สึกอย่างไร (โกรธ)<br><span class="en">He should take a deep breath.</span> ไม่ได้บอกความรู้สึก</td><td class="r"><span class="was">93</span></td><td class="r"><span class="now">51</span></td></tr>
+      <tr><td><b>คำแปลไทยผิด</b></td><td>ตัวอย่างคำตอบที่ AI ให้นักเรียนดู<br><span class="en">It is the toilet.</span></td><td class="r"><span class="was" style="font-size:34px">นี่คือห้องน้ำ</span></td><td class="r"><span class="now" style="font-size:34px">นั่นคือชักโครก</span></td></tr>
+    </table>
+  </div>
+  <p class="note">ข้อแรกและข้อสุดท้ายเจอในรอบ 10 และแก้แล้ว ส่วนข้อกลางเจอในรอบ 6 และ 7 ตอนนี้ AI ให้คะแนนตามที่ทีมทดสอบตัดสิน</p>
+  <span class="pg">4</span>
 </section>
 
 <section class="slide g-white">
@@ -191,7 +209,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
       <tr><td class="n">1</td><td>ลองทุกข้อในแอป 651 ข้อเป็นครั้งแรก</td><td class="r"><b class="num" style="font-size:40px">83.9%<span class="small">572/682</span></b></td><td>ปัญหาใหญ่ที่สุดคือ AI ฟังเสียงเด็กผิด และคำแปลไทยของตัวอย่างผิดราว 18 ข้อ</td></tr><tr><td class="n">2</td><td>ลองซ้ำข้อที่มีปัญหาในรอบ 1 และสุ่มข้ออื่นเพิ่ม</td><td class="r"><b class="num" style="font-size:40px">92.4%<span class="small">231/250</span></b></td><td>ข้ออ่านออกเสียงไม่บอกว่าเด็กอ่านผิดคำไหน และตัวอย่างคำตอบซ้ำกัน</td></tr><tr><td class="n">3</td><td>ข้ออ่านออกเสียง ข้อแปล และคำศัพท์ในบท</td><td class="r"><b class="num" style="font-size:40px">85.7%<span class="small">54/63</span></b></td><td>เด็กอ่านถูกแต่ได้คะแนนต่ำ 5 ข้อ</td></tr><tr><td class="n">4</td><td>แต่ละข้อกำหนดให้ลองตอบแบบต่าง ๆ</td><td class="r"><b class="num" style="font-size:40px">91.3%<span class="small">63/69</span></b></td><td>ตอบด้วยคำความหมายเดียวกันแล้วไม่ผ่าน และข้อแปลตรวจเข้มเกินไป</td></tr><tr><td class="n">5</td><td>ข้อที่ยังไม่เคยลอง และข้อที่ตอบผิดแบบใกล้เคียง</td><td class="r"><b class="num" style="font-size:40px">98.9%<span class="small">89/90</span></b></td><td>ข้อดูรูปบางข้อสั่งให้อ่านคำไทย แต่ไม่มีคำไทยให้อ่าน</td></tr>
     </table>
   </div>
-  <span class="pg">4</span>
+  <span class="pg">5</span>
 </section>
 
 <section class="slide g-white">
@@ -199,10 +217,10 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   <div class="obj fill">
     <table>
       <tr><th style="width:90px">รอบ</th><th style="width:560px">ลองอะไร</th><th class="r" style="width:210px">AI ตรวจถูก</th><th>เจอปัญหาอะไร</th></tr>
-      <tr><td class="n">6</td><td>เริ่มให้ทีมให้คะแนน 1 ถึง 5 หลังเห็นผลทุกข้อ</td><td class="r"><b class="num" style="font-size:40px">95%<span class="small">114/120</span></b></td><td>ข้อบอกความรู้สึกผ่านทั้งที่ไม่ได้พูดคำบอกความรู้สึก และชื่อคนแปลเป็นไทยไม่ตรงกัน</td></tr><tr><td class="n">7</td><td>ลองเฉพาะเรื่องที่แก้จากรอบ 6</td><td class="r"><b class="num" style="font-size:40px">90.9%<span class="small">70/77</span></b></td><td>ตัวอย่างคำตอบยังไม่ทำตามกฎใหม่ และคำแปลใส่คำว่า กำลัง ผิดที่</td></tr><tr><td class="n">8</td><td>ชื่อคน บทสนทนา คำแปล และข้อบอกความรู้สึก</td><td class="r"><b class="num" style="font-size:40px">97.9%<span class="small">94/96</span></b></td><td>ข้อที่ทีมให้ผ่านแต่เขียนหมายเหตุไว้ ยังมีปัญหาเดิมหลายข้อ</td></tr><tr><td class="n">9</td><td>ลองซ้ำทุกข้อที่ทีมเคยแจ้งปัญหา 73 ข้อ และสุ่มข้ออื่น 35 ข้อ</td><td class="r"><b class="num" style="font-size:40px">92.6%<span class="small">100/108</span></b></td><td>แก้หายแล้ว 52 ข้อ ยังเหลือคำแปลไทย 9 ข้อ และ AI ฟังผิด 6 ข้อ</td></tr><tr><td class="n">10</td><td>ข้อที่ทีมแจ้งในรอบ 9 (25 ข้อ) และข้อที่ไม่ได้ลองตั้งแต่รอบ 1 (83 ข้อ)</td><td class="r"><b class="num" style="font-size:40px">กำลังทดสอบ</b></td><td>รอผล</td></tr>
+      <tr><td class="n">6</td><td>เริ่มให้ทีมให้คะแนน 1 ถึง 5 หลังเห็นผลทุกข้อ</td><td class="r"><b class="num" style="font-size:40px">95%<span class="small">114/120</span></b></td><td>ข้อบอกความรู้สึกผ่านทั้งที่ไม่ได้พูดคำบอกความรู้สึก และชื่อคนแปลเป็นไทยไม่ตรงกัน</td></tr><tr><td class="n">7</td><td>ลองเฉพาะเรื่องที่แก้จากรอบ 6</td><td class="r"><b class="num" style="font-size:40px">90.9%<span class="small">70/77</span></b></td><td>ตัวอย่างคำตอบยังไม่ทำตามกฎใหม่ และคำแปลใส่คำว่า กำลัง ผิดที่</td></tr><tr><td class="n">8</td><td>ชื่อคน บทสนทนา คำแปล และข้อบอกความรู้สึก</td><td class="r"><b class="num" style="font-size:40px">97.9%<span class="small">94/96</span></b></td><td>ข้อที่ทีมให้ผ่านแต่เขียนหมายเหตุไว้ ยังมีปัญหาเดิมหลายข้อ</td></tr><tr><td class="n">9</td><td>ลองซ้ำทุกข้อที่ทีมเคยแจ้งปัญหา 73 ข้อ และสุ่มข้ออื่น 35 ข้อ</td><td class="r"><b class="num" style="font-size:40px">92.6%<span class="small">100/108</span></b></td><td>แก้หายแล้ว 52 ข้อ ยังเหลือคำแปลไทย 9 ข้อ และ AI ฟังผิด 6 ข้อ</td></tr><tr><td class="n">10</td><td>ข้อที่แจ้งในรอบ 9 (25 ข้อ) และข้อที่ไม่ได้ลองตั้งแต่รอบ 1 (83 ข้อ)</td><td class="r"><b class="num" style="font-size:40px">91.7%<span class="small">99/108</span></b></td><td>ข้อใหม่ตรวจถูก 80 จาก 83 ข้อ ข้อที่เคยแจ้งหาย 11 จาก 25 ข้อ เจอปัญหาใหม่ 20 ข้อ ส่วนใหญ่เป็นคำแปลไทย</td></tr>
     </table>
   </div>
-  <span class="pg">5</span>
+  <span class="pg">6</span>
 </section>
 
 <section class="slide g-white">
@@ -213,10 +231,10 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   <div class="obj fill">
     <table>
       <tr><th>รอบ</th><th class="r">AI ฟังเสียงถูก</th><th class="r">คำแปลไทย</th><th class="r">คำแนะนำ</th><th class="r">เฉลี่ย</th></tr>
-      <tr><td>รอบ 6</td><td class="r">4.68</td><td class="r">4.54</td><td class="r">4.56</td><td class="r"><b>4.59</b></td></tr><tr><td>รอบ 7</td><td class="r">4.55</td><td class="r">4.57</td><td class="r">4.74</td><td class="r"><b>4.62</b></td></tr><tr><td>รอบ 8</td><td class="r">4.68</td><td class="r">4.68</td><td class="r">4.71</td><td class="r"><b>4.69</b></td></tr><tr class="mark"><td>รอบ 9</td><td class="r">4.71</td><td class="r">4.78</td><td class="r">4.84</td><td class="r"><b>4.78</b></td></tr><tr><td>รอบ 10</td><td class="r" colspan="4">กำลังทดสอบ</td></tr>
+      <tr><td>รอบ 6</td><td class="r">4.68</td><td class="r">4.54</td><td class="r">4.56</td><td class="r"><b>4.59</b></td></tr><tr><td>รอบ 7</td><td class="r">4.55</td><td class="r">4.57</td><td class="r">4.74</td><td class="r"><b>4.62</b></td></tr><tr><td>รอบ 8</td><td class="r">4.68</td><td class="r">4.68</td><td class="r">4.71</td><td class="r"><b>4.69</b></td></tr><tr><td>รอบ 9</td><td class="r">4.71</td><td class="r">4.78</td><td class="r">4.84</td><td class="r"><b>4.78</b></td></tr><tr class="mark"><td>รอบ 10</td><td class="r">4.89</td><td class="r">4.59</td><td class="r">4.84</td><td class="r"><b>4.77</b></td></tr>
     </table>
   </div>
-  <span class="pg">6</span>
+  <span class="pg">7</span>
 </section>
 
 <section class="slide g-white">
@@ -238,7 +256,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
     </div>
   </div>
   <p class="note">ข้อที่ต้องพูดได้คะแนนต่ำกว่าข้อพิมพ์ เพราะปัญหาหลักคือ AI ฟังเสียงเด็กผิด ซึ่งเกิดกับทั้งสองเครื่องเหมือนกัน</p>
-  <span class="pg">7</span>
+  <span class="pg">8</span>
 </section>
 
 <section class="slide g-cobalt">
@@ -265,7 +283,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
       </table>
     </div>
   </div>
-  <span class="pg">8</span>
+  <span class="pg">9</span>
 </section>
 
 <section class="slide g-white">
@@ -284,7 +302,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
       <tr><td class="en">This man is feeling nervous.</td><td class="thw">…ตื่นเต้น 紧张 (มีอักษรจีนปน)</td><td class="thn">ผู้ชายคนนี้รู้สึกประหม่า</td></tr>
     </table>
   </div>
-  <span class="pg">9</span>
+  <span class="pg">10</span>
 </section>
 
 <section class="slide g-white">
@@ -294,12 +312,12 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
       <tr><th style="width:360px">เรื่อง</th><th>ปรับอย่างไร</th><th style="width:460px">ผลเมื่อลองใหม่</th></tr>
       <tr><td><b>โจทย์ถามความรู้สึก</b></td><td>คำตอบต้องบอกความรู้สึก เช่น He feels hurt. ถ้าบอกแค่ว่าเขาควรทำอะไร จะไม่ผ่าน</td><td>13 ข้อที่เคยแจ้ง หายหมด</td></tr>
       <tr><td><b>ความหมายถูก ไวยากรณ์ผิด</b></td><td>ให้ผ่านตามความหมาย แล้วไปหักคะแนนไวยากรณ์แทน</td><td>You are doing the yoga จาก 48 เป็น 84 คะแนน</td></tr>
-      <tr><td><b>ตัวอย่างคำตอบ</b></td><td>ตัวอย่างต้องใช้คำศัพท์ของบท และไม่เอาคำที่ AI ฟังผิดมาใส่ในตัวอย่าง</td><td>แก้แล้ว รอผลรอบ 10 ยืนยัน</td></tr>
+      <tr><td><b>ตัวอย่างคำตอบ</b></td><td>ตัวอย่างต้องใช้คำศัพท์ของบท และไม่เอาคำที่ AI ฟังผิดมาใส่ในตัวอย่าง</td><td>รอบ 10 ยังเจอตัวอย่างที่ไม่ใช้คำของบท เช่น โจทย์ Fat ได้ตัวอย่าง She goes to the park แก้แล้ว</td></tr>
       <tr><td><b>ชื่อคนในคำแปล</b></td><td>ชื่อตัวละคร เช่น Toby หรือ Leah ใช้ภาษาอังกฤษตามเดิม ไม่ถอดเป็นไทย</td><td>ข้อ Toby และ Leah ที่เคยแจ้ง หายแล้ว</td></tr>
       <tr><td><b>คำที่ความหมายเหมือนกัน</b></td><td>ยอมรับคำที่ความหมายเดียวกัน เช่น ตอบ large แทน big</td><td>ทีมทดสอบ 1 คนยังเห็นต่าง รอตัดสินใจ</td></tr>
     </table>
   </div>
-  <span class="pg">10</span>
+  <span class="pg">11</span>
 </section>
 
 <section class="slide g-cobalt">
@@ -314,49 +332,52 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
       <tr><td>ตัวอย่างคำตอบที่ซ้ำกัน เช่น I am a doctor กับ I'm a doctor</td><td class="r"><span class="was">27</span></td><td class="r"><span class="now">0</span></td></tr>
     </table>
   </div>
-  <p class="note">นอกจากนี้ ปัญหาที่ทีมทดสอบแจ้งไว้ 73 ข้อ พอลองใหม่ในรอบ 9 หายไปแล้ว 52 ข้อ</p>
-  <span class="pg">11</span>
-</section>
-
-<section class="slide g-white">
-  <div class="head"><h2>ปัญหาที่ทีมแจ้งไว้ 73 ข้อ ลองใหม่แล้วหายไป 52 ข้อ</h2></div>
-  <div class="cols c21">
-    <div class="obj">
-      <div class="hb"><label>หายแล้ว</label><div class="tr"><i style="width:calc(52 / 73 * 100%)"></i></div><b>52</b></div>
-      <div class="hb"><label>คำแปลไทยยังไม่ดี</label><div class="tr"><i style="width:calc(9 / 73 * 100%)"></i></div><b>9</b></div>
-      <div class="hb"><label>AI ยังฟังผิด</label><div class="tr"><i style="width:calc(6 / 73 * 100%)"></i></div><b>6</b></div>
-      <div class="hb"><label>รอตัดสินใจเรื่องเกณฑ์</label><div class="tr"><i style="width:calc(4 / 73 * 100%)"></i></div><b>4</b></div>
-      <div class="hb"><label>ต้องแก้ข้อความโจทย์</label><div class="tr"><i style="width:calc(1 / 73 * 100%)"></i></div><b>1</b></div>
-      <div class="hb"><label>เจอปัญหาใหม่</label><div class="tr"><i style="width:calc(1 / 73 * 100%)"></i></div><b>1</b></div>
-    </div>
-    <div class="obj" style="display:flex;flex-direction:column;gap:16px">
-      <h3>รอบ 9 โดยรวม</h3>
-      <table>
-        <tr><td>AI ตรวจถูก</td><td class="r"><b class="num" style="font-size:42px">100/108 ข้อ</b></td></tr>
-        <tr><td>คิดเป็น</td><td class="r"><b class="num" style="font-size:42px">92.6%</b></td></tr>
-        <tr><td>ความพอใจเฉลี่ย</td><td class="r"><b class="num" style="font-size:42px">4.78 / 5</b></td></tr>
-      </table>
-      <p style="font-size:25px;line-height:1.55">แต่ละคนลองข้อที่ตัวเองเคยแจ้งปัญหาไว้ แล้วลองข้ออื่นเพิ่ม เพื่อดูว่าที่แก้ไม่ทำให้ข้ออื่นผิด</p>
-    </div>
-  </div>
-  <p class="note">เรื่องที่ยังเหลือ เช่น short ของคนแปลว่า สั้น แทน เตี้ย และ hotdog แปลว่า ไส้กรอก แก้แล้ว รอผลรอบ 10 ยืนยัน</p>
+  <p class="note">นอกจากนี้ ปัญหาที่ทีมทดสอบแจ้งไว้ทั้งหมด 98 ข้อ แก้แล้ว 77 ข้อ ทีมลองซ้ำแล้วยืนยันว่าหาย 63 ข้อ อีก 14 ข้อรอยืนยันในรอบ 11</p>
   <span class="pg">12</span>
 </section>
 
 <section class="slide g-white">
-  <div class="head"><h2>ยังไม่พร้อมใช้กับนักเรียนจริง เหลืออีก 5 เรื่อง</h2></div>
+  <div class="head"><h2>ปัญหาที่ทีมแจ้งไว้ทั้งหมด 98 ข้อ แก้แล้ว 77 ข้อ</h2></div>
+  <div class="cols c21">
+    <div class="obj">
+      <div class="hb"><label>ทีมยืนยันว่าหายแล้ว</label><div class="tr"><i style="width:calc(63 / 98 * 100%)"></i></div><b>63</b></div>
+      <div class="hb"><label>แก้แล้ว รอทีมยืนยัน</label><div class="tr"><i style="width:calc(14 / 98 * 100%)"></i></div><b>14</b></div>
+      <div class="hb"><label>คำแปลและตัวอย่าง</label><div class="tr"><i style="width:calc(7 / 98 * 100%)"></i></div><b>7</b></div>
+      <div class="hb"><label>AI ยังฟังผิด</label><div class="tr"><i style="width:calc(5 / 98 * 100%)"></i></div><b>5</b></div>
+      <div class="hb"><label>รอตัดสินใจเกณฑ์</label><div class="tr"><i style="width:calc(5 / 98 * 100%)"></i></div><b>5</b></div>
+      <div class="hb"><label>ข้อความโจทย์ในระบบ</label><div class="tr"><i style="width:calc(3 / 98 * 100%)"></i></div><b>3</b></div>
+    </div>
+    <div class="obj" style="display:flex;flex-direction:column;gap:16px">
+      <h3>รอบ 10 โดยรวม</h3>
+      <table>
+        <tr><td>AI ตรวจถูก</td><td class="r"><b class="num" style="font-size:42px">99/108 ข้อ</b></td></tr>
+        <tr><td>คิดเป็น</td><td class="r"><b class="num" style="font-size:42px">91.7%</b></td></tr>
+        <tr><td>เฉพาะข้อใหม่</td><td class="r"><b class="num" style="font-size:42px">80/83 ข้อ</b></td></tr>
+        <tr><td>ความพอใจเฉลี่ย</td><td class="r"><b class="num" style="font-size:42px">4.77 / 5</b></td></tr>
+      </table>
+      <p style="font-size:25px;line-height:1.55">แต่ละคนลองข้อที่ตัวเองเคยแจ้งปัญหาไว้ และข้อที่ไม่เคยทดสอบมาก่อน เพื่อดูว่าที่แก้ไม่ทำให้ข้ออื่นผิด</p>
+    </div>
+  </div>
+  <p class="note">ที่แก้ในรอบนี้ เช่น oval เคยแปลว่า รูปไข่ ตอนนี้แปลว่า วงรี รอทีมยืนยันในรอบ 11 และอีก 1 ข้อยังไม่ได้ลองซ้ำ</p>
+  <span class="pg">13</span>
+</section>
+
+<section class="slide g-white">
+  <div class="head"><h2>ยังไม่พร้อมใช้กับนักเรียนจริง เหลืออีก 7 เรื่อง</h2></div>
   <div class="obj fill">
     <table>
       <tr><th style="width:360px">เรื่อง</th><th>ตอนนี้เป็นอย่างไร</th><th style="width:150px">ความสำคัญ</th></tr>
-      <tr><td><b>AI ฟังชื่อคนและคำสั้นผิด</b></td><td>ยังเจออยู่ 6 ข้อ เช่น เด็กพูดว่า Leah likes soda แต่ AI ได้ยินเป็น Liya Life Soda</td><td><span class="stk hi">สูง</span></td></tr>
+      <tr><td><b>AI ฟังคำสั้นและชื่อคนผิด</b></td><td>ยังเจอ 5 ข้อ เช่น เด็กพูดว่า I will plant flowers แต่ AI ได้ยินเป็น paint</td><td><span class="stk hi">สูง</span></td></tr>
+      <tr><td><b>คะแนนแกว่ง</b></td><td>ส่งคำตอบเดิมซ้ำ บางครั้งได้คะแนนต่างกันมาก เช่น 92 กับ 53 เกิดกับคำตอบที่ก้ำกึ่ง ต้องทำให้ได้ผลเดิมทุกครั้ง</td><td><span class="stk hi">สูง</span></td></tr>
       <tr><td><b>ยังไม่ได้ย้ายไปใช้จริง</b></td><td>ที่แก้ทั้งหมดอยู่บนเครื่องทดสอบ นักเรียนยังใช้เครื่อง 80GB รุ่นเดิม</td><td><span class="stk hi">สูง</span></td></tr>
-      <tr><td><b>คำแปลไทยบางคำ</b></td><td>ยังเจอ 9 ข้อ แก้แล้ว รอผลรอบ 10 ยืนยัน</td><td><span class="stk mid">กลาง</span></td></tr>
+      <tr><td><b>เกณฑ์ที่ต้องตัดสินใจ</b></td><td>5 ข้อ เช่น โจทย์รูปให้ตอบ big แต่นักเรียนตอบ large ซึ่งความหมายเดียวกัน ควรให้ผ่านหรือไม่</td><td><span class="stk mid">กลาง</span></td></tr>
       <tr><td><b>เครื่องรับนักเรียนได้กี่คน</b></td><td>วิธีฟังเสียงแบบใหม่ทำให้รับนักเรียนพร้อมกันได้น้อยลง 6 ถึง 20% ต้องวัดใหม่</td><td><span class="stk mid">กลาง</span></td></tr>
-      <tr><td><b>โจทย์ที่ต้องดูรูป</b></td><td>AI มองไม่เห็นรูป ถ้าโจทย์เขียนไว้แค่คำเดียว เช่น Tie อาจเข้าใจผิดว่าเป็นคำว่า ผูก</td><td><span class="stk lo">ต่ำ</span></td></tr>
+      <tr><td><b>คำแปลและตัวอย่างคำตอบ</b></td><td>ยังเหลือ 7 ข้อ เช่น โจทย์เรื่องตักบาตร แต่ตัวอย่างคำตอบไม่พูดถึงพระ</td><td><span class="stk mid">กลาง</span></td></tr>
+      <tr><td><b>ข้อความโจทย์ในระบบ</b></td><td>3 ข้อ เช่น รูปเป็นหมอก (foggy) แต่ข้อความที่ AI ได้รับเขียนว่าลมแรง (windy)</td><td><span class="stk lo">ต่ำ</span></td></tr>
     </table>
   </div>
   <p class="note">ข้ออ่านออกเสียง I hate cats ที่ได้ 61 คะแนน ไม่ใช่ AI ผิด เพราะเมื่อฟังโดยไม่รู้โจทย์ AI ได้ยินเป็น I had cast คะแนนจึงสะท้อนการออกเสียงจริงของเด็ก</p>
-  <span class="pg">13</span>
+  <span class="pg">14</span>
 </section>
 
 <section class="slide g-white">
@@ -389,20 +410,20 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
       <p class="note">ยอดวันที่ 12–13 พ.ย. ยังไม่ขึ้นในบิล และยังรอใบเสนอราคาค่าเช่าระยะยาวของเครื่อง 40GB</p>
     </div>
   </div>
-  <span class="pg">14</span>
+  <span class="pg">15</span>
 </section>
 
 <section class="slide g-white">
   <div class="head"><h2>ขอทดสอบต่ออีกอย่างน้อย 2 รอบ ก่อนย้ายนักเรียนมาใช้เครื่องใหม่</h2></div>
   <div class="steps">
-    <div class="step"><span class="num">1</span><h3>ตอนนี้</h3><p>แก้ปัญหาที่เจอในรอบ 9 แล้ว และกำลังทดสอบรอบ 10</p><span class="gate">ข้อที่เคยตรวจถูก ต้องไม่กลับมาผิด</span></div>
+    <div class="step"><span class="num">1</span><h3>ตอนนี้</h3><p>แก้ปัญหาที่เจอในรอบ 10 แล้ว รอทีมทดสอบยืนยันในรอบ 11</p><span class="gate">ข้อที่เคยตรวจถูก ต้องไม่กลับมาผิด</span></div>
     <div class="step"><span class="num">2</span><h3>สัปดาห์หน้า</h3><p>ทดสอบเพิ่ม เน้นข้อที่มีชื่อคนและคำสั้น</p><span class="gate">AI ตรวจถูก 95% ขึ้นไป 2 รอบติดกัน</span></div>
     <div class="step"><span class="num">3</span><h3>ก่อนย้าย</h3><p>วัดใหม่ว่าเครื่องรับนักเรียนพร้อมกันได้กี่คน</p><span class="gate">นักเรียนรอผลไม่เกิน 15 วินาที</span></div>
     <div class="step"><span class="num">4</span><h3>ทีมเนื้อหา</h3><p>แก้ข้อความโจทย์ที่ AI ต้องเห็นรูปถึงจะเข้าใจ</p><span class="gate">แก้ครบทุกข้อที่แจ้งไว้</span></div>
     <div class="step"><span class="num">5</span><h3>ย้ายระบบ</h3><p>ย้ายนักเรียนมาใช้เครื่อง 40GB</p><span class="gate">หัวหน้าอนุมัติ</span></div>
   </div>
   <p class="ask">ค่าทดสอบเพิ่มราว 32 ดอลลาร์ต่อวัน ใช้เครดิตฟรีของ Google และทีมทดสอบ 4 คนเดิม</p>
-  <span class="pg">15</span>
+  <span class="pg">16</span>
 </section>
 
 </main>

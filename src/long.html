@@ -8,7 +8,7 @@
   </div>
   <div class="c-r">
     <div><span class="num">{{FIRST_PCT}}% → 98%</span><span>AI ตรวจคำตอบถูกมากขึ้น ตั้งแต่เริ่มทดสอบจนถึงรอบ 8</span></div>
-    <div><span class="num">{{RC_FIXED}} จาก {{RC_ITEMS}}</span><span>ปัญหาที่ทีมทดสอบแจ้งไว้ แก้หายแล้ว</span></div>
+    <div><span class="num">{{RC_FIXED}} จาก {{RC_ITEMS}}</span><span>ปัญหาที่ทีมทดสอบแจ้งไว้ แก้แล้ว</span></div>
     <div><span class="num">{{LAST_MEAN}} / 5</span><span>คะแนนความพอใจจากทีมทดสอบในรอบล่าสุด</span></div>
   </div>
 </section>
@@ -19,8 +19,8 @@
     <dl class="sum">
       <dt>ทำอะไร</dt><dd>ทดสอบว่า AI ที่ตรวจคำตอบภาษาอังกฤษของนักเรียน ถ้าย้ายไปเครื่องที่เล็กลงครึ่งหนึ่ง (40GB) จะยังตรวจได้ดีเหมือนเครื่องเดิม (80GB) หรือไม่ ทีมทดสอบ 4 คนลองตอบโจทย์จริงทั้ง {{TOTAL_N}} ครั้ง</dd>
       <dt>ผล</dt><dd>เครื่อง 40GB ตรวจได้ไม่แพ้เครื่องเดิม และหลังแก้ปัญหาที่เจอ AI ตรวจถูกเพิ่มจาก {{FIRST_PCT}}% เป็น 98%</dd>
-      <dt>แก้แล้ว</dt><dd>ปัญหาที่ทีมทดสอบแจ้งไว้ {{RC_ITEMS}} ข้อ ลองใหม่แล้วหายไป {{RC_FIXED}} ข้อ ที่เหลือส่วนใหญ่เป็นเรื่อง AI ฟังเสียงผิดกับคำแปลไทย</dd>
-      <dt>ยังขาด</dt><dd>AI ยังฟังชื่อคนและคำสั้นผิด ที่แก้ทั้งหมดยังไม่ได้ย้ายไปใช้กับนักเรียน และต้องวัดใหม่ว่าเครื่องรับนักเรียนพร้อมกันได้กี่คน</dd>
+      <dt>แก้แล้ว</dt><dd>ปัญหาที่ทีมทดสอบแจ้งไว้ทั้งหมด {{RC_ITEMS}} ข้อ แก้แล้ว {{RC_FIXED}} ข้อ ที่เหลือส่วนใหญ่เป็นคำแปลไทย AI ฟังเสียงผิด และเกณฑ์ที่ต้องตัดสินใจ</dd>
+      <dt>ยังขาด</dt><dd>AI ยังฟังชื่อคนและคำสั้นผิด คะแนนของคำตอบที่ก้ำกึ่งยังแกว่ง ที่แก้ทั้งหมดยังไม่ได้ย้ายไปใช้กับนักเรียน และต้องวัดใหม่ว่าเครื่องรับนักเรียนพร้อมกันได้กี่คน</dd>
       <dt>ขอ</dt><dd>ทดสอบต่ออีกอย่างน้อย 2 รอบ ราว 32 ดอลลาร์ต่อวันจากเครดิตฟรีของ Google แล้วค่อยย้ายนักเรียนมาใช้เครื่องใหม่</dd>
     </dl>
   </div>
@@ -33,7 +33,25 @@
     <p class="sub">ทีมทดสอบ 4 คนลองตอบโจทย์จริงในแอป แล้วดูว่า AI ให้คะแนนถูกหรือไม่ กราฟคือร้อยละของข้อที่ AI ตรวจถูก ทดสอบแต่ละครั้งนับเป็น 1 รอบ หลังแต่ละรอบเราแก้ปัญหาที่เจอแล้วทดสอบใหม่</p>
   </div>
   <div class="obj fill">{{CHART}}</div>
-  <p class="note">รอบ 9 ได้ {{LAST_PCT}}% เพราะตั้งใจเลือกเฉพาะข้อที่ AI เคยตรวจผิดมาลองใหม่ ไม่ได้แปลว่า AI แย่ลง ส่วนรอบ {{NEXT_ROUND}} กำลังทดสอบอยู่</p>
+  <p class="note">รอบ 9 และ 10 ได้ราว 92% เพราะตั้งใจเลือกข้อที่ AI เคยตรวจผิดมาลองใหม่ ไม่ได้แปลว่า AI แย่ลง ส่วนข้อที่ไม่เคยทดสอบมาก่อนในรอบ 10 AI ตรวจถูก {{FRESH_AGREE}} จาก {{FRESH_N}} ข้อ ({{FRESH_PCT}}%)</p>
+  <span class="pg">{{PG}}</span>
+</section>
+
+<section class="slide g-white">
+  <div class="head">
+    <h2>“AI ตรวจถูก” หมายความว่าอะไร</h2>
+    <p class="sub">ทีมทดสอบตอบโจทย์แบบนักเรียน แล้วตัดสินเองว่าคำตอบนั้นควรผ่านหรือไม่ ถ้า AI ให้ผลตรงกับที่ทีมตัดสิน นับว่า AI ตรวจถูก ตัวอย่างข้างล่างมาจากการทดสอบจริง คะแนนเต็ม 100 ผ่านที่ 70</p>
+  </div>
+  <div class="obj fill">
+    <table>
+      <tr><th style="width:340px">ปัญหาที่เจอ</th><th>โจทย์ และคำตอบของนักเรียน</th><th class="r" style="width:250px">ก่อนแก้</th><th class="r" style="width:250px">ตอนนี้</th></tr>
+      <tr><td><b>ตอบถูก แต่ AI ให้ตก</b></td><td>ดูรูปแล้วบอกว่าเขากำลังทำอะไร<br><span class="en">He is crossing the road at the crosswalk.</span></td><td class="r"><span class="was">0</span></td><td class="r"><span class="now">98</span></td></tr>
+      <tr><td><b>ตอบถูก แต่ AI ให้ตก</b></td><td>Leah ชอบกินหอมหัวใหญ่ชุบแป้งทอด เรียกว่าอะไร<br><span class="en">Leah likes onion rings.</span></td><td class="r"><span class="was">23</span></td><td class="r"><span class="now">98</span></td></tr>
+      <tr><td><b>ตอบไม่ตรงคำถาม แต่ AI ให้ผ่าน</b></td><td>ผู้ชายในรูปรู้สึกอย่างไร (โกรธ)<br><span class="en">He should take a deep breath.</span> ไม่ได้บอกความรู้สึก</td><td class="r"><span class="was">93</span></td><td class="r"><span class="now">51</span></td></tr>
+      <tr><td><b>คำแปลไทยผิด</b></td><td>ตัวอย่างคำตอบที่ AI ให้นักเรียนดู<br><span class="en">It is the toilet.</span></td><td class="r"><span class="was" style="font-size:34px">นี่คือห้องน้ำ</span></td><td class="r"><span class="now" style="font-size:34px">นั่นคือชักโครก</span></td></tr>
+    </table>
+  </div>
+  <p class="note">ข้อแรกและข้อสุดท้ายเจอในรอบ 10 และแก้แล้ว ส่วนข้อกลางเจอในรอบ 6 และ 7 ตอนนี้ AI ให้คะแนนตามที่ทีมทดสอบตัดสิน</p>
   <span class="pg">{{PG}}</span>
 </section>
 
@@ -148,7 +166,7 @@
       <tr><th style="width:360px">เรื่อง</th><th>ปรับอย่างไร</th><th style="width:460px">ผลเมื่อลองใหม่</th></tr>
       <tr><td><b>โจทย์ถามความรู้สึก</b></td><td>คำตอบต้องบอกความรู้สึก เช่น He feels hurt. ถ้าบอกแค่ว่าเขาควรทำอะไร จะไม่ผ่าน</td><td>13 ข้อที่เคยแจ้ง หายหมด</td></tr>
       <tr><td><b>ความหมายถูก ไวยากรณ์ผิด</b></td><td>ให้ผ่านตามความหมาย แล้วไปหักคะแนนไวยากรณ์แทน</td><td>You are doing the yoga จาก 48 เป็น 84 คะแนน</td></tr>
-      <tr><td><b>ตัวอย่างคำตอบ</b></td><td>ตัวอย่างต้องใช้คำศัพท์ของบท และไม่เอาคำที่ AI ฟังผิดมาใส่ในตัวอย่าง</td><td>แก้แล้ว รอผลรอบ {{NEXT_ROUND}} ยืนยัน</td></tr>
+      <tr><td><b>ตัวอย่างคำตอบ</b></td><td>ตัวอย่างต้องใช้คำศัพท์ของบท และไม่เอาคำที่ AI ฟังผิดมาใส่ในตัวอย่าง</td><td>รอบ 10 ยังเจอตัวอย่างที่ไม่ใช้คำของบท เช่น โจทย์ Fat ได้ตัวอย่าง She goes to the park แก้แล้ว</td></tr>
       <tr><td><b>ชื่อคนในคำแปล</b></td><td>ชื่อตัวละคร เช่น Toby หรือ Leah ใช้ภาษาอังกฤษตามเดิม ไม่ถอดเป็นไทย</td><td>ข้อ Toby และ Leah ที่เคยแจ้ง หายแล้ว</td></tr>
       <tr><td><b>คำที่ความหมายเหมือนกัน</b></td><td>ยอมรับคำที่ความหมายเดียวกัน เช่น ตอบ large แทน big</td><td>ทีมทดสอบ 1 คนยังเห็นต่าง รอตัดสินใจ</td></tr>
     </table>
@@ -168,45 +186,48 @@
       <tr><td>ตัวอย่างคำตอบที่ซ้ำกัน เช่น I am a doctor กับ I'm a doctor</td><td class="r"><span class="was">27</span></td><td class="r"><span class="now">0</span></td></tr>
     </table>
   </div>
-  <p class="note">นอกจากนี้ ปัญหาที่ทีมทดสอบแจ้งไว้ {{RC_ITEMS}} ข้อ พอลองใหม่ในรอบ 9 หายไปแล้ว {{RC_FIXED}} ข้อ</p>
+  <p class="note">นอกจากนี้ ปัญหาที่ทีมทดสอบแจ้งไว้ทั้งหมด {{RC_ITEMS}} ข้อ แก้แล้ว {{RC_FIXED}} ข้อ ทีมลองซ้ำแล้วยืนยันว่าหาย {{RC_CONFIRMED}} ข้อ อีก {{RC_PENDING}} ข้อรอยืนยันในรอบ {{NEXT_ROUND}}</p>
   <span class="pg">{{PG}}</span>
 </section>
 
 <section class="slide g-white">
-  <div class="head"><h2>ปัญหาที่ทีมแจ้งไว้ {{RC_ITEMS}} ข้อ ลองใหม่แล้วหายไป {{RC_FIXED}} ข้อ</h2></div>
+  <div class="head"><h2>ปัญหาที่ทีมแจ้งไว้ทั้งหมด {{RC_ITEMS}} ข้อ แก้แล้ว {{RC_FIXED}} ข้อ</h2></div>
   <div class="cols c21">
     <div class="obj">
-      <div class="hb"><label>หายแล้ว</label><div class="tr"><i style="width:calc({{RC_FIXED}} / {{RC_ITEMS}} * 100%)"></i></div><b>{{RC_FIXED}}</b></div>
-      <div class="hb"><label>คำแปลไทยยังไม่ดี</label><div class="tr"><i style="width:calc({{RC_WRONG}} / {{RC_ITEMS}} * 100%)"></i></div><b>{{RC_WRONG}}</b></div>
+      <div class="hb"><label>ทีมยืนยันว่าหายแล้ว</label><div class="tr"><i style="width:calc({{RC_CONFIRMED}} / {{RC_ITEMS}} * 100%)"></i></div><b>{{RC_CONFIRMED}}</b></div>
+      <div class="hb"><label>แก้แล้ว รอทีมยืนยัน</label><div class="tr"><i style="width:calc({{RC_PENDING}} / {{RC_ITEMS}} * 100%)"></i></div><b>{{RC_PENDING}}</b></div>
+      <div class="hb"><label>คำแปลและตัวอย่าง</label><div class="tr"><i style="width:calc({{RC_WRONG}} / {{RC_ITEMS}} * 100%)"></i></div><b>{{RC_WRONG}}</b></div>
       <div class="hb"><label>AI ยังฟังผิด</label><div class="tr"><i style="width:calc({{RC_ASR}} / {{RC_ITEMS}} * 100%)"></i></div><b>{{RC_ASR}}</b></div>
-      <div class="hb"><label>รอตัดสินใจเรื่องเกณฑ์</label><div class="tr"><i style="width:calc({{RC_POLICY}} / {{RC_ITEMS}} * 100%)"></i></div><b>{{RC_POLICY}}</b></div>
-      <div class="hb"><label>ต้องแก้ข้อความโจทย์</label><div class="tr"><i style="width:calc({{RC_CONTENT}} / {{RC_ITEMS}} * 100%)"></i></div><b>{{RC_CONTENT}}</b></div>
-      <div class="hb"><label>เจอปัญหาใหม่</label><div class="tr"><i style="width:calc({{RC_NEW}} / {{RC_ITEMS}} * 100%)"></i></div><b>{{RC_NEW}}</b></div>
+      <div class="hb"><label>รอตัดสินใจเกณฑ์</label><div class="tr"><i style="width:calc({{RC_POLICY}} / {{RC_ITEMS}} * 100%)"></i></div><b>{{RC_POLICY}}</b></div>
+      <div class="hb"><label>ข้อความโจทย์ในระบบ</label><div class="tr"><i style="width:calc({{RC_CONTENT}} / {{RC_ITEMS}} * 100%)"></i></div><b>{{RC_CONTENT}}</b></div>
     </div>
     <div class="obj" style="display:flex;flex-direction:column;gap:16px">
-      <h3>รอบ 9 โดยรวม</h3>
+      <h3>รอบ {{LAST_ROUND}} โดยรวม</h3>
       <table>
         <tr><td>AI ตรวจถูก</td><td class="r"><b class="num" style="font-size:42px">{{LAST_AGREE}}/{{LAST_N}} ข้อ</b></td></tr>
         <tr><td>คิดเป็น</td><td class="r"><b class="num" style="font-size:42px">{{LAST_PCT}}%</b></td></tr>
+        <tr><td>เฉพาะข้อใหม่</td><td class="r"><b class="num" style="font-size:42px">{{FRESH_AGREE}}/{{FRESH_N}} ข้อ</b></td></tr>
         <tr><td>ความพอใจเฉลี่ย</td><td class="r"><b class="num" style="font-size:42px">{{LAST_MEAN}} / 5</b></td></tr>
       </table>
-      <p style="font-size:25px;line-height:1.55">แต่ละคนลองข้อที่ตัวเองเคยแจ้งปัญหาไว้ แล้วลองข้ออื่นเพิ่ม เพื่อดูว่าที่แก้ไม่ทำให้ข้ออื่นผิด</p>
+      <p style="font-size:25px;line-height:1.55">แต่ละคนลองข้อที่ตัวเองเคยแจ้งปัญหาไว้ และข้อที่ไม่เคยทดสอบมาก่อน เพื่อดูว่าที่แก้ไม่ทำให้ข้ออื่นผิด</p>
     </div>
   </div>
-  <p class="note">เรื่องที่ยังเหลือ เช่น short ของคนแปลว่า สั้น แทน เตี้ย และ hotdog แปลว่า ไส้กรอก แก้แล้ว รอผลรอบ {{NEXT_ROUND}} ยืนยัน</p>
+  <p class="note">ที่แก้ในรอบนี้ เช่น oval เคยแปลว่า รูปไข่ ตอนนี้แปลว่า วงรี รอทีมยืนยันในรอบ {{NEXT_ROUND}} และอีก {{RC_NEW}} ข้อยังไม่ได้ลองซ้ำ</p>
   <span class="pg">{{PG}}</span>
 </section>
 
 <section class="slide g-white">
-  <div class="head"><h2>ยังไม่พร้อมใช้กับนักเรียนจริง เหลืออีก 5 เรื่อง</h2></div>
+  <div class="head"><h2>ยังไม่พร้อมใช้กับนักเรียนจริง เหลืออีก 7 เรื่อง</h2></div>
   <div class="obj fill">
     <table>
       <tr><th style="width:360px">เรื่อง</th><th>ตอนนี้เป็นอย่างไร</th><th style="width:150px">ความสำคัญ</th></tr>
-      <tr><td><b>AI ฟังชื่อคนและคำสั้นผิด</b></td><td>ยังเจออยู่ {{RC_ASR}} ข้อ เช่น เด็กพูดว่า Leah likes soda แต่ AI ได้ยินเป็น Liya Life Soda</td><td><span class="stk hi">สูง</span></td></tr>
+      <tr><td><b>AI ฟังคำสั้นและชื่อคนผิด</b></td><td>ยังเจอ {{RC_ASR}} ข้อ เช่น เด็กพูดว่า I will plant flowers แต่ AI ได้ยินเป็น paint</td><td><span class="stk hi">สูง</span></td></tr>
+      <tr><td><b>คะแนนแกว่ง</b></td><td>ส่งคำตอบเดิมซ้ำ บางครั้งได้คะแนนต่างกันมาก เช่น 92 กับ 53 เกิดกับคำตอบที่ก้ำกึ่ง ต้องทำให้ได้ผลเดิมทุกครั้ง</td><td><span class="stk hi">สูง</span></td></tr>
       <tr><td><b>ยังไม่ได้ย้ายไปใช้จริง</b></td><td>ที่แก้ทั้งหมดอยู่บนเครื่องทดสอบ นักเรียนยังใช้เครื่อง 80GB รุ่นเดิม</td><td><span class="stk hi">สูง</span></td></tr>
-      <tr><td><b>คำแปลไทยบางคำ</b></td><td>ยังเจอ {{RC_WRONG}} ข้อ แก้แล้ว รอผลรอบ {{NEXT_ROUND}} ยืนยัน</td><td><span class="stk mid">กลาง</span></td></tr>
+      <tr><td><b>เกณฑ์ที่ต้องตัดสินใจ</b></td><td>{{RC_POLICY}} ข้อ เช่น โจทย์รูปให้ตอบ big แต่นักเรียนตอบ large ซึ่งความหมายเดียวกัน ควรให้ผ่านหรือไม่</td><td><span class="stk mid">กลาง</span></td></tr>
       <tr><td><b>เครื่องรับนักเรียนได้กี่คน</b></td><td>วิธีฟังเสียงแบบใหม่ทำให้รับนักเรียนพร้อมกันได้น้อยลง 6 ถึง 20% ต้องวัดใหม่</td><td><span class="stk mid">กลาง</span></td></tr>
-      <tr><td><b>โจทย์ที่ต้องดูรูป</b></td><td>AI มองไม่เห็นรูป ถ้าโจทย์เขียนไว้แค่คำเดียว เช่น Tie อาจเข้าใจผิดว่าเป็นคำว่า ผูก</td><td><span class="stk lo">ต่ำ</span></td></tr>
+      <tr><td><b>คำแปลและตัวอย่างคำตอบ</b></td><td>ยังเหลือ {{RC_WRONG}} ข้อ เช่น โจทย์เรื่องตักบาตร แต่ตัวอย่างคำตอบไม่พูดถึงพระ</td><td><span class="stk mid">กลาง</span></td></tr>
+      <tr><td><b>ข้อความโจทย์ในระบบ</b></td><td>{{RC_CONTENT}} ข้อ เช่น รูปเป็นหมอก (foggy) แต่ข้อความที่ AI ได้รับเขียนว่าลมแรง (windy)</td><td><span class="stk lo">ต่ำ</span></td></tr>
     </table>
   </div>
   <p class="note">ข้ออ่านออกเสียง I hate cats ที่ได้ 61 คะแนน ไม่ใช่ AI ผิด เพราะเมื่อฟังโดยไม่รู้โจทย์ AI ได้ยินเป็น I had cast คะแนนจึงสะท้อนการออกเสียงจริงของเด็ก</p>
@@ -249,7 +270,7 @@
 <section class="slide g-white">
   <div class="head"><h2>ขอทดสอบต่ออีกอย่างน้อย 2 รอบ ก่อนย้ายนักเรียนมาใช้เครื่องใหม่</h2></div>
   <div class="steps">
-    <div class="step"><span class="num">1</span><h3>ตอนนี้</h3><p>แก้ปัญหาที่เจอในรอบ 9 แล้ว และกำลังทดสอบรอบ {{NEXT_ROUND}}</p><span class="gate">ข้อที่เคยตรวจถูก ต้องไม่กลับมาผิด</span></div>
+    <div class="step"><span class="num">1</span><h3>ตอนนี้</h3><p>แก้ปัญหาที่เจอในรอบ 10 แล้ว รอทีมทดสอบยืนยันในรอบ {{NEXT_ROUND}}</p><span class="gate">ข้อที่เคยตรวจถูก ต้องไม่กลับมาผิด</span></div>
     <div class="step"><span class="num">2</span><h3>สัปดาห์หน้า</h3><p>ทดสอบเพิ่ม เน้นข้อที่มีชื่อคนและคำสั้น</p><span class="gate">AI ตรวจถูก 95% ขึ้นไป 2 รอบติดกัน</span></div>
     <div class="step"><span class="num">3</span><h3>ก่อนย้าย</h3><p>วัดใหม่ว่าเครื่องรับนักเรียนพร้อมกันได้กี่คน</p><span class="gate">นักเรียนรอผลไม่เกิน 15 วินาที</span></div>
     <div class="step"><span class="num">4</span><h3>ทีมเนื้อหา</h3><p>แก้ข้อความโจทย์ที่ AI ต้องเห็นรูปถึงจะเข้าใจ</p><span class="gate">แก้ครบทุกข้อที่แจ้งไว้</span></div>

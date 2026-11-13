@@ -84,13 +84,22 @@ def ratings_rows():
     return "".join(out)
 
 
-rc = last.get("recheck") or {}
+# cumulative problem tally (data["problems"]) when present; else the latest round's recheck block
+pb = data.get("problems")
+rc = ({"items": pb["reported"], "fixed": pb["fixed"], "stillWrong": pb["thai"], "asr": pb["asr"],
+       "policy": pb["policy"], "content": pb["content"], "new": pb.get("notRechecked", 0)}
+      if pb else (last.get("recheck") or {}))
+pending = [r for r in rounds if not r.get("n")]
+fresh = last.get("fresh") or {}
 TOKENS = {
     "{{CHART}}": chart(),
     "{{ROUND_ROWS}}": round_rows(),
     "{{DETAIL_A}}": detail_rows(1, 5),
     "{{DETAIL_B}}": detail_rows(6, 99),
-    "{{NEXT_ROUND}}": str(max(r["round"] for r in rounds)),
+    "{{NEXT_ROUND}}": str(pending[0]["round"] if pending else last["round"] + 1),
+    "{{RC_CONFIRMED}}": str((pb or {}).get("confirmed", "-")), "{{RC_PENDING}}": str((pb or {}).get("pending", "-")),
+    "{{FRESH_AGREE}}": str(fresh.get("agree", "-")), "{{FRESH_N}}": str(fresh.get("n", "-")),
+    "{{FRESH_PCT}}": fmt1(100.0 * fresh["agree"] / fresh["n"]) if fresh.get("n") else "-",
     "{{RATINGS_ROWS}}": ratings_rows(),
     "{{TOTAL_N}}": f'{sum(r["n"] for r in done):,}',
     "{{N_ROUNDS}}": str(len(done)),
@@ -105,7 +114,7 @@ TOKENS = {
     "{{RC_POLICY}}": str(rc.get("policy", "-")), "{{RC_CONTENT}}": str(rc.get("content", "-")), "{{RC_NEW}}": str(rc.get("new", "-")),
 }
 
-EXTRA_CSS = ""
+EXTRA_CSS = "span.en{font-family:var(--display);font-style:italic;font-size:1.05em}"
 
 
 def build(src, out, title, other_href, other_label):

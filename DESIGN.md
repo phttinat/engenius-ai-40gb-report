@@ -10,4 +10,4 @@ Weekly AI test update for a manager, set like a business-magazine issue. Chosen 
 - **Status:** a word with a small dot (red สูง, amber กลาง, grey ต่ำ). Before numbers are struck through in red, after numbers are red.
 - **Chart:** graphite bars on a 0–100 scale with hairline gridlines, the latest round red, a round still being tested hatched and dashed.
 - **Language:** semi-formal Thai, short sentences, no kicker labels.
-- **Data flow:** `data/rounds.json` → `python src/build.py` → `index.html` (7 slides) and `full.html` (15 slides).
+- **Data flow:** `data/rounds.json` → `python src/build.py` → `index.html` (8 slides) and `full.html` (16 slides).
