@@ -27,19 +27,19 @@ def chart(w=1640, h=640):
     y = lambda v: top + (h - top - pad_b) * (1 - v / 100)
     o = [f'<svg class="rchart" viewBox="0 0 {w} {h}" width="100%" role="img" aria-label="ร้อยละที่ทีมทดสอบเห็นด้วยกับผลของ AI รายรอบ">'
          '<defs><pattern id="hatch" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">'
-         '<rect width="22" height="22" fill="#FFF0B3"/><rect width="8" height="22" fill="#141414" opacity=".35"/></pattern></defs>']
+         '<rect width="22" height="22" fill="#F3F3F1"/><rect width="4" height="22" fill="#121212" opacity=".25"/></pattern></defs>']
     for g in (0, 25, 50, 75, 100):
-        o.append(f'<line x1="{pad_l}" x2="{w}" y1="{y(g):.1f}" y2="{y(g):.1f}" stroke="#141414" stroke-width="{4 if g == 0 else 1.5}" stroke-dasharray="{"0" if g == 0 else "3 9"}"/>'
+        o.append(f'<line x1="{pad_l}" x2="{w}" y1="{y(g):.1f}" y2="{y(g):.1f}" stroke="{"#121212" if g == 0 else "#DCDCDC"}" stroke-width="{2 if g == 0 else 1}"/>'
                  f'<text x="{pad_l - 14}" y="{y(g) + 8:.1f}" text-anchor="end" class="ax">{g}</text>')
     for i, r in enumerate(rounds):
         x = pad_l + i * slot + (slot - bw) / 2; cx = x + bw / 2
         if r.get("n"):
-            v = pct(r); col = "#FF4F9A" if r is last else "#3FDDB4"
-            o.append(f'<rect x="{x:.1f}" y="{y(v):.1f}" width="{bw:.1f}" height="{y(0) - y(v):.1f}" rx="10" fill="{col}" stroke="#141414" stroke-width="4"/>'
+            v = pct(r); col = "#D0021B" if r is last else "#2B2B2B"
+            o.append(f'<rect x="{x:.1f}" y="{y(v):.1f}" width="{bw:.1f}" height="{y(0) - y(v):.1f}" fill="{col}"/>'
                      f'<text x="{cx:.1f}" y="{y(v) - 14:.1f}" text-anchor="middle" class="val">{fmt1(v)}</text>')
             sub = f'{r["agree"]:,}/{r["n"]:,}'
         else:
-            o.append(f'<rect x="{x:.1f}" y="{y(100):.1f}" width="{bw:.1f}" height="{y(0) - y(100):.1f}" rx="10" fill="url(#hatch)" stroke="#141414" stroke-width="4" stroke-dasharray="14 10"/>'
+            o.append(f'<rect x="{x:.1f}" y="{y(100):.1f}" width="{bw:.1f}" height="{y(0) - y(100):.1f}" fill="url(#hatch)" stroke="#7A7A7A" stroke-width="2" stroke-dasharray="10 8"/>'
                      f'<text x="{cx:.1f}" y="{y(55):.1f}" text-anchor="middle" class="wait">กำลัง</text><text x="{cx:.1f}" y="{y(55) + 32:.1f}" text-anchor="middle" class="wait">ทดสอบ</text>')
             sub = "&#160;"
         o.append(f'<text x="{cx:.1f}" y="{h - 44}" text-anchor="middle" class="rn">รอบ {r["round"]}</text>'

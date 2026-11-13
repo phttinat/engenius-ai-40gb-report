@@ -7,150 +7,139 @@
 <title>Engenius AI · ผลการทดสอบบนเครื่อง 40GB (ฉบับเต็ม)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&family=Kanit:wght@500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&family=Trirong:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#141414;--ink2:#2E2E2E;--white:#FFFFFF;
-  --pink:#FF4F9A;--pinkL:#FFC6DE;--mint:#3FDDB4;--mintL:#BFF4E5;--yellow:#FFD23F;--yellowL:#FFF0B3;
-  --cobalt:#2E44E6;--cobaltL:#C9CFFF;--coral:#FF6A3D;
-  --line:4px solid var(--ink);
-  --display:'Kanit','Anuphan',sans-serif;--body:'Anuphan','Kanit',sans-serif;
+  --ink:#121212;--ink2:#4A4A4A;--ink3:#7A7A7A;--paper:#FFFFFF;--soft:#F3F3F1;--rule:#DCDCDC;
+  --red:#D0021B;--redL:#FBE3E6;
+  --display:'Trirong','Noto Sans Thai',serif;--body:'Noto Sans Thai',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
-body{background:var(--ink);color:var(--ink);font-family:var(--body);overflow:hidden}
-::selection{background:var(--yellow);color:var(--ink)}
-:focus-visible{outline:4px solid var(--yellow);outline-offset:3px}
+body{background:#1C1C1C;color:var(--ink);font-family:var(--body);overflow:hidden}
+::selection{background:var(--red);color:#fff}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
 
-/* ---------- stage ---------- */
 .stage{position:fixed;inset:0 0 56px 0;display:flex;align-items:center;justify-content:center}
-.slide{position:absolute;width:1920px;height:1080px;transform-origin:center center;display:none;overflow:hidden;
-  padding:70px 96px 64px;-webkit-user-select:text;user-select:text;cursor:text;isolation:isolate}
+.slide{position:absolute;width:1920px;height:1080px;transform-origin:center center;display:none;overflow:hidden;background:var(--paper);
+  padding:124px 120px 76px;-webkit-user-select:text;user-select:text;cursor:text}
 .slide.on{display:flex;flex-direction:column}
+/* running head: the magazine folio on every page */
+.slide::before{content:"Engenius AI  ·  ผลทดสอบเครื่อง 40GB";position:absolute;left:120px;right:120px;top:46px;padding-bottom:16px;border-bottom:1px solid var(--rule);
+  font:500 21px var(--body);letter-spacing:.02em;color:var(--ink3)}
+/* inverse spreads give the issue its rhythm */
+.g-cobalt{background:var(--ink);color:#fff}.g-cobalt::before{color:#9A9A9A;border-color:#3A3A3A}
+.g-pink,.g-mint,.g-yellow,.g-white{background:var(--paper)}
+.shp{display:none}
 
-/* grounds: each slide owns one laminate colour */
-.g-pink{background:var(--pink)}.g-mint{background:var(--mint)}.g-yellow{background:var(--yellow)}
-.g-cobalt{background:var(--cobalt);color:var(--white)}.g-white{background:var(--white)}
-/* textures: terrazzo speckle, squiggle laminate, dot grid, stripe */
-.tx-terrazzo::before,.tx-dots::before,.tx-squig::before,.tx-stripe::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
-.tx-terrazzo::before{opacity:.55;background-image:
-  radial-gradient(circle at 12% 18%,var(--ink) 0 5px,transparent 6px),radial-gradient(circle at 63% 9%,var(--yellow) 0 9px,transparent 10px),
-  radial-gradient(circle at 81% 54%,var(--ink) 0 4px,transparent 5px),radial-gradient(circle at 35% 72%,var(--mint) 0 8px,transparent 9px),
-  radial-gradient(circle at 92% 88%,var(--cobalt) 0 6px,transparent 7px),radial-gradient(circle at 22% 46%,var(--white) 0 7px,transparent 8px),
-  radial-gradient(circle at 54% 38%,var(--ink) 0 3px,transparent 4px),radial-gradient(circle at 7% 91%,var(--pinkL) 0 10px,transparent 11px);
-  background-size:260px 260px}
-.tx-dots::before{opacity:.22;background-image:radial-gradient(circle,var(--ink) 0 3.5px,transparent 4px);background-size:34px 34px}
-.tx-squig::before{opacity:.16;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60'%3E%3Cpath d='M0 30 Q15 5 30 30 T60 30 T90 30 T120 30' fill='none' stroke='%23141414' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E");background-size:120px 60px}
-.tx-stripe::before{opacity:.16;background-image:repeating-linear-gradient(-45deg,var(--ink) 0 6px,transparent 6px 26px)}
-
-/* decorative shapes in the slide margins */
-.shp{position:absolute;z-index:-1;pointer-events:none}
-.shp.circle{border-radius:50%;border:var(--line)}
-.shp.tri{clip-path:polygon(50% 0,100% 100%,0 100%)}
-.shp.half{border-radius:999px 999px 0 0;border:var(--line);border-bottom:none}
-.shp.squig{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60'%3E%3Cpath d='M0 30 Q15 5 30 30 T60 30 T90 30 T120 30' fill='none' stroke='%23141414' stroke-width='9' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x;background-size:120px 60px;height:60px}
-.shp.grid{background-image:radial-gradient(circle,var(--ink) 0 5px,transparent 6px);background-size:30px 30px}
-.f-pink{background-color:var(--pink)}.f-mint{background-color:var(--mint)}.f-yellow{background-color:var(--yellow)}.f-cobalt{background-color:var(--cobalt)}.f-white{background-color:var(--white)}.f-coral{background-color:var(--coral)}.f-ink{background-color:var(--ink)}
-
-/* ---------- type ---------- */
 h1,h2,h3,.num{font-family:var(--display)}
-h1{font-size:104px;font-weight:800;line-height:1.08;letter-spacing:-.01em}
-h2{font-size:66px;font-weight:800;line-height:1.14;max-width:1500px;text-wrap:balance}
-h3{font-size:36px;font-weight:700;line-height:1.25}
-.sub{font-size:32px;line-height:1.5;font-weight:500;max-width:1380px;margin-top:14px}
-.g-cobalt .sub{color:#E6E9FF}
+h1{font-size:118px;font-weight:700;line-height:1.1;letter-spacing:-.01em}
+h2{font-size:62px;font-weight:700;line-height:1.2;max-width:1480px;text-wrap:balance}
+h3{font-family:var(--body);font-size:30px;font-weight:700;line-height:1.3}
+.sub{font-size:30px;line-height:1.55;color:var(--ink2);max-width:1300px;margin-top:18px}
+.g-cobalt .sub,.g-cobalt .note{color:#BDBDBD}
 p,li,td,th,dd,dt,span{font-variant-numeric:tabular-nums}
-.head{margin-bottom:34px}
+.head{margin-bottom:40px;position:relative}
+.head::after{content:"";display:block;width:120px;height:6px;background:var(--red);margin-top:26px}
 
-/* laminate panel: a white object sitting on a layered colour block */
-.obj{position:relative;background:var(--white);border:var(--line);border-radius:22px;padding:34px 40px;color:var(--ink)}
-.obj::after{content:"";position:absolute;z-index:-1;inset:0;border:var(--line);border-radius:22px;transform:translate(16px,16px);background:var(--back,var(--ink))}
-.obj.b-pink{--back:var(--pink)}.obj.b-mint{--back:var(--mint)}.obj.b-yellow{--back:var(--yellow)}.obj.b-cobalt{--back:var(--cobalt)}.obj.b-coral{--back:var(--coral)}
+/* content areas: no boxes, the page is the surface */
+.obj{position:relative;color:inherit}
 .fill{flex:1;min-height:0;display:flex;flex-direction:column}
-.cols{display:grid;gap:56px;flex:1;min-height:0}.c2{grid-template-columns:1fr 1fr}.c3{grid-template-columns:repeat(3,1fr)}.c21{grid-template-columns:1.35fr 1fr}
+.cols{display:grid;gap:90px;flex:1;min-height:0}.c2{grid-template-columns:1fr 1fr}.c21{grid-template-columns:1.35fr 1fr}
+.c2>.obj+.obj,.c21>.obj+.obj{border-left:1px solid var(--rule);padding-left:60px;margin-left:-30px}
+.g-cobalt .c2>.obj+.obj{border-color:#3A3A3A}
 
-/* stickers carry status as a word and a shape */
-.stk{display:inline-flex;align-items:center;gap:10px;font:700 26px/1 var(--display);padding:12px 22px;border:var(--line);border-radius:999px;white-space:nowrap;background:var(--white)}
-.stk.hi{background:var(--coral)}.stk.mid{background:var(--yellow)}.stk.lo{background:var(--mint)}.stk.ok{background:var(--mint)}
-.note{font-size:26px;line-height:1.5;margin-top:auto;padding-top:18px;font-weight:500}
-.g-cobalt .note{color:#E6E9FF}.g-cobalt .obj .note,.g-cobalt .obj p{color:var(--ink)}
+.stk{display:inline-flex;align-items:center;gap:12px;font:700 25px/1 var(--body);white-space:nowrap}
+.stk::before{content:"";width:16px;height:16px;border-radius:50%;background:var(--ink3)}
+.stk.hi{color:var(--red)}.stk.hi::before{background:var(--red)}.stk.mid{color:#A55F00}.stk.mid::before{background:#E08A00}.stk.lo::before,.stk.ok::before{background:#9A9A9A}
+.note{font-size:24px;line-height:1.55;margin-top:auto;padding-top:20px;color:var(--ink2)}
 
-/* tables in the laminate */
 table{width:100%;border-collapse:collapse}
-th{font:700 24px/1.3 var(--display);text-align:left;padding:10px 14px;border-bottom:var(--line)}
-td{font-size:31px;line-height:1.42;padding:20px 16px;border-bottom:2px solid #DADADA;vertical-align:middle}
+th{font:700 21px/1.3 var(--body);letter-spacing:.03em;text-align:left;padding:12px 14px;border-bottom:2px solid var(--ink);color:var(--ink2)}
+.g-cobalt th{color:#BDBDBD;border-color:#fff}
+td{font-size:30px;line-height:1.45;padding:20px 14px;border-bottom:1px solid var(--rule);vertical-align:middle}
+.g-cobalt td{border-color:#3A3A3A}
 tr:last-child td{border-bottom:none}
 .r{text-align:right;white-space:nowrap}
-td.n{font:800 54px/1 var(--display)}
-td .small{display:block;font-size:22px;color:var(--ink2);margin-top:4px}
-tr.mark td{background:var(--yellowL)}
-.was{color:#C41E5B;font:800 46px/1 var(--display)}.now{color:#0B8A69;font:800 46px/1 var(--display)}
-td.thw{color:#B3124E}td.thn{color:#0B6E55;font-weight:600}td.en{font-family:var(--display);font-weight:500}
+td.n{font:700 56px/1 var(--display);color:var(--red)}
+td .small{display:block;font:500 21px var(--body);color:var(--ink3);margin-top:6px}
+tr.mark td{background:var(--redL)}
+.was{color:var(--ink3);font:700 46px/1 var(--display);text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:4px}
+.now{color:var(--red);font:700 52px/1 var(--display)}
+.g-cobalt .was{color:#9A9A9A}.g-cobalt .now{color:#FF4D5E}
+td.thw{color:var(--ink3);text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:2px}td.thn{font-weight:700}td.en{font-family:var(--display);font-style:italic}
 
-/* cover */
+/* cover: an issue cover with the numbers set as a contents column */
 .cover{padding:0;flex-direction:row!important}
-.cover .c-l{flex:1.35;padding:84px 90px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
-.cover .c-r{flex:1;display:grid;grid-template-rows:1.25fr 1fr 1fr;border-left:var(--line)}
-.cover .c-r>div{border-bottom:var(--line);padding:28px 48px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
-.cover .c-r>div:last-child{border-bottom:none}
-.cover .c-r .num{font-size:120px;font-weight:800;line-height:1;margin:0;max-width:none}.cover .c-r span{font-size:30px;font-weight:600;line-height:1.35;margin-top:8px;max-width:520px}
-.logo{background:var(--white);border:var(--line);border-radius:18px;padding:12px 18px;align-self:flex-start}.logo img{height:64px;display:block}
-.cover .meta{font:700 32px/1.3 var(--display)}
-.pg{position:absolute;right:52px;bottom:40px;width:74px;height:74px;border-radius:50%;border:var(--line);background:var(--white);display:grid;place-items:center;font:800 32px var(--display);color:var(--ink)}
+.cover::before{left:110px;right:110px}
+.cover .c-l{flex:1.45;padding:150px 110px 90px;display:flex;flex-direction:column;justify-content:space-between}
+.cover .c-r{flex:1;display:flex;flex-direction:column;justify-content:center;padding:150px 110px 90px 0}
+.cover .c-r>div{border-top:2px solid var(--ink);padding:26px 0 32px;display:flex;flex-direction:column;background:none!important;color:var(--ink)!important}
+.cover .c-r .num{font-size:116px;font-weight:700;line-height:1;color:var(--ink)}
+.cover .c-r>div:first-child .num{color:var(--red)}
+.cover .c-r span:not(.num){font-size:28px;line-height:1.45;margin-top:10px;color:var(--ink2);max-width:560px}
+.logo{align-self:flex-start}.logo img{height:70px;display:block}
+.cover .meta{font:500 30px/1.5 var(--body);color:var(--ink2);border-top:6px solid var(--red);padding-top:24px;max-width:900px;margin-top:40px!important}
+.pg{position:absolute;right:120px;top:46px;font:600 21px var(--body);color:var(--ink3)}
+.g-cobalt .pg{color:#9A9A9A}
 
-/* big pair (40GB vs 80GB) */
-.pair{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;flex:1}
-.disc{aspect-ratio:1;border-radius:50%;border:var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;max-height:560px;margin:auto;padding:40px;position:relative}
-.disc .num{font-size:170px;font-weight:800;line-height:.95}.disc b{font:700 40px var(--display)}.disc span{font-size:28px;font-weight:600;max-width:380px}
+/* 40GB vs 80GB: two figures set like a comparison spread */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;flex:1}
+.disc{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:0 60px 10px 0;background:none!important;border-top:2px solid var(--ink)}
+.disc+.disc{padding-left:60px;border-left:1px solid var(--rule)}
+.disc .num{font-size:220px!important;font-weight:700;line-height:1;margin-top:20px}
+.disc.f-mint .num{color:var(--red)}
+.disc b{font:700 36px var(--body);margin-top:6px}.disc span{font-size:28px;color:var(--ink2)}
 
-/* steps */
-.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:26px;flex:1;align-items:stretch}
-.step{border:var(--line);border-radius:22px;background:var(--white);padding:28px 26px;display:flex;flex-direction:column;gap:14px;position:relative}
-.step .num{font-size:96px;font-weight:800;line-height:.9}
-.step h3{font-size:40px}.step p{font-size:30px;line-height:1.5}.step .gate{margin-top:auto;font:700 27px/1.4 var(--display);border-top:3px solid var(--ink);padding-top:14px}
-.ask{margin-top:30px;border:var(--line);border-radius:999px;background:var(--yellow);padding:22px 40px;font:700 34px/1.35 var(--display);align-self:flex-start}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;flex:1}
+.step{border-top:2px solid var(--ink);padding:26px 30px 10px 0;display:flex;flex-direction:column;gap:16px;background:none}
+.step+.step{padding-left:30px;border-left:1px solid var(--rule)}
+.step .num{font-size:96px;font-weight:700;line-height:.9;color:var(--red)!important}
+.step h3{font-size:36px}.step p{font-size:28px;line-height:1.5;color:var(--ink2)}
+.step .gate{margin-top:auto;font:700 25px/1.45 var(--body);border-top:1px solid var(--rule);padding-top:16px}
+.ask{margin-top:36px;font:700 34px/1.4 var(--display);color:var(--red);border-left:6px solid var(--red);padding-left:28px}
 
-/* bars (hb) */
-.hb{display:grid;grid-template-columns:1fr 560px 80px;gap:22px;align-items:center;padding:14px 0}
-.hb label{font-size:30px;font-weight:600}.hb .tr{height:38px;border:var(--line);border-radius:999px;background:var(--white);overflow:hidden}.hb i{display:block;height:100%;border-right:var(--line)}
-.hb b{font:800 40px var(--display);text-align:right}
+.hb{display:grid;grid-template-columns:1fr 520px 90px;gap:24px;align-items:center;padding:16px 0;border-bottom:1px solid var(--rule)}
+.hb:last-child{border-bottom:none}
+.hb label{font-size:29px;font-weight:600}.hb .tr{height:22px;background:var(--soft)}.hb i{display:block;height:100%;background:var(--ink)!important}
+.hb:first-child i{background:var(--red)!important}
+.hb b{font:700 44px var(--display);text-align:right}
 
-/* stacked memory bar */
-.stack{display:flex;height:96px;border:var(--line);border-radius:20px;overflow:hidden;margin:18px 0 12px}
-.stack>div{display:flex;align-items:center;padding:0 18px;font:700 26px var(--display);border-right:var(--line);white-space:nowrap}.stack>div:last-child{border-right:none}
-.legend{display:flex;flex-wrap:wrap;gap:12px 28px;font-size:25px;font-weight:600}.legend i{display:inline-block;width:26px;height:26px;border:3px solid var(--ink);border-radius:6px;vertical-align:-5px;margin-right:8px}
+.stack{display:flex;height:72px;margin:22px 0 14px}
+.stack>div{display:flex;align-items:center;padding:0 18px;font:700 26px var(--body);white-space:nowrap}
+.stack .f-cobalt{background:var(--ink)!important;color:#fff}.stack .f-pink{background:var(--red)!important}.stack .f-white{background:var(--soft)!important}
+.legend{display:flex;flex-wrap:wrap;gap:12px 30px;font-size:24px;color:var(--ink2)}.legend i{display:inline-block;width:22px;height:22px;vertical-align:-4px;margin-right:8px}
+.legend .f-cobalt{background:var(--ink)}.legend .f-pink{background:var(--red)}.legend .f-white{background:var(--soft);outline:1px solid var(--rule)}
 
-/* round chart */
-.rchart .ax{font:500 24px var(--display);fill:var(--ink)}.rchart .val{font:800 40px var(--display);fill:var(--ink)}
-.rchart .rn{font:700 28px var(--display);fill:var(--ink)}.rchart .sub2{font:500 22px var(--body);fill:var(--ink)}.rchart .wait{font:700 26px var(--display);fill:var(--ink)}
+.rchart .ax{font:500 22px var(--body);fill:#7A7A7A}.rchart .val{font:700 40px var(--display);fill:#121212}
+.rchart .rn{font:700 26px var(--body);fill:#121212}.rchart .sub2{font:500 21px var(--body);fill:#7A7A7A}.rchart .wait{font:600 24px var(--body);fill:#7A7A7A}
 
-/* summary list */
-.sum{display:grid;grid-template-columns:240px 1fr;border-top:var(--line)}
-.sum dt{font:800 34px var(--display);padding:22px 0;border-bottom:2px solid #DADADA}.sum dd{font-size:29px;line-height:1.5;padding:22px 0;border-bottom:2px solid #DADADA}
+.sum{display:grid;grid-template-columns:260px 1fr;border-top:2px solid var(--ink)}
+.sum dt{font:700 36px var(--display);padding:24px 0;border-bottom:1px solid var(--rule);color:var(--red)}.sum dd{font-size:29px;line-height:1.55;padding:24px 0;border-bottom:1px solid var(--rule)}
 .sum dt:last-of-type,.sum dd:last-of-type{border-bottom:none}
 
-/* ---------- nav ---------- */
-.nav{position:fixed;left:0;right:0;bottom:0;height:56px;display:flex;align-items:center;justify-content:center;gap:10px;background:var(--ink);z-index:5}
-.nav button,.nav a{font:600 16px var(--body);color:var(--white);background:transparent;border:2px solid rgba(255,255,255,.55);border-radius:999px;padding:6px 18px;cursor:pointer;text-decoration:none}
-.nav button:hover,.nav a:hover{background:rgba(255,255,255,.14)}.nav a.main{background:var(--pink);border-color:var(--pink);color:var(--ink)}
-.nav .pgn{color:#DDD;font:600 16px var(--body);padding:0 6px}
+.nav{position:fixed;left:0;right:0;bottom:0;height:56px;display:flex;align-items:center;justify-content:center;gap:10px;background:#1C1C1C;z-index:5}
+.nav button,.nav a{font:600 16px var(--body);color:#fff;background:transparent;border:1px solid rgba(255,255,255,.45);border-radius:4px;padding:6px 18px;cursor:pointer;text-decoration:none}
+.nav button:hover,.nav a:hover{background:rgba(255,255,255,.12)}.nav a.main{background:var(--red);border-color:var(--red)}
+.nav .pgn{color:#CFCFCF;font:600 16px var(--body);padding:0 6px}
 body.scroll{overflow:auto}body.scroll .stage{position:static;display:block;padding:12px 0 76px}
 body.scroll .slide{display:flex;flex-direction:column;position:relative;transform-origin:top left}body.scroll .slide.cover{flex-direction:row}
-body.scroll .wrap{overflow:hidden;margin:0 auto 14px;border-radius:10px}
+body.scroll .wrap{overflow:hidden;margin:0 auto 14px}
 @media print{@page{size:1920px 1080px;margin:0}html,body{background:#fff;overflow:visible;height:auto}.nav{display:none}.stage{position:static;display:block}
   .slide{display:flex!important;position:relative;transform:none!important;break-after:page;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 .obj.fill>table{height:100%}
 .obj.fill .sum{height:100%;align-content:space-between}
 
+
 </style>
 </head>
 <body>
 <!--
-THESIS: A weekly AI test update as a Memphis showroom, every slide one laminate object on its own colour, refusing the grey decision-pack rails the reader found dull.
-OWN-WORLD: Pink, mint, yellow and cobalt laminate grounds with terrazzo, squiggle, dot and stripe textures; white objects with 4px ink outlines sitting on offset colour blocks; Kanit display, Anuphan body.
+THESIS: A weekly AI test update set like a business magazine issue: white pages, very large figures, one Engenius red, refusing coloured boxes and candy grounds.
+OWN-WORLD: White paper with a running folio and hairline rules; Trirong serif for headlines and figures, Noto Sans Thai for reading; Engenius red as the only accent; black inverse spreads for rhythm.
 STORY: The reader sees agreement climb, sees 40GB match 80GB, sees what is fixed and what is not, then agrees to more testing.
-FIRST VIEWPORT: Pink terrazzo field with the title and logo on the left; three stacked colour objects on the right carrying agreement, fixed issues and the rating.
-FORM: Memphis Milano showroom morning (challenger chosen by the user), seed f2cde1e4.
+FIRST VIEWPORT: Issue cover: logo, a large serif title and red-ruled dateline on the left; a contents column of three figures separated by black rules on the right.
+FORM: Clean editorial magazine (re-roll chosen by the user after Memphis), seed f2cde1e4.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
 -->
 <main class="stage" id="stage">
@@ -193,7 +182,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
     <h2>ทีมทดสอบเห็นด้วยกับ AI จาก 84% ในรอบแรก ขึ้นไปสูงสุด 99%</h2>
     <p class="sub">รอบหลัง ๆ เลือกข้อที่เคยมีปัญหามาทดสอบซ้ำ ตัวเลขจึงขึ้นลงตามความยากของข้อ ส่วนรอบ 10 กำลังทดสอบอยู่</p>
   </div>
-  <div class="obj b-pink fill"><svg class="rchart" viewBox="0 0 1640 640" width="100%" role="img" aria-label="ร้อยละที่ทีมทดสอบเห็นด้วยกับผลของ AI รายรอบ"><defs><pattern id="hatch" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="22" height="22" fill="#FFF0B3"/><rect width="8" height="22" fill="#141414" opacity=".35"/></pattern></defs><line x1="70" x2="1640" y1="554.0" y2="554.0" stroke="#141414" stroke-width="4" stroke-dasharray="0"/><text x="56" y="562.0" text-anchor="end" class="ax">0</text><line x1="70" x2="1640" y1="429.5" y2="429.5" stroke="#141414" stroke-width="1.5" stroke-dasharray="3 9"/><text x="56" y="437.5" text-anchor="end" class="ax">25</text><line x1="70" x2="1640" y1="305.0" y2="305.0" stroke="#141414" stroke-width="1.5" stroke-dasharray="3 9"/><text x="56" y="313.0" text-anchor="end" class="ax">50</text><line x1="70" x2="1640" y1="180.5" y2="180.5" stroke="#141414" stroke-width="1.5" stroke-dasharray="3 9"/><text x="56" y="188.5" text-anchor="end" class="ax">75</text><line x1="70" x2="1640" y1="56.0" y2="56.0" stroke="#141414" stroke-width="1.5" stroke-dasharray="3 9"/><text x="56" y="64.0" text-anchor="end" class="ax">100</text><rect x="101.4" y="136.3" width="94.2" height="417.7" rx="10" fill="#3FDDB4" stroke="#141414" stroke-width="4"/><text x="148.5" y="122.3" text-anchor="middle" class="val">83.9</text><text x="148.5" y="596" text-anchor="middle" class="rn">รอบ 1</text><text x="148.5" y="628" text-anchor="middle" class="sub2">572/682</text><rect x="258.4" y="93.8" width="94.2" height="460.2" rx="10" fill="#3FDDB4" stroke="#141414" stroke-width="4"/><text x="305.5" y="79.8" text-anchor="middle" class="val">92.4</text><text x="305.5" y="596" text-anchor="middle" class="rn">รอบ 2</text><text x="305.5" y="628" text-anchor="middle" class="sub2">231/250</text><rect x="415.4" y="127.1" width="94.2" height="426.9" rx="10" fill="#3FDDB4" stroke="#141414" stroke-width="4"/><text x="462.5" y="113.1" text-anchor="middle" class="val">85.7</text><text x="462.5" y="596" text-anchor="middle" class="rn">รอบ 3</text><text x="462.5" y="628" text-anchor="middle" class="sub2">54/63</text><rect x="572.4" y="99.3" width="94.2" height="454.7" rx="10" fill="#3FDDB4" stroke="#141414" stroke-width="4"/><text x="619.5" y="85.3" text-anchor="middle" class="val">91.3</text><text x="619.5" y="596" text-anchor="middle" class="rn">รอบ 4</text><text x="619.5" y="628" text-anchor="middle" class="sub2">63/69</text><rect x="729.4" y="61.5" width="94.2" height="492.5" rx="10" fill="#3FDDB4" stroke="#141414" stroke-width="4"/><text x="776.5" y="47.5" text-anchor="middle" class="val">98.9</text><text x="776.5" y="596" text-anchor="middle" class="rn">รอบ 5</text><text x="776.5" y="628" text-anchor="middle" class="sub2">89/90</text><rect x="886.4" y="80.9" width="94.2" height="473.1" rx="10" fill="#3FDDB4" stroke="#141414" stroke-width="4"/><text x="933.5" y="66.9" text-anchor="middle" class="val">95</text><text x="933.5" y="596" text-anchor="middle" class="rn">รอบ 6</text><text x="933.5" y="628" text-anchor="middle" class="sub2">114/120</text><rect x="1043.4" y="101.3" width="94.2" height="452.7" rx="10" fill="#3FDDB4" stroke="#141414" stroke-width="4"/><text x="1090.5" y="87.3" text-anchor="middle" class="val">90.9</text><text x="1090.5" y="596" text-anchor="middle" class="rn">รอบ 7</text><text x="1090.5" y="628" text-anchor="middle" class="sub2">70/77</text><rect x="1200.4" y="66.4" width="94.2" height="487.6" rx="10" fill="#3FDDB4" stroke="#141414" stroke-width="4"/><text x="1247.5" y="52.4" text-anchor="middle" class="val">97.9</text><text x="1247.5" y="596" text-anchor="middle" class="rn">รอบ 8</text><text x="1247.5" y="628" text-anchor="middle" class="sub2">94/96</text><rect x="1357.4" y="92.9" width="94.2" height="461.1" rx="10" fill="#FF4F9A" stroke="#141414" stroke-width="4"/><text x="1404.5" y="78.9" text-anchor="middle" class="val">92.6</text><text x="1404.5" y="596" text-anchor="middle" class="rn">รอบ 9</text><text x="1404.5" y="628" text-anchor="middle" class="sub2">100/108</text><rect x="1514.4" y="56.0" width="94.2" height="498.0" rx="10" fill="url(#hatch)" stroke="#141414" stroke-width="4" stroke-dasharray="14 10"/><text x="1561.5" y="280.1" text-anchor="middle" class="wait">กำลัง</text><text x="1561.5" y="312.1" text-anchor="middle" class="wait">ทดสอบ</text><text x="1561.5" y="596" text-anchor="middle" class="rn">รอบ 10</text><text x="1561.5" y="628" text-anchor="middle" class="sub2">&#160;</text></svg></div>
+  <div class="obj b-pink fill"><svg class="rchart" viewBox="0 0 1640 640" width="100%" role="img" aria-label="ร้อยละที่ทีมทดสอบเห็นด้วยกับผลของ AI รายรอบ"><defs><pattern id="hatch" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="22" height="22" fill="#F3F3F1"/><rect width="4" height="22" fill="#121212" opacity=".25"/></pattern></defs><line x1="70" x2="1640" y1="554.0" y2="554.0" stroke="#121212" stroke-width="2"/><text x="56" y="562.0" text-anchor="end" class="ax">0</text><line x1="70" x2="1640" y1="429.5" y2="429.5" stroke="#DCDCDC" stroke-width="1"/><text x="56" y="437.5" text-anchor="end" class="ax">25</text><line x1="70" x2="1640" y1="305.0" y2="305.0" stroke="#DCDCDC" stroke-width="1"/><text x="56" y="313.0" text-anchor="end" class="ax">50</text><line x1="70" x2="1640" y1="180.5" y2="180.5" stroke="#DCDCDC" stroke-width="1"/><text x="56" y="188.5" text-anchor="end" class="ax">75</text><line x1="70" x2="1640" y1="56.0" y2="56.0" stroke="#DCDCDC" stroke-width="1"/><text x="56" y="64.0" text-anchor="end" class="ax">100</text><rect x="101.4" y="136.3" width="94.2" height="417.7" fill="#2B2B2B"/><text x="148.5" y="122.3" text-anchor="middle" class="val">83.9</text><text x="148.5" y="596" text-anchor="middle" class="rn">รอบ 1</text><text x="148.5" y="628" text-anchor="middle" class="sub2">572/682</text><rect x="258.4" y="93.8" width="94.2" height="460.2" fill="#2B2B2B"/><text x="305.5" y="79.8" text-anchor="middle" class="val">92.4</text><text x="305.5" y="596" text-anchor="middle" class="rn">รอบ 2</text><text x="305.5" y="628" text-anchor="middle" class="sub2">231/250</text><rect x="415.4" y="127.1" width="94.2" height="426.9" fill="#2B2B2B"/><text x="462.5" y="113.1" text-anchor="middle" class="val">85.7</text><text x="462.5" y="596" text-anchor="middle" class="rn">รอบ 3</text><text x="462.5" y="628" text-anchor="middle" class="sub2">54/63</text><rect x="572.4" y="99.3" width="94.2" height="454.7" fill="#2B2B2B"/><text x="619.5" y="85.3" text-anchor="middle" class="val">91.3</text><text x="619.5" y="596" text-anchor="middle" class="rn">รอบ 4</text><text x="619.5" y="628" text-anchor="middle" class="sub2">63/69</text><rect x="729.4" y="61.5" width="94.2" height="492.5" fill="#2B2B2B"/><text x="776.5" y="47.5" text-anchor="middle" class="val">98.9</text><text x="776.5" y="596" text-anchor="middle" class="rn">รอบ 5</text><text x="776.5" y="628" text-anchor="middle" class="sub2">89/90</text><rect x="886.4" y="80.9" width="94.2" height="473.1" fill="#2B2B2B"/><text x="933.5" y="66.9" text-anchor="middle" class="val">95</text><text x="933.5" y="596" text-anchor="middle" class="rn">รอบ 6</text><text x="933.5" y="628" text-anchor="middle" class="sub2">114/120</text><rect x="1043.4" y="101.3" width="94.2" height="452.7" fill="#2B2B2B"/><text x="1090.5" y="87.3" text-anchor="middle" class="val">90.9</text><text x="1090.5" y="596" text-anchor="middle" class="rn">รอบ 7</text><text x="1090.5" y="628" text-anchor="middle" class="sub2">70/77</text><rect x="1200.4" y="66.4" width="94.2" height="487.6" fill="#2B2B2B"/><text x="1247.5" y="52.4" text-anchor="middle" class="val">97.9</text><text x="1247.5" y="596" text-anchor="middle" class="rn">รอบ 8</text><text x="1247.5" y="628" text-anchor="middle" class="sub2">94/96</text><rect x="1357.4" y="92.9" width="94.2" height="461.1" fill="#D0021B"/><text x="1404.5" y="78.9" text-anchor="middle" class="val">92.6</text><text x="1404.5" y="596" text-anchor="middle" class="rn">รอบ 9</text><text x="1404.5" y="628" text-anchor="middle" class="sub2">100/108</text><rect x="1514.4" y="56.0" width="94.2" height="498.0" fill="url(#hatch)" stroke="#7A7A7A" stroke-width="2" stroke-dasharray="10 8"/><text x="1561.5" y="280.1" text-anchor="middle" class="wait">กำลัง</text><text x="1561.5" y="312.1" text-anchor="middle" class="wait">ทดสอบ</text><text x="1561.5" y="596" text-anchor="middle" class="rn">รอบ 10</text><text x="1561.5" y="628" text-anchor="middle" class="sub2">&#160;</text></svg></div>
   <span class="pg">3</span>
 </section>
 

@@ -1,13 +1,13 @@
-# Design: Memphis showroom update
+# Design: clean editorial magazine
 
-Weekly AI test update for a manager. Chosen by Adam on 2026-11-13 after he rejected the grey decision-pack rails ("font ไม่สวย สีไม่สวย อ่านยาก น่าเบื่อ จำเจ").
+Weekly AI test update for a manager, set like a business-magazine issue. Chosen by Adam on 2026-11-13 after he rejected the grey decision-pack rails and then the Memphis candy palette ("ไม่ชอบสี").
 
-- **Grounds:** every slide owns one flat laminate colour: pink `#FF4F9A`, mint `#3FDDB4`, yellow `#FFD23F`, cobalt `#2E44E6`, white. Neighbouring slides never share a ground. No gradients.
-- **Textures:** terrazzo speckle, black squiggle, dot grid and diagonal stripe, drawn in CSS at low opacity behind content. Squiggle stays at 0.16 so text over it reads.
-- **Objects:** content sits on white panels with a 4px ink outline and 22px corners. Each panel rests on an offset colour block of another hue (the Memphis layered-shape move, not a drop shadow).
-- **Shapes:** circles, triangles, half-moons and squiggle lines in the slide margins only, never behind running text.
-- **Type:** Kanit 700/800 for headings and numerals, Anuphan 400–700 for body. Body 30–32px, headings 66px, cover title 104px.
-- **Status:** a word in a pill sticker (สูง coral, กลาง yellow, ต่ำ mint), never colour alone. Before/after numbers in deep pink and deep teal.
-- **Chart:** mint blocks with ink outline on a 0–100 scale, the latest round pink, a round still being tested shown hatched and dashed with "กำลังทดสอบ".
-- **Language:** semi-formal Thai, short sentences, no kicker labels above headings.
+- **Paper:** white pages (`#FFFFFF`), ink `#121212`, secondary text `#4A4A4A`/`#7A7A7A`, hairlines `#DCDCDC`, soft fill `#F3F3F1`. Two slides per deck turn inverse (ink ground, white type) for rhythm.
+- **One accent:** Engenius red `#D0021B` only: the latest figure, the headline rule, step numbers, "after" numbers, high-risk status. Nothing else is coloured.
+- **Type:** Trirong (serif) for headlines and every large figure, italic Trirong for English example sentences; Noto Sans Thai for body, tables and labels. Headlines 62px, cover 118px, body 28–30px, comparison figures 220px.
+- **Folio:** every page carries a running head ("Engenius AI · ผลทดสอบเครื่อง 40GB") with a hairline and the page number top right; each headline ends in a 120×6px red rule.
+- **No boxes:** content sits on the page; columns are split by hairlines and a 2px ink top rule, never cards, shadows or outlines.
+- **Status:** a word with a small dot (red สูง, amber กลาง, grey ต่ำ). Before numbers are struck through in red, after numbers are red.
+- **Chart:** graphite bars on a 0–100 scale with hairline gridlines, the latest round red, a round still being tested hatched and dashed.
+- **Language:** semi-formal Thai, short sentences, no kicker labels.
 - **Data flow:** `data/rounds.json` → `python src/build.py` → `index.html` (7 slides) and `full.html` (15 slides).
