@@ -171,6 +171,23 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 
 <section class="slide g-white">
   <div class="head">
+    <h2>AI ที่ใช้ตรวจคำตอบมี 3 ตัว ทำงานต่อกัน</h2>
+    <p class="sub">ทั้ง 3 ตัวรันบนเครื่องของเราเอง เสียงและคำตอบของนักเรียนไม่ได้ส่งไปบริการ AI ภายนอก และไม่มีค่าใช้งานคิดตามจำนวนครั้ง</p>
+  </div>
+  <div class="obj fill">
+    <table class="ex">
+      <tr><th style="width:330px">หน้าที่</th><th style="width:520px">โมเดล</th><th style="width:300px">ออกเมื่อ</th><th>ทำไมใช้ตัวนี้</th></tr>
+      <tr><td><b>ฟังเสียงเด็ก<br>แล้วถอดเป็นข้อความ</b></td><td><span class="en">Whisper small</span><br><span class="why">OpenAI · 244 ล้านพารามิเตอร์</span></td><td>ก.ย. 2565<br><span class="why">ราว 4 ปี</span></td><td>ลองรุ่นใหม่ large-v3-turbo แล้ว ฟังเสียงเด็กถูกน้อยกว่า (72 กับ 85 จาก 92 คลิป) และช้ากว่าราว 60%</td></tr>
+      <tr><td><b>ให้คะแนน<br>การออกเสียงทีละคำ</b></td><td><span class="en">wav2vec2</span><br><span class="why">Meta · ราว 300 ล้านพารามิเตอร์</span></td><td>ปี 2564<br><span class="why">ราว 5 ปี</span></td><td>เป็นแบบมาตรฐานของงานวัดการออกเสียง แยกเสียงได้ระดับหน่วยเสียง</td></tr>
+      <tr><td><b>ตรวจคำตอบ<br>และอธิบายเป็นไทย</b></td><td><span class="en">Typhoon 2.5</span><br><span class="why">SCB 10X (ไทย) สร้างต่อจาก Qwen3 ของ Alibaba · 30,000 ล้านพารามิเตอร์ ใช้จริงครั้งละ 3,000 ล้าน</span></td><td>ราว ต.ค. 2568<br><span class="why">ราว 1 ปี</span></td><td>เก่งภาษาไทย และยังเป็นรุ่นล่าสุดของ Typhoon สำหรับงานทั่วไป</td></tr>
+    </table>
+  </div>
+  <p class="note">เครื่อง 40GB ใช้โมเดลชุดเดียวกับเครื่อง 80GB ต่างกันแค่บีบ Typhoon จาก 60 GB เหลือราว 30 GB ให้ใส่การ์ดได้ ซึ่งไม่ทำให้ตรวจแย่ลง (558 กับ 543 จาก 636 ข้อ) นอกจากนี้ยังมีกฎและรายการคำศัพท์ที่ทีมเขียนเอง ไว้แก้คำแปลและเกณฑ์ตรวจ</p>
+  <span class="pg">3</span>
+</section>
+
+<section class="slide g-white">
+  <div class="head">
     <h2>“AI ตรวจถูก” หมายความว่าอะไร</h2>
     <p class="sub">ทีมทดสอบตัดสินเองว่าคำตอบควรผ่านไหม ถ้า AI ให้ผลตรงกัน นับว่าตรวจถูก (เต็ม 100 ผ่านที่ 70)</p>
   </div>
@@ -183,7 +200,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
       <tr><td><b>คำแปลไทยผิด</b></td><td>ตัวอย่างคำตอบที่ AI ให้นักเรียนดู<br><span class="en">It is the toilet.</span><br><span class="why">สาเหตุ: โจทย์ถามสิ่งที่นั่ง แต่ AI แปล toilet เป็นห้อง</span></td><td class="r"><span class="was" style="font-size:34px">นี่คือห้องน้ำ</span></td><td class="r"><span class="now" style="font-size:34px">นั่นคือชักโครก</span></td></tr>
     </table>
   </div>
-  <span class="pg">3</span>
+  <span class="pg">4</span>
 </section>
 
 <section class="slide g-white">
@@ -196,7 +213,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
     <div class="disc"><span class="num">543</span><b>เครื่อง 80GB ตรวจถูก</b><span>จาก 636 ข้อเดียวกัน</span></div>
   </div>
   <p class="note">เครื่อง 40GB มีหน่วยความจำของการ์ดประมวลผลแค่ครึ่งหนึ่งของเครื่องเดิม ค่าเช่าจึงถูกกว่า แต่ตรวจได้ไม่แย่กว่า ส่วนปัญหาที่เจอในรอบแรก อย่าง AI ฟังเสียงเด็กผิด ก็เกิดกับทั้งสองเครื่องเหมือนกัน</p>
-  <span class="pg">4</span>
+  <span class="pg">5</span>
 </section>
 
 <section class="slide g-cobalt">
@@ -214,7 +231,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
     </table>
   </div>
   <p class="note">นอกจากนี้ ปัญหาที่ทีมทดสอบแจ้งไว้ทั้งหมด 98 ข้อ แก้แล้ว 77 ข้อ ทีมลองซ้ำแล้วยืนยันว่าหาย 63 ข้อ อีก 14 ข้อรอยืนยันในรอบ 11</p>
-  <span class="pg">5</span>
+  <span class="pg">6</span>
 </section>
 
 <section class="slide g-white">
@@ -233,23 +250,6 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
       <tr><td><b>ข้อความโจทย์ในระบบ</b></td><td>3 ข้อ เช่น รูปเป็นหมอก (foggy) แต่ข้อความที่ AI ได้รับเขียนว่าลมแรง (windy)</td><td><span class="stk lo">ต่ำ</span></td></tr>
     </table>
   </div>
-  <span class="pg">6</span>
-</section>
-
-<section class="slide g-white">
-  <div class="head">
-    <h2>AI ที่ใช้ตรวจคำตอบมี 3 ตัว ทำงานต่อกัน</h2>
-    <p class="sub">ทั้ง 3 ตัวรันบนเครื่องของเราเอง เสียงและคำตอบของนักเรียนไม่ได้ส่งไปบริการ AI ภายนอก และไม่มีค่าใช้งานคิดตามจำนวนครั้ง</p>
-  </div>
-  <div class="obj fill">
-    <table class="ex">
-      <tr><th style="width:330px">หน้าที่</th><th style="width:520px">โมเดล</th><th style="width:300px">ออกเมื่อ</th><th>ทำไมใช้ตัวนี้</th></tr>
-      <tr><td><b>ฟังเสียงเด็ก<br>แล้วถอดเป็นข้อความ</b></td><td><span class="en">Whisper small</span><br><span class="why">OpenAI · 244 ล้านพารามิเตอร์</span></td><td>ก.ย. 2565<br><span class="why">ราว 4 ปี</span></td><td>ลองรุ่นใหม่ large-v3-turbo แล้ว ฟังเสียงเด็กถูกน้อยกว่า (72 กับ 85 จาก 92 คลิป) และช้ากว่าราว 60%</td></tr>
-      <tr><td><b>ให้คะแนน<br>การออกเสียงทีละคำ</b></td><td><span class="en">wav2vec2</span><br><span class="why">Meta · ราว 300 ล้านพารามิเตอร์</span></td><td>ปี 2564<br><span class="why">ราว 5 ปี</span></td><td>เป็นแบบมาตรฐานของงานวัดการออกเสียง แยกเสียงได้ระดับหน่วยเสียง</td></tr>
-      <tr><td><b>ตรวจคำตอบ<br>และอธิบายเป็นไทย</b></td><td><span class="en">Typhoon 2.5</span><br><span class="why">SCB 10X (ไทย) สร้างต่อจาก Qwen3 ของ Alibaba · 30,000 ล้านพารามิเตอร์ ใช้จริงครั้งละ 3,000 ล้าน</span></td><td>ราว ต.ค. 2568<br><span class="why">ราว 1 ปี</span></td><td>เก่งภาษาไทย และยังเป็นรุ่นล่าสุดของ Typhoon สำหรับงานทั่วไป</td></tr>
-    </table>
-  </div>
-  <p class="note">เครื่อง 40GB ใช้โมเดลชุดเดียวกับเครื่อง 80GB ต่างกันแค่บีบ Typhoon จาก 60 GB เหลือราว 30 GB ให้ใส่การ์ดได้ ซึ่งไม่ทำให้ตรวจแย่ลง (558 กับ 543 จาก 636 ข้อ) นอกจากนี้ยังมีกฎและรายการคำศัพท์ที่ทีมเขียนเอง ไว้แก้คำแปลและเกณฑ์ตรวจ</p>
   <span class="pg">7</span>
 </section>
 
