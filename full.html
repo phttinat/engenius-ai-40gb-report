@@ -131,7 +131,7 @@ body.scroll .wrap{overflow:hidden;margin:0 auto 14px}
 .obj.fill .sum{height:100%;align-content:space-between}
 
 .cover h1{font-size:100px}.cover .c-r .num{white-space:nowrap;font-size:104px}
-span.en{font-family:var(--display);font-style:italic;font-size:1.05em}
+span.en{font-family:var(--display);font-style:italic;font-size:1.05em}span.why{font-size:22px;color:var(--ink3)}table.ex td{padding-top:10px;padding-bottom:10px;line-height:1.4}
 </style>
 </head>
 <body>
@@ -186,18 +186,17 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 <section class="slide g-white">
   <div class="head">
     <h2>“AI ตรวจถูก” หมายความว่าอะไร</h2>
-    <p class="sub">ทีมทดสอบตอบโจทย์แบบนักเรียน แล้วตัดสินเองว่าคำตอบนั้นควรผ่านหรือไม่ ถ้า AI ให้ผลตรงกับที่ทีมตัดสิน นับว่า AI ตรวจถูก ตัวอย่างข้างล่างมาจากการทดสอบจริง คะแนนเต็ม 100 ผ่านที่ 70</p>
+    <p class="sub">ทีมทดสอบตัดสินเองว่าคำตอบควรผ่านไหม ถ้า AI ให้ผลตรงกัน นับว่าตรวจถูก (เต็ม 100 ผ่านที่ 70)</p>
   </div>
   <div class="obj fill">
-    <table>
+    <table class="ex">
       <tr><th style="width:340px">ปัญหาที่เจอ</th><th>โจทย์ และคำตอบของนักเรียน</th><th class="r" style="width:250px">ก่อนแก้</th><th class="r" style="width:250px">ตอนนี้</th></tr>
-      <tr><td><b>ตอบถูก แต่ AI ให้ตก</b></td><td>ดูรูปแล้วบอกว่าเขากำลังทำอะไร<br><span class="en">He is crossing the road at the crosswalk.</span></td><td class="r"><span class="was">0</span></td><td class="r"><span class="now">98</span></td></tr>
-      <tr><td><b>ตอบถูก แต่ AI ให้ตก</b></td><td>Leah ชอบกินหอมหัวใหญ่ชุบแป้งทอด เรียกว่าอะไร<br><span class="en">Leah likes onion rings.</span></td><td class="r"><span class="was">23</span></td><td class="r"><span class="now">98</span></td></tr>
-      <tr><td><b>ตอบไม่ตรงคำถาม แต่ AI ให้ผ่าน</b></td><td>ผู้ชายในรูปรู้สึกอย่างไร (โกรธ)<br><span class="en">He should take a deep breath.</span> ไม่ได้บอกความรู้สึก</td><td class="r"><span class="was">93</span></td><td class="r"><span class="now">51</span></td></tr>
-      <tr><td><b>คำแปลไทยผิด</b></td><td>ตัวอย่างคำตอบที่ AI ให้นักเรียนดู<br><span class="en">It is the toilet.</span></td><td class="r"><span class="was" style="font-size:34px">นี่คือห้องน้ำ</span></td><td class="r"><span class="now" style="font-size:34px">นั่นคือชักโครก</span></td></tr>
+      <tr><td><b>ตอบถูก แต่ AI ให้ตก</b></td><td>ดูรูปแล้วบอกว่าเขากำลังทำอะไร<br><span class="en">He is crossing the road at the crosswalk.</span><br><span class="why">สาเหตุ: AI คิดว่านักเรียนอ่านโจทย์ซ้ำ ทั้งที่นี่คือคำตอบที่ถูก</span></td><td class="r"><span class="was">0</span></td><td class="r"><span class="now">98</span></td></tr>
+      <tr><td><b>ตอบถูก แต่ AI ให้ตก</b></td><td>Leah ชอบหัวหอมหั่นเป็นแผ่นกลม ชุบแป้งทอด เธอชอบกินอะไร<br><span class="en">Leah likes onion rings.</span><br><span class="why">สาเหตุ: AI ฟังเสียงเด็กผิดเป็น “Lie alleich und nir links”</span></td><td class="r"><span class="was">23</span></td><td class="r"><span class="now">98</span></td></tr>
+      <tr><td><b>ตอบไม่ตรงคำถาม แต่ AI ให้ผ่าน</b></td><td>ผู้ชายในรูปรู้สึกอย่างไร (โกรธ)<br><span class="en">He should take a deep breath.</span><br><span class="why">สาเหตุ: คำตอบไม่ได้บอกความรู้สึก แต่ AI ดูแค่ว่าเกี่ยวกับรูป</span></td><td class="r"><span class="was">93</span></td><td class="r"><span class="now">51</span></td></tr>
+      <tr><td><b>คำแปลไทยผิด</b></td><td>ตัวอย่างคำตอบที่ AI ให้นักเรียนดู<br><span class="en">It is the toilet.</span><br><span class="why">สาเหตุ: โจทย์ถามสิ่งที่นั่ง แต่ AI แปล toilet เป็นห้อง</span></td><td class="r"><span class="was" style="font-size:34px">นี่คือห้องน้ำ</span></td><td class="r"><span class="now" style="font-size:34px">นั่นคือชักโครก</span></td></tr>
     </table>
   </div>
-  <p class="note">ข้อแรกและข้อสุดท้ายเจอในรอบ 10 และแก้แล้ว ส่วนข้อกลางเจอในรอบ 6 และ 7 ตอนนี้ AI ให้คะแนนตามที่ทีมทดสอบตัดสิน</p>
   <span class="pg">4</span>
 </section>
 

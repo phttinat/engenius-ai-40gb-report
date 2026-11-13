@@ -114,7 +114,7 @@ TOKENS = {
     "{{RC_POLICY}}": str(rc.get("policy", "-")), "{{RC_CONTENT}}": str(rc.get("content", "-")), "{{RC_NEW}}": str(rc.get("new", "-")),
 }
 
-EXTRA_CSS = "span.en{font-family:var(--display);font-style:italic;font-size:1.05em}"
+EXTRA_CSS = "span.en{font-family:var(--display);font-style:italic;font-size:1.05em}span.why{font-size:22px;color:var(--ink3)}table.ex td{padding-top:10px;padding-bottom:10px;line-height:1.4}"
 
 
 def build(src, out, title, other_href, other_label):
