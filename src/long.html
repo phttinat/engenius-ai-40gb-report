@@ -234,6 +234,23 @@
 </section>
 
 <section class="slide g-white">
+  <div class="head">
+    <h2>AI ที่ใช้ตรวจคำตอบมี 3 ตัว ทำงานต่อกัน</h2>
+    <p class="sub">ทั้ง 3 ตัวรันบนเครื่องของเราเอง เสียงและคำตอบของนักเรียนไม่ได้ส่งไปบริการ AI ภายนอก และไม่มีค่าใช้งานคิดตามจำนวนครั้ง</p>
+  </div>
+  <div class="obj fill">
+    <table class="ex">
+      <tr><th style="width:330px">หน้าที่</th><th style="width:520px">โมเดล</th><th style="width:300px">ออกเมื่อ</th><th>ทำไมใช้ตัวนี้</th></tr>
+      <tr><td><b>ฟังเสียงเด็ก<br>แล้วถอดเป็นข้อความ</b></td><td><span class="en">Whisper small</span><br><span class="why">OpenAI · 244 ล้านพารามิเตอร์</span></td><td>ก.ย. 2565<br><span class="why">ราว 4 ปี</span></td><td>ลองรุ่นใหม่ large-v3-turbo แล้ว ฟังเสียงเด็กถูกน้อยกว่า (72 กับ 85 จาก 92 คลิป) และช้ากว่าราว 60%</td></tr>
+      <tr><td><b>ให้คะแนน<br>การออกเสียงทีละคำ</b></td><td><span class="en">wav2vec2</span><br><span class="why">Meta · ราว 300 ล้านพารามิเตอร์</span></td><td>ปี 2564<br><span class="why">ราว 5 ปี</span></td><td>เป็นแบบมาตรฐานของงานวัดการออกเสียง แยกเสียงได้ระดับหน่วยเสียง</td></tr>
+      <tr><td><b>ตรวจคำตอบ<br>และอธิบายเป็นไทย</b></td><td><span class="en">Typhoon 2.5</span><br><span class="why">SCB 10X (ไทย) สร้างต่อจาก Qwen3 ของ Alibaba · 30,000 ล้านพารามิเตอร์ ใช้จริงครั้งละ 3,000 ล้าน</span></td><td>ราว ต.ค. 2568<br><span class="why">ราว 1 ปี</span></td><td>เก่งภาษาไทย และยังเป็นรุ่นล่าสุดของ Typhoon สำหรับงานทั่วไป</td></tr>
+    </table>
+  </div>
+  <p class="note">เครื่อง 40GB ใช้โมเดลชุดเดียวกับเครื่อง 80GB ต่างกันแค่บีบ Typhoon จาก 60 GB เหลือราว 30 GB ให้ใส่การ์ดได้ ซึ่งไม่ทำให้ตรวจแย่ลง (558 กับ 543 จาก 636 ข้อ) นอกจากนี้ยังมีกฎและรายการคำศัพท์ที่ทีมเขียนเอง ไว้แก้คำแปลและเกณฑ์ตรวจ</p>
+  <span class="pg">{{PG}}</span>
+</section>
+
+<section class="slide g-white">
   <div class="head"><h2>เครื่อง 40GB พอสำหรับงานนี้ และค่าทดสอบใช้เครดิตฟรีของ Google</h2></div>
   <div class="cols c2">
     <div class="obj" style="display:flex;flex-direction:column">
