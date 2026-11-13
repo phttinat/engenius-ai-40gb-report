@@ -25,7 +25,7 @@ def chart(w=1640, h=640):
     pad_l, pad_b, top = 70, 86, 56
     n = len(rounds); slot = (w - pad_l) / n; bw = slot * 0.6
     y = lambda v: top + (h - top - pad_b) * (1 - v / 100)
-    o = [f'<svg class="rchart" viewBox="0 0 {w} {h}" width="100%" role="img" aria-label="ร้อยละที่ทีมทดสอบเห็นด้วยกับผลของ AI รายรอบ">'
+    o = [f'<svg class="rchart" viewBox="0 0 {w} {h}" width="100%" role="img" aria-label="ร้อยละของข้อที่ AI ตรวจถูก แยกตามรอบทดสอบ">'
          '<defs><pattern id="hatch" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">'
          '<rect width="22" height="22" fill="#F3F3F1"/><rect width="4" height="22" fill="#121212" opacity=".25"/></pattern></defs>']
     for g in (0, 25, 50, 75, 100):
