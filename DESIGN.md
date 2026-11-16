@@ -11,3 +11,5 @@ Weekly AI test update for a manager, set like a business-magazine issue. Chosen 
 - **Chart:** graphite bars on a 0–100 scale with hairline gridlines, the latest round red, a round still being tested hatched and dashed.
 - **Language:** semi-formal Thai, short sentences, no kicker labels.
 - **Data flow:** `data/rounds.json` → `python src/build.py` → `index.html` (8 slides) and `full.html` (16 slides).
+- **Phones (≤820px):** the 1920×1080 canvas is not scaled down; every slide reflows into one column (body.reflow): 26px headlines, 15–16px body, grids and step rows stacked, 4-column tables become row blocks. Added 2026-11-16 after the manager's review ("type became 4–6px").
+- **Asks:** the closing ask sits under a red top rule, never a coloured side border.

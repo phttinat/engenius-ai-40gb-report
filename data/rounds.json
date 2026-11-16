@@ -138,6 +138,16 @@
     "n": 83,
     "agree": 80
    }
+  },
+  {
+   "round": 11,
+   "date": "16 พ.ย. 2569",
+   "n": null,
+   "agree": null,
+   "testers": 4,
+   "scope": "ยืนยันที่แก้ วัดคะแนนแกว่ง และข้อใหม่ 91 ข้อ",
+   "finding": null,
+   "fix": null
   }
  ],
  "problems": {

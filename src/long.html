@@ -3,13 +3,14 @@
     <div class="logo"><img src="assets/engenius-logo.png" alt="Engenius English"></div>
     <div>
       <h1>เครื่อง AI ที่เล็กลง<br>ใช้แทนเครื่องเดิม<br>ได้หรือยัง</h1>
-      <p class="meta">ผลทดสอบ AI ตรวจคำตอบนักเรียนบนเครื่อง 40GB เทียบกับเครื่อง 80GB ที่ใช้อยู่ · ฉบับเต็ม · อัปเดต 13 พ.ย. 2569</p>
+      <p class="answer"><b>คำตอบ: ยังไม่ได้ทันที</b> ตรวจได้แม่นไม่แพ้เครื่องเดิมแล้ว แต่ต้องทดสอบอีกอย่างน้อย 2 รอบ ก่อนให้นักเรียนใช้</p>
+      <p class="meta">ผลทดสอบ AI ตรวจคำตอบนักเรียนบนเครื่อง 40GB เทียบกับเครื่อง 80GB ที่ใช้อยู่ · ฉบับเต็ม · อัปเดต 16 พ.ย. 2569 · รอบ {{NEXT_ROUND}} กำลังทดสอบ</p>
     </div>
   </div>
   <div class="c-r">
-    <div><span class="num">{{FIRST_PCT}}% → 98%</span><span>AI ตรวจคำตอบถูกมากขึ้น ตั้งแต่เริ่มทดสอบจนถึงรอบ 8</span></div>
-    <div><span class="num">{{RC_FIXED}} จาก {{RC_ITEMS}}</span><span>ปัญหาที่ทีมทดสอบแจ้งไว้ แก้แล้ว</span></div>
-    <div><span class="num">{{LAST_MEAN}} / 5</span><span>คะแนนความพอใจจากทีมทดสอบในรอบล่าสุด</span></div>
+    <div><span class="num">87.7%</span><span>เครื่อง 40GB ตรวจถูก ส่วนเครื่องเดิม 80GB ได้ 85.4% จากคำตอบชุดเดียวกัน 636 ข้อ</span></div>
+    <div><span class="num">{{FRESH_PCT}}%</span><span>รอบล่าสุด ข้อที่ไม่เคยทดสอบมาก่อน ตรวจถูก {{FRESH_AGREE}} จาก {{FRESH_N}} ข้อ</span></div>
+    <div><span class="num">{{RC_FIXED}} / {{RC_ITEMS}}</span><span>ปัญหาที่ทีมทดสอบแจ้ง แก้แล้ว ทีมลองซ้ำยืนยันว่าหาย {{RC_CONFIRMED}} ข้อ</span></div>
   </div>
 </section>
 
@@ -18,10 +19,11 @@
   <div class="obj fill">
     <dl class="sum">
       <dt>ทำอะไร</dt><dd>ทดสอบว่า AI ที่ตรวจคำตอบภาษาอังกฤษของนักเรียน ถ้าย้ายไปเครื่องที่เล็กลงครึ่งหนึ่ง (40GB) จะยังตรวจได้ดีเหมือนเครื่องเดิม (80GB) หรือไม่ ทีมทดสอบ 4 คนลองตอบโจทย์จริงทั้ง {{TOTAL_N}} ครั้ง</dd>
-      <dt>ผล</dt><dd>เครื่อง 40GB ตรวจได้ไม่แพ้เครื่องเดิม และหลังแก้ปัญหาที่เจอ AI ตรวจถูกเพิ่มจาก {{FIRST_PCT}}% เป็น 98%</dd>
+      <dt>ผล</dt><dd>เครื่อง 40GB ตรวจถูก 87.7% ไม่แพ้เครื่องเดิมที่ได้ 85.4% และรอบล่าสุด ข้อที่ไม่เคยทดสอบมาก่อน ตรวจถูก {{FRESH_PCT}}%</dd>
       <dt>แก้แล้ว</dt><dd>ปัญหาที่ทีมทดสอบแจ้งไว้ทั้งหมด {{RC_ITEMS}} ข้อ แก้แล้ว {{RC_FIXED}} ข้อ ที่เหลือส่วนใหญ่เป็นคำแปลไทย AI ฟังเสียงผิด และเกณฑ์ที่ต้องตัดสินใจ</dd>
       <dt>ยังขาด</dt><dd>AI ยังฟังชื่อคนและคำสั้นผิด คะแนนของคำตอบที่ก้ำกึ่งยังแกว่ง ที่แก้ทั้งหมดยังไม่ได้ย้ายไปใช้กับนักเรียน และต้องวัดใหม่ว่าเครื่องรับนักเรียนพร้อมกันได้กี่คน</dd>
-      <dt>ขอ</dt><dd>ทดสอบต่ออีกอย่างน้อย 2 รอบ ราว 32 ดอลลาร์ต่อวันจากเครดิตฟรีของ Google แล้วค่อยย้ายนักเรียนมาใช้เครื่องใหม่</dd>
+      <dt>ค่าเช่า</dt><dd>เครื่อง 40GB ราว 35,400 บาทต่อเดือน เครื่อง 80GB ราว 107,000 บาท แต่เครื่อง 80GB มีสัญญาเช่า 3 ปีอยู่ ต้องเปลี่ยนสัญญาก่อนจึงจะประหยัดได้จริง</dd>
+      <dt>ขอ</dt><dd>ทดสอบต่ออีกอย่างน้อย 2 รอบ ถึงราว 20 พ.ย. ราว 32 ดอลลาร์ต่อวันจากเครดิตฟรีของ Google แล้วค่อยย้ายนักเรียนมาใช้เครื่องใหม่</dd>
     </dl>
   </div>
   <span class="pg">{{PG}}</span>
@@ -33,7 +35,7 @@
     <p class="sub">เมื่อนักเรียนพูดตอบ ตัวแรกฟังเสียงแล้วเขียนออกมาเป็นข้อความ ตัวที่สองให้คะแนนการออกเสียง ตัวที่สามตรวจว่าตอบถูกไหม แล้วอธิบายเป็นภาษาไทย</p>
   </div>
   <div class="obj fill">
-    <table class="ex">
+    <table class="ex models">
       <tr><th style="width:290px">หน้าที่</th><th style="width:400px">โมเดล</th><th style="width:190px">ออกเมื่อ</th><th>ทำไมใช้ตัวนี้</th></tr>
       <tr><td><b>ฟังเสียงเด็ก<br>แล้วถอดเป็นข้อความ</b></td><td><span class="en">Whisper small</span><br><span class="why">บริษัท OpenAI (สหรัฐฯ)</span></td><td>ก.ย. 2565<br><span class="why">ราว 4 ปี</span></td><td>เคยลองรุ่นใหม่ที่ใหญ่กว่าแล้ว แต่ฟังเสียงเด็กไทยพูดอังกฤษได้แย่กว่า เสียงจริง 92 คลิป รุ่นใหม่ฟังถูก 72 คลิป รุ่นที่ใช้อยู่ฟังถูก 85 คลิป และรุ่นใหม่ยังช้ากว่า</td></tr>
       <tr><td><b>ให้คะแนน<br>การออกเสียงทีละคำ</b></td><td><span class="en">wav2vec2</span><br><span class="why">บริษัท Meta (สหรัฐฯ)</span></td><td>ปี 2564<br><span class="why">ราว 5 ปี</span></td><td>ฟังได้ละเอียดถึงเสียงสระและพยัญชนะ จึงบอกได้ว่าเด็กออกเสียงคำไหนไม่ชัด เป็นตัวที่งานวัดการออกเสียงนิยมใช้</td></tr>
@@ -46,25 +48,25 @@
 
 <section class="slide g-white">
   <div class="head">
-    <h2>AI ตรวจคำตอบถูกมากขึ้น จาก {{FIRST_PCT}}% เป็น 98%</h2>
+    <h2>รอบล่าสุด ข้อที่ไม่เคยทดสอบมาก่อน AI ตรวจถูก {{FRESH_PCT}}%</h2>
     <p class="sub">ทีมทดสอบ 4 คนลองตอบโจทย์จริงในแอป แล้วดูว่า AI ให้คะแนนถูกหรือไม่ กราฟคือร้อยละของข้อที่ AI ตรวจถูก ทดสอบแต่ละครั้งนับเป็น 1 รอบ หลังแต่ละรอบเราแก้ปัญหาที่เจอแล้วทดสอบใหม่</p>
   </div>
   <div class="obj fill">{{CHART}}</div>
-  <p class="note">รอบ 9 และ 10 ได้ราว 92% เพราะตั้งใจเลือกข้อที่ AI เคยตรวจผิดมาลองใหม่ ไม่ได้แปลว่า AI แย่ลง ส่วนข้อที่ไม่เคยทดสอบมาก่อนในรอบ 10 AI ตรวจถูก {{FRESH_AGREE}} จาก {{FRESH_N}} ข้อ ({{FRESH_PCT}}%)</p>
+  <p class="note">รอบ 1 ลองครบทุกข้อในแอปครั้งแรก ได้ {{FIRST_PCT}}% · รอบ 2–8 ลองคนละชุด จึงเทียบกันตรง ๆ ไม่ได้ · รอบ 9–10 ตั้งใจเลือกข้อที่เคยตรวจผิดมาลองซ้ำ จึงได้ราว 92% ไม่ได้แปลว่า AI แย่ลง · ข้อที่ไม่เคยทดสอบในรอบ 10 ตรวจถูก {{FRESH_AGREE}} จาก {{FRESH_N}} ข้อ</p>
   <span class="pg">{{PG}}</span>
 </section>
 
 <section class="slide g-white">
   <div class="head">
     <h2>“AI ตรวจถูก” หมายความว่าอะไร</h2>
-    <p class="sub">ทีมทดสอบตัดสินเองว่าคำตอบควรผ่านไหม ถ้า AI ให้ผลตรงกัน นับว่าตรวจถูก (เต็ม 100 ผ่านที่ 70)</p>
+    <p class="sub">ทีมทดสอบตัดสินเองว่าคำตอบควรผ่านไหม ถ้า AI ให้ผลตรงกัน นับว่าตรวจถูก ตัวเลขในตารางคือคะแนนที่ AI ให้ (เต็ม 100 ผ่านที่ 70)</p>
   </div>
   <div class="obj fill">
     <table class="ex">
-      <tr><th style="width:340px">ปัญหาที่เจอ</th><th>โจทย์ และคำตอบของนักเรียน</th><th class="r" style="width:250px">ก่อนแก้</th><th class="r" style="width:250px">ตอนนี้</th></tr>
+      <tr><th style="width:340px">ปัญหาที่เจอ</th><th>โจทย์ และคำตอบของนักเรียน</th><th class="r" style="width:250px">คะแนนก่อนแก้</th><th class="r" style="width:250px">คะแนนตอนนี้</th></tr>
       <tr><td><b>ตอบถูก แต่ AI ให้ตก</b></td><td>ดูรูปแล้วบอกว่าเขากำลังทำอะไร<br><span class="en">He is crossing the road at the crosswalk.</span><br><span class="why">สาเหตุ: AI คิดว่านักเรียนอ่านโจทย์ซ้ำ ทั้งที่นี่คือคำตอบที่ถูก</span></td><td class="r"><span class="was">0</span></td><td class="r"><span class="now">98</span></td></tr>
       <tr><td><b>ตอบถูก แต่ AI ให้ตก</b></td><td>Leah ชอบหัวหอมหั่นเป็นแผ่นกลม ชุบแป้งทอด เธอชอบกินอะไร<br><span class="en">Leah likes onion rings.</span><br><span class="why">สาเหตุ: AI ฟังเสียงเด็กผิดเป็น “Lie alleich und nir links”</span></td><td class="r"><span class="was">23</span></td><td class="r"><span class="now">98</span></td></tr>
-      <tr><td><b>ตอบไม่ตรงคำถาม แต่ AI ให้ผ่าน</b></td><td>ผู้ชายในรูปรู้สึกอย่างไร (โกรธ)<br><span class="en">He should take a deep breath.</span><br><span class="why">สาเหตุ: คำตอบไม่ได้บอกความรู้สึก แต่ AI ดูแค่ว่าเกี่ยวกับรูป</span></td><td class="r"><span class="was">93</span></td><td class="r"><span class="now">51</span></td></tr>
+      <tr><td><b>ตอบไม่ตรงคำถาม แต่ AI ให้ผ่าน</b></td><td>ผู้ชายในรูปรู้สึกอย่างไร (โกรธ)<br><span class="en">He should take a deep breath.</span><br><span class="why">สาเหตุ: คำตอบไม่ได้บอกความรู้สึก แต่ AI ดูแค่ว่าเกี่ยวกับรูป · ตอนนี้ให้ตก ซึ่งถูกต้องแล้ว</span></td><td class="r"><span class="was">93</span></td><td class="r"><span class="now">51</span></td></tr>
       <tr><td><b>คำแปลไทยผิด</b></td><td>ตัวอย่างคำตอบที่ AI ให้นักเรียนดู<br><span class="en">It is the toilet.</span><br><span class="why">สาเหตุ: โจทย์ถามสิ่งที่นั่ง แต่ AI แปล toilet เป็นห้อง</span></td><td class="r"><span class="was" style="font-size:34px">นี่คือห้องน้ำ</span></td><td class="r"><span class="now" style="font-size:34px">นั่นคือชักโครก</span></td></tr>
     </table>
   </div>
@@ -85,7 +87,7 @@
 <section class="slide g-white">
   <div class="head"><h2>รอบ 6 เป็นต้นไป ทีมให้คะแนนเพิ่ม และลองซ้ำข้อที่เคยแจ้งปัญหา</h2></div>
   <div class="obj fill">
-    <table>
+    <table class="tight">
       <tr><th style="width:90px">รอบ</th><th style="width:560px">ลองอะไร</th><th class="r" style="width:210px">AI ตรวจถูก</th><th>เจอปัญหาอะไร</th></tr>
       {{DETAIL_B}}
     </table>
@@ -95,8 +97,8 @@
 
 <section class="slide g-white">
   <div class="head">
-    <h2>ทีมทดสอบพอใจผลของ AI มากขึ้นทุกด้าน</h2>
-    <p class="sub">หลังเห็นผลของ AI แต่ละข้อ ทีมให้คะแนน 1 ถึง 5 สามเรื่อง คือ AI ฟังเสียงถูกไหม คำแปลไทยดีไหม และคำแนะนำที่ให้นักเรียนมีประโยชน์ไหม (5 คือดีที่สุด)</p>
+    <h2>ความพอใจดีขึ้นโดยรวม แต่คำแปลไทยรอบ 10 ลดลง</h2>
+    <p class="sub">หลังเห็นผลของ AI แต่ละข้อ ทีมให้คะแนน 1 ถึง 5 สามเรื่อง (5 คือดีที่สุด) คะแนนเฉลี่ยขึ้นจาก 4.59 เป็น 4.77 แต่คำแปลไทยรอบ 10 ลดจาก 4.78 เหลือ 4.59 เพราะข้อที่ไม่เคยทดสอบเจอคำศัพท์แปลผิดใหม่ และการฟังเสียงรอบ 7 ลดจาก 4.68 เหลือ 4.55</p>
   </div>
   <div class="obj fill">
     <table>
@@ -109,13 +111,13 @@
 
 <section class="slide g-white">
   <div class="head">
-    <h2>เครื่องเล็ก 40GB ตรวจได้ไม่แพ้เครื่องเดิม 80GB</h2>
+    <h2>เครื่องเล็ก 40GB ตรวจถูก 87.7% ไม่แพ้เครื่องเดิมที่ได้ 85.4%</h2>
     <p class="sub">เราส่งคำตอบชุดเดียวกัน 636 ข้อเข้าทั้งสองเครื่อง ก่อนจะเริ่มแก้อะไร แล้วนับว่าแต่ละเครื่องตรวจถูกกี่ข้อ</p>
   </div>
   <div class="cols c2" style="align-items:stretch">
     <div class="pair" style="gap:0">
-      <div class="disc f-mint"><span class="num" style="font-size:170px">558</span><b>เครื่อง 40GB</b><span>ตรวจถูกจาก 636 ข้อ</span></div>
-      <div class="disc"><span class="num" style="font-size:170px">543</span><b>เครื่อง 80GB</b><span>ตรวจถูกจาก 636 ข้อ</span></div>
+      <div class="disc f-mint"><span class="num mid">87.7%</span><b>เครื่อง 40GB</b><span>ตรวจถูก 558 จาก 636 ข้อ</span></div>
+      <div class="disc"><span class="num mid">85.4%</span><b>เครื่อง 80GB</b><span>ตรวจถูก 543 จาก 636 ข้อ</span></div>
     </div>
     <div class="obj">
       <h3>เครื่อง 40GB ตรวจถูกกี่ % แยกตามแบบของโจทย์ (รอบแรก)</h3>
@@ -139,8 +141,8 @@
       <p style="font-size:28px;line-height:1.55">เดิม AI ฟังเสียงเด็กโดยไม่รู้ว่าโจทย์ถามอะไร เช่น เด็กพูดว่า cabbage แต่ AI ได้ยินเป็นคำหยาบ ตอนนี้ AI ฟังสองแบบพร้อมกัน แบบหนึ่งรู้โจทย์ อีกแบบไม่รู้ แล้วเลือกผลที่ตรงกับเสียงจริงที่สุด เพื่อไม่ให้ AI เดาคำตอบแทนเด็ก</p>
       <table>
         <tr><th>วัดจากเสียงที่เคยฟังผิด</th><th class="r">ก่อน</th><th class="r">หลัง</th></tr>
-        <tr><td>79 คลิป ฟังถูกกี่คลิป</td><td class="r"><span class="was">10</span></td><td class="r"><span class="now">49</span></td></tr>
-        <tr><td>คะแนนเฉลี่ยของ 80 ข้อ</td><td class="r"><span class="was">48</span></td><td class="r"><span class="now">70</span></td></tr>
+        <tr><td>79 คลิปที่เคยฟังผิด ฟังถูกกี่คลิป</td><td class="r"><span class="was">10</span></td><td class="r"><span class="now">49</span></td></tr>
+        <tr><td>คะแนนเฉลี่ยของข้อชุดเดียวกัน (80 ข้อ)</td><td class="r"><span class="was">48</span></td><td class="r"><span class="now">70</span></td></tr>
       </table>
     </div>
     <div class="obj" style="display:flex;flex-direction:column;gap:18px">
@@ -195,8 +197,8 @@
   <div class="obj fill">
     <table>
       <tr><th>เรื่อง</th><th class="r" style="width:200px">ก่อนแก้</th><th class="r" style="width:200px">หลังแก้</th></tr>
-      <tr><td>เสียงที่ AI เคยฟังผิด 79 คลิป ตอนนี้ฟังถูกกี่คลิป</td><td class="r"><span class="was">10</span></td><td class="r"><span class="now">49</span></td></tr>
-      <tr><td>คะแนนเฉลี่ยของ 80 ข้อที่ AI เคยฟังผิด</td><td class="r"><span class="was">48</span></td><td class="r"><span class="now">70</span></td></tr>
+      <tr><td>คลิปเสียงที่ AI เคยฟังผิด 79 คลิป ตอนนี้ฟังถูกกี่คลิป</td><td class="r"><span class="was">10</span></td><td class="r"><span class="now">49</span></td></tr>
+      <tr><td>คะแนนเฉลี่ยของข้อชุดเดียวกัน (80 ข้อ มีไฟล์เสียง 79 คลิป)</td><td class="r"><span class="was">48</span></td><td class="r"><span class="now">70</span></td></tr>
       <tr><td>เด็กอ่านออกเสียงถูก 65 ข้อ AI ให้ผ่านกี่ข้อ</td><td class="r"><span class="was">31</span></td><td class="r"><span class="now">43</span></td></tr>
       <tr><td>คำแปลไทยที่แปลคำศัพท์ผิด เช่น มะละกอกลายเป็นมะม่วงหิมพานต์</td><td class="r"><span class="was">74</span></td><td class="r"><span class="now">0</span></td></tr>
       <tr><td>ตัวอย่างคำตอบที่ซ้ำกัน เช่น I am a doctor กับ I'm a doctor</td><td class="r"><span class="was">27</span></td><td class="r"><span class="now">0</span></td></tr>
@@ -209,13 +211,14 @@
 <section class="slide g-white">
   <div class="head"><h2>ปัญหาที่ทีมแจ้งไว้ทั้งหมด {{RC_ITEMS}} ข้อ แก้แล้ว {{RC_FIXED}} ข้อ</h2></div>
   <div class="cols c21">
-    <div class="obj">
+    <div class="obj bars7">
       <div class="hb"><label>ทีมยืนยันว่าหายแล้ว</label><div class="tr"><i style="width:calc({{RC_CONFIRMED}} / {{RC_ITEMS}} * 100%)"></i></div><b>{{RC_CONFIRMED}}</b></div>
       <div class="hb"><label>แก้แล้ว รอทีมยืนยัน</label><div class="tr"><i style="width:calc({{RC_PENDING}} / {{RC_ITEMS}} * 100%)"></i></div><b>{{RC_PENDING}}</b></div>
       <div class="hb"><label>คำแปลและตัวอย่าง</label><div class="tr"><i style="width:calc({{RC_WRONG}} / {{RC_ITEMS}} * 100%)"></i></div><b>{{RC_WRONG}}</b></div>
       <div class="hb"><label>AI ยังฟังผิด</label><div class="tr"><i style="width:calc({{RC_ASR}} / {{RC_ITEMS}} * 100%)"></i></div><b>{{RC_ASR}}</b></div>
       <div class="hb"><label>รอตัดสินใจเกณฑ์</label><div class="tr"><i style="width:calc({{RC_POLICY}} / {{RC_ITEMS}} * 100%)"></i></div><b>{{RC_POLICY}}</b></div>
       <div class="hb"><label>ข้อความโจทย์ในระบบ</label><div class="tr"><i style="width:calc({{RC_CONTENT}} / {{RC_ITEMS}} * 100%)"></i></div><b>{{RC_CONTENT}}</b></div>
+      <div class="hb"><label>ยังไม่ได้ลองซ้ำ</label><div class="tr"><i style="width:calc({{RC_NEW}} / {{RC_ITEMS}} * 100%)"></i></div><b>{{RC_NEW}}</b></div>
     </div>
     <div class="obj" style="display:flex;flex-direction:column;gap:16px">
       <h3>รอบ {{LAST_ROUND}} โดยรวม</h3>
@@ -228,7 +231,7 @@
       <p style="font-size:25px;line-height:1.55">แต่ละคนลองข้อที่ตัวเองเคยแจ้งปัญหาไว้ และข้อที่ไม่เคยทดสอบมาก่อน เพื่อดูว่าที่แก้ไม่ทำให้ข้ออื่นผิด</p>
     </div>
   </div>
-  <p class="note">ที่แก้ในรอบนี้ เช่น oval เคยแปลว่า รูปไข่ ตอนนี้แปลว่า วงรี รอทีมยืนยันในรอบ {{NEXT_ROUND}} และอีก {{RC_NEW}} ข้อยังไม่ได้ลองซ้ำ</p>
+  <p class="note">รวมทุกแถวได้ {{RC_ITEMS}} ข้อ · ที่แก้ในรอบนี้ เช่น oval เคยแปลว่า รูปไข่ ตอนนี้แปลว่า วงรี รอทีมยืนยันในรอบ {{NEXT_ROUND}}</p>
   <span class="pg">{{PG}}</span>
 </section>
 
@@ -246,12 +249,11 @@
       <tr><td><b>ข้อความโจทย์ในระบบ</b></td><td>{{RC_CONTENT}} ข้อ เช่น รูปเป็นหมอก (foggy) แต่ข้อความที่ AI ได้รับเขียนว่าลมแรง (windy)</td><td><span class="stk lo">ต่ำ</span></td></tr>
     </table>
   </div>
-  <p class="note">ข้ออ่านออกเสียง I hate cats ที่ได้ 61 คะแนน ไม่ใช่ AI ผิด เพราะเมื่อฟังโดยไม่รู้โจทย์ AI ได้ยินเป็น I had cast คะแนนจึงสะท้อนการออกเสียงจริงของเด็ก</p>
   <span class="pg">{{PG}}</span>
 </section>
 
 <section class="slide g-white">
-  <div class="head"><h2>เครื่อง 40GB พอสำหรับงานนี้ และค่าทดสอบใช้เครดิตฟรีของ Google</h2></div>
+  <div class="head"><h2>เครื่อง 40GB พอสำหรับงานนี้ และค่าเช่าถูกกว่าเครื่องเดิมราว 3 เท่า</h2></div>
   <div class="cols c2">
     <div class="obj" style="display:flex;flex-direction:column">
       <h3>หน่วยความจำการ์ดประมวลผล 40 GB ใช้ไปกับอะไร</h3>
@@ -261,23 +263,28 @@
         <div class="f-white" style="flex:3287"></div>
       </div>
       <div class="legend"><span><i class="f-cobalt"></i>AI ตรวจและอธิบายคำตอบ 33.2 GB</span><span><i class="f-pink"></i>ฟังเสียงและวัดการออกเสียง 3.5 GB</span><span><i class="f-white"></i>ว่าง 3.2 GB</span></div>
-      <h3 style="margin-top:40px">รับงานได้เท่าไร (วัดวันที่ 11 พ.ย.)</h3>
-      <table>
-        <tr><td>นักเรียนใช้พร้อมกัน 16 คน</td><td class="r"><b>1.85</b> ข้อต่อวินาที</td></tr>
-        <tr><td>นักเรียนใช้พร้อมกัน 32 คน</td><td class="r"><b>2.00</b> ข้อต่อวินาที</td></tr>
-        <tr><td>นักเรียนใช้พร้อมกัน 64 คน</td><td class="r"><b>2.48</b> ข้อต่อวินาที</td></tr>
+      <h3 style="margin-top:36px">ถ้ามีงานส่งเข้ามาพร้อมกัน นักเรียนรอผลนานแค่ไหน</h3>
+      <table class="tight">
+        <tr><td>งานพร้อมกัน 16 งาน (นักเรียนใช้อยู่ราว 45 คน)</td><td class="r">ราว <b>9</b> วินาที</td></tr>
+        <tr><td>งานพร้อมกัน 32 งาน</td><td class="r">ราว <b>16</b> วินาที</td></tr>
+        <tr><td>งานพร้อมกัน 64 งาน</td><td class="r">ราว <b>26</b> วินาที</td></tr>
       </table>
+      <p class="note">ประมาณจากที่วัดวันที่ 11 พ.ย. เป้าคือรอไม่เกิน 15 วินาที นักเรียน 1 คนส่งงานราว 2 ข้อต่อนาที ช่วงที่ใช้มากที่สุดตอนนี้มีงานเข้าราวหนึ่งในสามของที่เครื่องรับได้ ต้องวัดใหม่หลังเปลี่ยนวิธีฟังเสียง</p>
     </div>
     <div class="obj" style="display:flex;flex-direction:column">
-      <h3>ค่าใช้จ่ายช่วงทดสอบ (ดอลลาร์สหรัฐ)</h3>
-      <table>
-        <tr><td>ค่าเช่าเครื่อง 40GB</td><td class="r"><b>4.01</b> ต่อชั่วโมง</td></tr>
-        <tr><td>ใช้ไปแล้วถึงวันที่ 11 พ.ย.</td><td class="r">ราว <b>43</b></td></tr>
-        <tr><td>ทดสอบเพิ่ม 1 วัน (เปิดเครื่อง 8 ชั่วโมง)</td><td class="r">ราว <b>32</b></td></tr>
-        <tr><td>เครดิตฟรีที่ Google ให้ไว้ทดสอบ</td><td class="r"><b>3,000</b></td></tr>
-        <tr><td>ที่เก็บเสียงและผลทดสอบ</td><td class="r">ไม่ถึง <b>0.20</b> ต่อเดือน</td></tr>
+      <h3>ค่าเช่ารายเดือนตอนใช้จริง (ราคาเช่าแบบสัญญา 3 ปีของ Google)</h3>
+      <table class="tight">
+        <tr><td>เครื่อง 80GB ที่ใช้อยู่</td><td class="r">ราว <b>107,000</b> บาท</td></tr>
+        <tr><td>เครื่อง 40GB</td><td class="r">ราว <b>35,400</b> บาท</td></tr>
+        <tr><td><b>ประหยัดได้ต่อเดือน</b></td><td class="r">ราว <b class="hot">71,600</b> บาท</td></tr>
       </table>
-      <p class="note">ยอดวันที่ 12–13 พ.ย. ยังไม่ขึ้นในบิล และยังรอใบเสนอราคาค่าเช่าระยะยาวของเครื่อง 40GB</p>
+      <p class="note" style="margin-top:14px">เครื่อง 80GB ทำสัญญาเช่า 3 ปีไว้แล้ว (ต.ค. 2569 ถึง ต.ค. 2572) จะประหยัดได้จริงเมื่อเปลี่ยนสัญญาเป็นเครื่อง 40GB ได้</p>
+      <h3 style="margin-top:30px">ค่าทดสอบตอนนี้</h3>
+      <table class="tight">
+        <tr><td>เปิดเครื่อง 40GB วันละ 8 ชั่วโมง</td><td class="r">ราว <b>32</b> ดอลลาร์ต่อวัน</td></tr>
+        <tr><td>จ่ายจากเครดิตฟรีของ Google</td><td class="r"><b>3,000</b> ดอลลาร์</td></tr>
+      </table>
+      <p class="note">เครดิตนี้จ่ายค่าเครื่อง 80GB ด้วย คาดว่าจะหมดราวปลาย พ.ย. ถึงต้น ธ.ค. จึงควรทดสอบให้จบก่อนนั้น</p>
     </div>
   </div>
   <span class="pg">{{PG}}</span>
@@ -286,12 +293,12 @@
 <section class="slide g-white">
   <div class="head"><h2>ขอทดสอบต่ออีกอย่างน้อย 2 รอบ ก่อนย้ายนักเรียนมาใช้เครื่องใหม่</h2></div>
   <div class="steps">
-    <div class="step"><span class="num">1</span><h3>ตอนนี้</h3><p>แก้ปัญหาที่เจอในรอบ 10 แล้ว รอทีมทดสอบยืนยันในรอบ {{NEXT_ROUND}}</p><span class="gate">ข้อที่เคยตรวจถูก ต้องไม่กลับมาผิด</span></div>
-    <div class="step"><span class="num">2</span><h3>สัปดาห์หน้า</h3><p>ทดสอบเพิ่ม เน้นข้อที่มีชื่อคนและคำสั้น</p><span class="gate">AI ตรวจถูก 95% ขึ้นไป 2 รอบติดกัน</span></div>
-    <div class="step"><span class="num">3</span><h3>ก่อนย้าย</h3><p>วัดใหม่ว่าเครื่องรับนักเรียนพร้อมกันได้กี่คน</p><span class="gate">นักเรียนรอผลไม่เกิน 15 วินาที</span></div>
-    <div class="step"><span class="num">4</span><h3>ทีมเนื้อหา</h3><p>แก้ข้อความโจทย์ที่ AI ต้องเห็นรูปถึงจะเข้าใจ</p><span class="gate">แก้ครบทุกข้อที่แจ้งไว้</span></div>
-    <div class="step"><span class="num">5</span><h3>ย้ายระบบ</h3><p>ย้ายนักเรียนมาใช้เครื่อง 40GB</p><span class="gate">หัวหน้าอนุมัติ</span></div>
+    <div class="step"><span class="num">1</span><h3>16–17 พ.ย.</h3><span class="who">เอื้อ · ทีมทดสอบ 4 คน</span><p>รอบ {{NEXT_ROUND}}: ยืนยันสิ่งที่แก้จากรอบ 10 และวัดว่าคะแนนแกว่งแค่ไหน</p><span class="gate">ข้อที่เคยตรวจถูก ต้องไม่กลับมาผิด</span></div>
+    <div class="step"><span class="num">2</span><h3>ราว 18–20 พ.ย.</h3><span class="who">เอื้อ · ทีมทดสอบ 4 คน</span><p>แก้คะแนนแกว่ง ใส่คำแปลคำศัพท์ทั้งหลักสูตร แล้วทดสอบรอบ 12</p><span class="gate">ข้อใหม่ตรวจถูก 95% ขึ้นไป 2 รอบติด และคำแปลไทยได้ 4.7 ขึ้นไป</span></div>
+    <div class="step"><span class="num">3</span><h3>ราว 20 พ.ย.</h3><span class="who">เอื้อ</span><p>วัดใหม่ว่าเครื่องรับนักเรียนพร้อมกันได้กี่คน</p><span class="gate">นักเรียนรอผลไม่เกิน 15 วินาที</span></div>
+    <div class="step"><span class="num">4</span><h3>รอกำหนดวัน</h3><span class="who">ทีมเนื้อหา</span><p>แก้ข้อความโจทย์ที่ AI ต้องเห็นรูปถึงจะเข้าใจ</p><span class="gate">แก้ครบทุกข้อที่แจ้งไว้</span></div>
+    <div class="step"><span class="num">5</span><h3>หลังอนุมัติ</h3><span class="who">หัวหน้า · เอื้อ</span><p>เปลี่ยนสัญญาเช่าเป็นเครื่อง 40GB แล้วย้ายนักเรียนมาใช้</p><span class="gate">หัวหน้าอนุมัติ</span></div>
   </div>
-  <p class="ask">ค่าทดสอบเพิ่มราว 32 ดอลลาร์ต่อวัน ใช้เครดิตฟรีของ Google และทีมทดสอบ 4 คนเดิม</p>
+  <p class="ask">ขออนุมัติทดสอบต่อถึงราว 20 พ.ย. ราว 32 ดอลลาร์ต่อวัน (รวมราว 160 ดอลลาร์) จากเครดิตฟรีของ Google · ทีมทดสอบ 4 คนเดิม</p>
   <span class="pg">{{PG}}</span>
 </section>
