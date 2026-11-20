@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Engenius AI · ความคืบหน้า AI ตรวจคำตอบ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&family=Trirong:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#121212;--ink2:#4A4A4A;--ink3:#7A7A7A;--paper:#FFFFFF;--soft:#F3F3F1;--rule:#DCDCDC;
+  --red:#D0021B;--redL:#FBE3E6;
+  --display:'Trirong','Noto Sans Thai',serif;--body:'Noto Sans Thai',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:#1C1C1C;color:var(--ink);font-family:var(--body);overflow:hidden}
+::selection{background:var(--red);color:#fff}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+
+.stage{position:fixed;inset:0 0 56px 0;display:flex;align-items:center;justify-content:center}
+.slide{position:absolute;width:1920px;height:1080px;transform-origin:center center;display:none;overflow:hidden;background:var(--paper);
+  padding:124px 120px 76px;-webkit-user-select:text;user-select:text;cursor:text}
+.slide.on{display:flex;flex-direction:column}
+/* running head: the magazine folio on every page */
+.slide::before{content:"Engenius AI  ·  ผลทดสอบเครื่อง 40GB";position:absolute;left:120px;right:120px;top:46px;padding-bottom:16px;border-bottom:1px solid var(--rule);
+  font:500 21px var(--body);letter-spacing:.02em;color:var(--ink3)}
+/* inverse spreads give the issue its rhythm */
+.g-cobalt{background:var(--ink);color:#fff}.g-cobalt::before{color:#9A9A9A;border-color:#3A3A3A}
+.g-pink,.g-mint,.g-yellow,.g-white{background:var(--paper)}
+.shp{display:none}
+
+h1,h2,h3,.num{font-family:var(--display)}
+h1{font-size:118px;font-weight:700;line-height:1.1;letter-spacing:-.01em}
+h2{font-size:62px;font-weight:700;line-height:1.2;max-width:1480px;text-wrap:balance}
+h3{font-family:var(--body);font-size:30px;font-weight:700;line-height:1.3}
+.sub{font-size:30px;line-height:1.55;color:var(--ink2);max-width:1300px;margin-top:18px}
+.g-cobalt .sub,.g-cobalt .note{color:#BDBDBD}
+p,li,td,th,dd,dt,span{font-variant-numeric:tabular-nums}
+.head{margin-bottom:40px;position:relative}
+.head::after{content:"";display:block;width:120px;height:6px;background:var(--red);margin-top:26px}
+
+/* content areas: no boxes, the page is the surface */
+.obj{position:relative;color:inherit}
+.fill{flex:1;min-height:0;display:flex;flex-direction:column}
+.cols{display:grid;gap:90px;flex:1;min-height:0}.c2{grid-template-columns:1fr 1fr}.c21{grid-template-columns:1.35fr 1fr}
+.c2>.obj+.obj,.c21>.obj+.obj{border-left:1px solid var(--rule);padding-left:60px;margin-left:-30px}
+.g-cobalt .c2>.obj+.obj{border-color:#3A3A3A}
+
+.stk{display:inline-flex;align-items:center;gap:12px;font:700 25px/1 var(--body);white-space:nowrap}
+.stk::before{content:"";width:16px;height:16px;border-radius:50%;background:var(--ink3)}
+.stk.hi{color:var(--red)}.stk.hi::before{background:var(--red)}.stk.mid{color:#A55F00}.stk.mid::before{background:#E08A00}.stk.lo::before,.stk.ok::before{background:#9A9A9A}
+.note{font-size:24px;line-height:1.55;margin-top:auto;padding-top:20px;color:var(--ink2)}
+
+table{width:100%;border-collapse:collapse}
+th{font:700 21px/1.3 var(--body);letter-spacing:.03em;text-align:left;padding:12px 14px;border-bottom:2px solid var(--ink);color:var(--ink2)}
+.g-cobalt th{color:#BDBDBD;border-color:#fff}
+td{font-size:30px;line-height:1.45;padding:20px 14px;border-bottom:1px solid var(--rule);vertical-align:middle}
+.g-cobalt td{border-color:#3A3A3A}
+tr:last-child td{border-bottom:none}
+.r{text-align:right;white-space:nowrap}
+td.n{font:700 56px/1 var(--display);color:var(--red)}
+td .small{display:block;font:500 21px var(--body);color:var(--ink3);margin-top:6px}
+tr.mark td{background:var(--redL)}
+.was{color:var(--ink3);font:700 46px/1 var(--display);text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:4px}
+.now{color:var(--red);font:700 52px/1 var(--display)}
+.g-cobalt .was{color:#9A9A9A}.g-cobalt .now{color:#FF4D5E}
+td.thw{color:var(--ink3);text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:2px}td.thn{font-weight:700}td.en{font-family:var(--display);font-style:italic}
+
+/* cover: an issue cover with the numbers set as a contents column */
+.cover{padding:0;flex-direction:row!important}
+.cover::before{left:110px;right:110px}
+.cover .c-l{flex:1.45;padding:150px 110px 90px;display:flex;flex-direction:column;justify-content:space-between}
+.cover .c-r{flex:1;display:flex;flex-direction:column;justify-content:center;padding:150px 110px 90px 0}
+.cover .c-r>div{border-top:2px solid var(--ink);padding:26px 0 32px;display:flex;flex-direction:column;background:none!important;color:var(--ink)!important}
+.cover .c-r .num{font-size:116px;font-weight:700;line-height:1;color:var(--ink)}
+.cover .c-r>div:first-child .num{color:var(--red)}
+.cover .c-r span:not(.num){font-size:28px;line-height:1.45;margin-top:10px;color:var(--ink2);max-width:560px}
+.logo{align-self:flex-start}.logo img{height:70px;display:block}
+.cover .meta{font:500 30px/1.5 var(--body);color:var(--ink2);border-top:6px solid var(--red);padding-top:24px;max-width:900px;margin-top:40px!important}
+.pg{position:absolute;right:120px;top:46px;font:600 21px var(--body);color:var(--ink3)}
+.g-cobalt .pg{color:#9A9A9A}
+
+/* 40GB vs 80GB: two figures set like a comparison spread */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;flex:1}
+.disc{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:0 60px 10px 0;background:none!important;border-top:2px solid var(--ink)}
+.disc+.disc{padding-left:60px;border-left:1px solid var(--rule)}
+.disc .num.mid{font-size:132px!important}
+.disc .num{font-size:220px!important;font-weight:700;line-height:1;margin-top:20px}
+.disc.f-mint .num{color:var(--red)}
+.disc b{font:700 36px var(--body);margin-top:6px}.disc span{font-size:28px;color:var(--ink2)}
+
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;flex:1}
+.step{border-top:2px solid var(--ink);padding:26px 30px 10px 0;display:flex;flex-direction:column;gap:16px;background:none}
+.step+.step{padding-left:30px;border-left:1px solid var(--rule)}
+.step .num{font-size:96px;font-weight:700;line-height:.9;color:var(--red)!important}
+.step h3{font-size:36px}.step p{font-size:28px;line-height:1.5;color:var(--ink2)}
+.step .gate{margin-top:auto;font:700 25px/1.45 var(--body);border-top:1px solid var(--rule);padding-top:16px}
+.ask{margin-top:36px;font:700 34px/1.4 var(--display);color:var(--red);border-top:4px solid var(--red);padding-top:22px;max-width:1500px}
+
+.hb{display:grid;grid-template-columns:1fr 520px 90px;gap:24px;align-items:center;padding:16px 0;border-bottom:1px solid var(--rule)}
+.hb:last-child{border-bottom:none}
+.hb label{font-size:29px;font-weight:600}.hb .tr{height:22px;background:var(--soft)}.hb i{display:block;height:100%;background:var(--ink)!important}
+.hb:first-child i{background:var(--red)!important}
+.hb b{font:700 44px var(--display);text-align:right}
+
+.stack{display:flex;height:72px;margin:22px 0 14px}
+.stack>div{display:flex;align-items:center;padding:0 18px;font:700 26px var(--body);white-space:nowrap}
+.stack .f-cobalt{background:var(--ink)!important;color:#fff}.stack .f-pink{background:var(--red)!important}.stack .f-white{background:var(--soft)!important}
+.legend{display:flex;flex-wrap:wrap;gap:12px 30px;font-size:24px;color:var(--ink2)}.legend i{display:inline-block;width:22px;height:22px;vertical-align:-4px;margin-right:8px}
+.legend .f-cobalt{background:var(--ink)}.legend .f-pink{background:var(--red)}.legend .f-white{background:var(--soft);outline:1px solid var(--rule)}
+
+.rchart .ax{font:500 22px var(--body);fill:#7A7A7A}.rchart .val{font:700 40px var(--display);fill:#121212}
+.rchart .rn{font:700 26px var(--body);fill:#121212}.rchart .sub2{font:500 21px var(--body);fill:#7A7A7A}.rchart .wait{font:600 19px var(--body);fill:#7A7A7A}
+
+.sum{display:grid;grid-template-columns:260px 1fr;border-top:2px solid var(--ink)}
+.sum dt{font:700 36px var(--display);padding:24px 0;border-bottom:1px solid var(--rule);color:var(--red)}.sum dd{font-size:29px;line-height:1.55;padding:24px 0;border-bottom:1px solid var(--rule)}
+.sum dt:last-of-type,.sum dd:last-of-type{border-bottom:none}
+
+.nav{position:fixed;left:0;right:0;bottom:0;height:56px;display:flex;align-items:center;justify-content:center;gap:10px;background:#1C1C1C;z-index:5}
+.nav button,.nav a{font:600 16px var(--body);color:#fff;background:transparent;border:1px solid rgba(255,255,255,.45);border-radius:4px;padding:6px 18px;cursor:pointer;text-decoration:none}
+.nav button:hover,.nav a:hover{background:rgba(255,255,255,.12)}.nav a.main{background:var(--red);border-color:var(--red)}
+.nav .pgn{color:#CFCFCF;font:600 16px var(--body);padding:0 6px}
+body.scroll{overflow:auto}body.scroll .stage{position:static;display:block;padding:12px 0 76px}
+body.scroll .slide{display:flex;flex-direction:column;position:relative;transform-origin:top left}body.scroll .slide.cover{flex-direction:row}
+body.scroll .wrap{overflow:hidden;margin:0 auto 14px}
+@media print{@page{size:1920px 1080px;margin:0}html,body{background:#fff;overflow:visible;height:auto}.nav{display:none}.stage{position:static;display:block}
+  .slide{display:flex!important;position:relative;transform:none!important;break-after:page;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+.obj.fill>table{height:100%}
+.obj.fill .sum{height:100%;align-content:space-between}
+
+.cover h1{font-size:100px}.cover .c-r .num{white-space:nowrap;font-size:104px}
+.cover .answer{font:500 32px/1.5 var(--body);color:var(--ink);max-width:900px;margin-top:34px}
+.cover .answer b{display:block;font:700 46px/1.25 var(--display);color:var(--red);margin-bottom:6px}
+.step .who{font:600 22px/1.3 var(--body);color:var(--ink3);margin-top:-8px}
+table.tight td{padding:12px 10px;font-size:27px}
+b.hot{color:var(--red);font-family:var(--display);font-size:36px}
+.bars7 .hb{padding:11px 0}
+span.en{font-family:var(--display);font-style:italic;font-size:1.05em}span.why{font-size:22px;color:var(--ink3)}table.ex td{padding-top:10px;padding-bottom:10px;line-height:1.4}.slide::before{content:"Engenius AI  ·  ความคืบหน้า AI ตรวจคำตอบ"}
+/* phones: the 1920×1080 canvas is not scaled down to 4–6px type; each slide reflows into one readable column */
+body.reflow{overflow:auto;background:var(--paper)}
+body.reflow .stage{position:static;display:block;padding:0 0 70px}
+body.reflow .wrap{display:contents}
+body.reflow .slide,body.reflow .slide.cover{display:flex!important;flex-direction:column!important;position:relative;width:auto;height:auto;transform:none!important;
+  padding:52px 18px 30px;border-bottom:8px solid var(--soft);overflow:visible}
+body.reflow .slide.g-cobalt{border-bottom-color:#2A2A2A}
+body.reflow .slide::before{left:18px;right:18px;top:16px;font-size:12px;padding-bottom:8px}
+body.reflow .pg{right:18px;top:16px;font-size:12px}
+body.reflow h1,body.reflow .cover h1{font-size:40px}
+body.reflow h2{font-size:26px;line-height:1.3}
+body.reflow h3,body.reflow .step h3{font-size:19px}
+body.reflow .sub{font-size:16px;margin-top:10px}
+body.reflow .head{margin-bottom:22px}body.reflow .head::after{width:64px;height:4px;margin-top:14px}
+body.reflow .note{font-size:14px;margin-top:14px;padding-top:6px}
+body.reflow p[style],body.reflow .step p{font-size:15px!important}
+body.reflow .fill,body.reflow .cols{display:block;flex:none}
+body.reflow .c2>.obj+.obj,body.reflow .c21>.obj+.obj{border-left:none;padding-left:0;margin-left:0;border-top:1px solid var(--rule);margin-top:24px;padding-top:18px}
+body.reflow .obj{overflow-x:auto}
+body.reflow .obj.fill>table{height:auto}
+body.reflow th{font-size:12px;padding:8px 6px;width:auto!important}
+body.reflow td,body.reflow table.tight td{font-size:15px;padding:10px 6px}
+body.reflow td.n{font-size:28px}body.reflow td .small{font-size:12px}
+body.reflow .was,body.reflow .now{font-size:22px!important;text-decoration-thickness:2px}
+body.reflow .cover .c-l,body.reflow .cover .c-r{padding:0}
+body.reflow .cover .c-l{gap:22px}
+body.reflow .logo img{height:40px}
+body.reflow .cover .answer{font-size:16px;margin-top:16px}body.reflow .cover .answer b{font-size:24px}
+body.reflow .cover .meta{font-size:14px;padding-top:12px;margin-top:16px!important;border-top-width:4px}
+body.reflow .cover .c-r{margin-top:26px}
+body.reflow .cover .c-r>div{padding:14px 0 18px}
+body.reflow .cover .c-r .num{font-size:44px}
+body.reflow .cover .c-r span:not(.num){font-size:15px}
+body.reflow .pair{grid-template-columns:1fr}
+body.reflow .disc{padding:14px 0}body.reflow .disc+.disc{padding-left:0;border-left:none;margin-top:10px}
+body.reflow .disc .num{font-size:64px!important}body.reflow .disc b{font-size:19px}body.reflow .disc span{font-size:15px}
+body.reflow .steps{grid-template-columns:1fr;display:grid}
+body.reflow .step{padding:14px 0;gap:8px}body.reflow .step+.step{padding-left:0;border-left:none}
+body.reflow .step .num{font-size:40px}body.reflow .step .who{font-size:13px;margin-top:0}body.reflow .step .gate{font-size:14px;padding-top:8px}
+body.reflow .ask{font-size:18px;margin-top:20px;padding-top:12px;border-top-width:3px}
+body.reflow .hb,body.reflow .hb[style]{grid-template-columns:1fr 1fr 40px!important;gap:10px;padding:10px 0}
+body.reflow .hb label{font-size:14px}body.reflow .hb .tr{height:12px}body.reflow .hb b{font-size:22px}
+body.reflow .stack{height:40px;margin:12px 0 10px}body.reflow .stack>div{font-size:13px;padding:0 8px}
+body.reflow .legend{font-size:13px;gap:6px 14px}body.reflow .legend i{width:14px;height:14px}
+body.reflow .sum{grid-template-columns:1fr}body.reflow .sum dt{font-size:20px;padding:12px 0 0;border-bottom:none}body.reflow .sum dd{font-size:15px;padding:4px 0 12px}
+body.reflow b.num[style]{font-size:22px!important}body.reflow b.hot{font-size:20px}
+body.reflow span.why{font-size:12px}
+body.reflow .rchart{height:auto}
+body.reflow table.ex tr:first-child{display:none}
+body.reflow table.ex tr{display:grid;grid-template-columns:1fr 1fr;align-items:center;border-bottom:1px solid var(--rule);padding:8px 0}
+body.reflow table.ex td{border:none;padding:4px 6px;text-align:left}
+body.reflow table.ex td:nth-child(1),body.reflow table.ex td:nth-child(2){grid-column:1 / -1}
+body.reflow table.ex.models td:nth-child(2){grid-column:auto}body.reflow table.ex.models td:nth-child(4){grid-column:1 / -1}
+body.reflow table.ex td br{display:none}body.reflow table.ex td span.en,body.reflow table.ex td span.why{display:block}
+body.reflow .nav{height:56px}body.reflow #prev,body.reflow #next,body.reflow #pg,body.reflow #mode{display:none!important}
+</style>
+</head>
+<body>
+<!--
+THESIS: A weekly AI test update set like a business magazine issue: white pages, very large figures, one Engenius red, refusing coloured boxes and candy grounds.
+OWN-WORLD: White paper with a running folio and hairline rules; Trirong serif for headlines and figures, Noto Sans Thai for reading; Engenius red as the only accent; black inverse spreads for rhythm.
+STORY: The reader sees agreement climb, sees 40GB match 80GB, sees what is fixed and what is not, then agrees to more testing.
+FIRST VIEWPORT: Issue cover: logo, a large serif title and red-ruled dateline on the left; a contents column of three figures separated by black rules on the right.
+FORM: Clean editorial magazine (re-roll chosen by the user after Memphis), seed f2cde1e4.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
+-->
+<main class="stage" id="stage">
+<section class="slide cover">
+  <div class="c-l">
+    <div class="logo"><img src="assets/engenius-logo.png" alt="Engenius English"></div>
+    <div>
+      <h1>AI ตรวจคำตอบ<br>ของนักเรียน<br>แม่นแค่ไหนแล้ว</h1>
+      <p class="answer"><b>ตรวจโจทย์ทั่วไปถูก 93%</b> จากการทดสอบ 25 รอบ ส่วนที่ยังต้องปรับคือคำตอบที่ก้ำกึ่ง ซึ่งคนตรวจเองก็ยังเห็นไม่ตรงกัน</p>
+      <p class="meta">ความคืบหน้าการทดสอบ AI ตรวจคำตอบพูดและคำตอบพิมพ์ของ Engenius English · ข้อมูลถึงวันที่ 19 พ.ย. 2569</p>
+    </div>
+  </div>
+  <div class="c-r">
+    <div><span class="num">93%</span><span>โจทย์ทั่วไปใน 2 รอบล่าสุด AI ตรวจถูก 76 จาก 82 ข้อ</span></div>
+    <div><span class="num">53 / 53</span><span>คำตอบแบบพิมพ์ ตรวจถูกทุกข้อ 4 รอบติด</span></div>
+    <div><span class="num">2,923</span><span>คำตอบที่ทีมทดสอบลองและตรวจทานเอง นับจาก 11 พ.ย.</span></div>
+  </div>
+</section>
+
+<section class="slide g-white">
+  <div class="head">
+    <h2>“AI ตรวจถูก” หมายความว่าอะไร</h2>
+    <p class="sub">ทีมทดสอบตอบโจทย์จริงในแอป แล้วตัดสินเองว่าคำตอบนั้นควรผ่านหรือไม่ ถ้า AI ให้ผลตรงกับที่คนตัดสิน นับว่าตรวจถูก ตัวเลขในตารางคือคะแนนที่ AI ให้ (เต็ม 100 ผ่านที่ 70)</p>
+  </div>
+  <div class="obj fill">
+    <table class="ex">
+      <tr><th style="width:340px">ปัญหาที่เคยเจอ</th><th>โจทย์ และคำตอบของนักเรียน</th><th class="r" style="width:250px">คะแนนก่อนแก้</th><th class="r" style="width:250px">คะแนนตอนนี้</th></tr>
+      <tr><td><b>ตอบถูก แต่ AI ให้ตก</b></td><td>ดูรูปแล้วบอกว่าเขากำลังทำอะไร<br><span class="en">He is crossing the road at the crosswalk.</span><br><span class="why">สาเหตุ: AI คิดว่านักเรียนอ่านโจทย์ซ้ำ ทั้งที่นี่คือคำตอบที่ถูก</span></td><td class="r"><span class="was">0</span></td><td class="r"><span class="now">98</span></td></tr>
+      <tr><td><b>ตอบถูก แต่ AI ให้ตก</b></td><td>Leah ชอบหัวหอมหั่นเป็นแผ่นกลม ชุบแป้งทอด เธอชอบกินอะไร<br><span class="en">Leah likes onion rings.</span><br><span class="why">สาเหตุ: AI ฟังเสียงเด็กผิดเป็นคำที่ไม่มีความหมาย</span></td><td class="r"><span class="was">23</span></td><td class="r"><span class="now">98</span></td></tr>
+      <tr><td><b>ตอบไม่ตรงคำถาม แต่ AI ให้ผ่าน</b></td><td>ผู้ชายในรูปรู้สึกอย่างไร (โกรธ)<br><span class="en">He should take a deep breath.</span><br><span class="why">สาเหตุ: คำตอบไม่ได้บอกความรู้สึก แต่ AI ดูแค่ว่าเกี่ยวกับรูป · ตอนนี้ให้ตก ซึ่งถูกต้องแล้ว</span></td><td class="r"><span class="was">93</span></td><td class="r"><span class="now">51</span></td></tr>
+      <tr><td><b>คำแปลไทยผิด</b></td><td>ตัวอย่างคำตอบที่ AI ให้นักเรียนดู<br><span class="en">It is the toilet.</span><br><span class="why">สาเหตุ: โจทย์ถามสิ่งที่นั่ง แต่ AI แปล toilet เป็นห้อง</span></td><td class="r"><span class="was" style="font-size:34px">นี่คือห้องน้ำ</span></td><td class="r"><span class="now" style="font-size:34px">นั่นคือชักโครก</span></td></tr>
+    </table>
+  </div>
+  <span class="pg">2</span>
+</section>
+
+<section class="slide g-white">
+  <div class="head">
+    <h2>ทดสอบมาแล้ว 25 รอบ รอบหลังวัดเข้มขึ้น</h2>
+    <p class="sub">ทดสอบ 1 ครั้งนับเป็น 1 รอบ หลังแต่ละรอบทีมแก้ปัญหาที่เจอแล้วทดสอบใหม่</p>
+  </div>
+  <div class="obj fill">
+    <table class="tight">
+      <tr><th style="width:300px">ช่วง</th><th>ทดสอบอย่างไร</th><th class="r" style="width:330px">AI ตรวจถูก</th></tr>
+      <tr><td><b>รอบ 1</b><br><span class="why">11 พ.ย.</span></td><td>ลองโจทย์ในแอปครบทุกข้อเป็นครั้งแรก</td><td class="r"><b class="num" style="font-size:44px">84%</b><span class="small">572 จาก 682 ข้อ</span></td></tr>
+      <tr><td><b>รอบ 2–10</b><br><span class="why">12–13 พ.ย.</span></td><td>ลองซ้ำข้อที่มีปัญหา และแก้ทีละเรื่อง เช่น การฟังเสียงเด็ก และคำแปลไทย</td><td class="r"><b class="num" style="font-size:44px">93%</b><span class="small">914 จาก 981 ข้อ</span></td></tr>
+      <tr><td><b>รอบ 11–16</b><br><span class="why">16–17 พ.ย.</span></td><td>ลองข้อที่ไม่เคยทดสอบ และยืนยันข้อที่แก้ไปแล้ว</td><td class="r"><b class="num" style="font-size:44px">97%</b><span class="small">637 จาก 660 ข้อ</span></td></tr>
+      <tr class="mark"><td><b>รอบ 24–25</b><br><span class="why">19 พ.ย. วิธีใหม่</span></td><td>คนตัดสินก่อนโดยไม่เห็นคะแนนของ AI และมีคำตอบที่ตั้งใจลองให้ AI พลาดปนอยู่ด้วย</td><td class="r"><b class="num" style="font-size:44px">87%</b><span class="small">104 จาก 120 ข้อ</span></td></tr>
+    </table>
+  </div>
+  <p class="note">รอบ 24–25 ต่ำกว่าช่วงก่อนเพราะวัดเข้มขึ้นและเลือกข้อยาก ไม่ได้แปลว่า AI แย่ลง เฉพาะโจทย์ทั่วไปในสองรอบนี้ AI ตรวจถูก 76 จาก 82 ข้อ (93%) · รอบ 17–23 เป็นช่วงเปลี่ยนตัวให้คะแนน จึงไม่รวมในตาราง</p>
+  <span class="pg">3</span>
+</section>
+
+<section class="slide g-cobalt">
+  <div class="head">
+    <h2>สิ่งที่แก้ไปแล้ว และดีขึ้นแค่ไหน</h2>
+  </div>
+  <div class="obj fill">
+    <table>
+      <tr><th>เรื่อง</th><th class="r" style="width:200px">ก่อนแก้</th><th class="r" style="width:200px">หลังแก้</th></tr>
+      <tr><td>คลิปเสียงที่ AI เคยฟังผิด 79 คลิป ตอนนี้ฟังถูกกี่คลิป</td><td class="r"><span class="was">10</span></td><td class="r"><span class="now">49</span></td></tr>
+      <tr><td>นักเรียนอ่านออกเสียงถูก 65 ข้อ AI ให้ผ่านกี่ข้อ</td><td class="r"><span class="was">31</span></td><td class="r"><span class="now">43</span></td></tr>
+      <tr><td>คำแปลไทยที่แปลคำศัพท์ผิด เช่น มะละกอกลายเป็นมะม่วงหิมพานต์</td><td class="r"><span class="was">74</span></td><td class="r"><span class="now">0</span></td></tr>
+      <tr><td>ตัวอย่างคำตอบที่ซ้ำกัน เช่น I am a doctor กับ I'm a doctor</td><td class="r"><span class="was">27</span></td><td class="r"><span class="now">0</span></td></tr>
+      <tr><td>คำตอบแบบพิมพ์ที่ AI ตรวจถูก ใน 4 รอบล่าสุด (53 ข้อ)</td><td class="r"></td><td class="r"><span class="now">53</span></td></tr>
+    </table>
+  </div>
+  <p class="note">สองแถวแรกวัดจากเสียงชุดเดิม เทียบก่อนกับหลังการแก้ช่วง 11–13 พ.ย. · ทุกข้อมีตัวอย่างคำตอบให้นักเรียนดูครบ 2 ประโยค ตรวจกับคลังตัวอย่างครบ 616 ข้อ</p>
+  <span class="pg">4</span>
+</section>
+
+<section class="slide g-white">
+  <div class="head">
+    <h2>ส่วนที่ยังต้องปรับ คือคำตอบที่ก้ำกึ่ง</h2>
+    <p class="sub">ข้อที่ AI ยังตรวจพลาดเกือบทั้งหมดอยู่ใน 3 กลุ่มนี้ ตัวอย่างทุกข้อมาจากการทดสอบวันที่ 19 พ.ย.</p>
+  </div>
+  <div class="obj fill">
+    <table>
+      <tr><th style="width:400px">เรื่อง</th><th>ตัวอย่างที่เจอ</th><th style="width:150px">ความสำคัญ</th></tr>
+      <tr><td><b>AI ฟังคำสั้นผิด</b></td><td>นักเรียนพูดว่า <span class="en">toes</span> แต่ AI ได้ยินเป็น <span class="en">toast</span> จึงให้ 30 คะแนน ทั้งที่ตอบถูก</td><td><span class="stk hi">สูง</span></td></tr>
+      <tr><td><b>ประโยคไม่สมบูรณ์ แต่ AI ให้ผ่าน</b></td><td>นักเรียนพูดว่า <span class="en">Is stick butter.</span> AI เติมให้เป็นประโยคเต็มเอง แล้วให้ 97 คะแนน</td><td><span class="stk hi">สูง</span></td></tr>
+      <tr><td><b>โจทย์ที่เปิดกว้าง</b></td><td>เพื่อนในบทสนทนาชวนฝึกภาษาอังกฤษด้วยกัน นักเรียนตอบแค่ <span class="en">I'm happy.</span> AI ให้ผ่าน</td><td><span class="stk mid">กลาง</span></td></tr>
+    </table>
+  </div>
+  <p class="note">คำตอบแบบนี้คนตรวจเองก็เห็นไม่ตรงกัน เราเลือกคำตอบที่ตัดสินยากที่สุด 45 ข้อ ให้ผู้ตรวจ 4 คนฟังเสียงและตัดสินแยกกัน ผลคือเห็นตรงกันทั้ง 4 คนเพียง 19 ข้อ จึงต้องเขียนกติกาให้ชัดก่อน แล้วให้ AI ตรวจตามกติกานั้น</p>
+  <span class="pg">5</span>
+</section>
+
+<section class="slide g-white">
+  <div class="head">
+    <h2>ระบบที่ปรับปรุงเสร็จในสัปดาห์นี้</h2>
+    <p class="sub">สามเรื่องนี้ขึ้นระบบจริงแล้วเมื่อคืนวันที่ 19 พ.ย. และตรวจหลังขึ้นระบบแล้วว่าการเข้าสู่ระบบ รายชื่อโรงเรียน และผลการเรียนของนักเรียนยังทำงานปกติ</p>
+  </div>
+  <div class="obj fill">
+    <dl class="sum">
+      <dt>รายงานครู</dt><dd>คำตอบที่นักเรียนพิมพ์ไม่มีเสียงให้วัดความคล่อง เดิมระบบนับเป็น 0 คะแนน ทำให้ค่าเฉลี่ยความคล่อง (Fluency) ต่ำเกินจริง ตอนนี้ระบบไม่นำคำตอบพิมพ์มาคิดในค่าเฉลี่ยนี้แล้ว มีผลกับคำตอบตั้งแต่วันที่ 19 พ.ย. เป็นต้นไป</dd>
+      <dt>Exercise 6</dt><dd>ระบบหลังบ้านรองรับแบบฝึก AI ข้อที่ 6 ของ Level 4 แล้ว และนับความคืบหน้าเฉพาะโรงเรียนที่มีแพ็กเกจ AI โรงเรียนอื่นยังเห็นความคืบหน้าเท่าเดิม ส่วนนี้จะเปิดใช้พร้อมแอปเวอร์ชันถัดไป</dd>
+      <dt>รายงาน กทม.</dt><dd>เว็บรายงานมีข้อมูลการทำ Post-Test Level 1 ของแต่ละโรงเรียนแล้ว พร้อมอันดับโรงเรียนที่นักเรียนทำครบเร็วที่สุด และอัปเดตข้อมูลอัตโนมัติวันละ 3 รอบ</dd>
+    </dl>
+  </div>
+  <span class="pg">6</span>
+</section>
+
+<section class="slide g-white">
+  <div class="head"><h2>ขั้นต่อไป เขียนกติกาให้ชัด แล้ววัดผลกับคำตอบชุดเดิม</h2></div>
+  <div class="steps" style="grid-template-columns:repeat(4,1fr)">
+    <div class="step"><span class="num">1</span><h3>ตั้งกติกา</h3><p>ผู้ตรวจ 4 คนเสนอว่าคำตอบก้ำกึ่ง 7 แบบควรผ่านหรือไม่ พร้อมเหตุผล แล้วสรุปเป็นกติกาที่เขียนไว้ชัดเจน</p><span class="gate">ได้กติกาครบทั้ง 7 แบบ</span></div>
+    <div class="step"><span class="num">2</span><h3>ปรับ AI</h3><p>ปรับตัวตรวจให้ตัดสินตามกติกา โดยเริ่มจากประโยคไม่สมบูรณ์และโจทย์ที่เปิดกว้าง</p><span class="gate">ข้อที่เคยตรวจถูกต้องไม่กลับมาผิด</span></div>
+    <div class="step"><span class="num">3</span><h3>วัดซ้ำ</h3><p>ให้ AI ตรวจคำตอบ 45 ข้อชุดเดิมที่ผู้ตรวจตัดสินไว้แล้ว จะได้เทียบก่อนกับหลังปรับได้</p><span class="gate">AI ตรงกับผู้ตรวจมากขึ้นกว่าเดิม</span></div>
+    <div class="step"><span class="num">4</span><h3>เปิดใช้</h3><p>นำ AI รุ่นที่ปรับแล้วขึ้นใช้กับนักเรียน พร้อมแอปเวอร์ชันถัดไป</p><span class="gate">แจ้งวันพร้อมกำหนดออกแอป</span></div>
+  </div>
+  <p class="ask">ระหว่างนี้นักเรียนใช้ AI รุ่นปัจจุบันได้ตามปกติ การปรับทั้งหมดทำบนเครื่องทดสอบ</p>
+  <span class="pg">7</span>
+</section>
+
+</main>
+<nav class="nav" aria-label="เลื่อนสไลด์">
+  <button type="button" id="prev" aria-label="สไลด์ก่อนหน้า">← ก่อนหน้า</button>
+  <span class="pgn" id="pg"></span>
+  <button type="button" id="next" aria-label="สไลด์ถัดไป">ถัดไป →</button>
+  <button type="button" id="mode">อ่านแบบเลื่อน</button>
+  
+</nav>
+<script>
+// Slides advance only from the buttons and keyboard, so dragging over text selects it for copying.
+const slides=[...document.querySelectorAll('.slide')];
+let i=0,scroll=false;
+const narrow=()=>matchMedia('(max-width:820px)').matches;
+function fit(){
+  const rf=narrow();document.body.classList.toggle('reflow',rf);
+  if(rf){slides.forEach(sl=>sl.style.transform='');return}
+  if(scroll){
+    const w=Math.min(innerWidth-16,1100),s=w/1920;
+    slides.forEach(sl=>{sl.style.transform=`scale(${s})`;
+      if(!sl.parentElement.classList.contains('wrap')){const d=document.createElement('div');d.className='wrap';sl.before(d);d.appendChild(sl)}
+      sl.parentElement.style.width=w+'px';sl.parentElement.style.height=(1080*s)+'px'});
+  }else{
+    const s=Math.min(innerWidth/1920,(innerHeight-56)/1080)*.985;
+    slides.forEach(sl=>sl.style.transform=`scale(${s})`);
+  }
+}
+function show(n){i=Math.max(0,Math.min(slides.length-1,n));slides.forEach((s,k)=>s.classList.toggle('on',k===i));
+  document.getElementById('pg').textContent=(i+1)+' / '+slides.length;try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+function setMode(sc){scroll=sc;document.body.classList.toggle('scroll',sc);
+  document.getElementById('mode').textContent=sc?'โหมดนำเสนอ':'อ่านแบบเลื่อน';
+  ['prev','next','pg'].forEach(id=>document.getElementById(id).style.display=sc?'none':'');
+  if(!sc){document.querySelectorAll('.wrap').forEach(w=>w.replaceWith(w.firstChild));show(i)}
+  fit()}
+document.getElementById('prev').onclick=()=>show(i-1);
+document.getElementById('next').onclick=()=>show(i+1);
+document.getElementById('mode').onclick=()=>setMode(!scroll);
+document.addEventListener('keydown',e=>{if(scroll||e.ctrlKey||e.metaKey)return;
+  if(['ArrowRight','PageDown'].includes(e.key)){e.preventDefault();show(i+1)}
+  if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(i-1)}
+  if(e.key==='Home')show(0);if(e.key==='End')show(slides.length-1)});
+addEventListener('resize',fit);
+const h=parseInt(location.hash.slice(1));show(Number.isFinite(h)?h-1:0);
+setMode(narrow());
+</script>
+</body>
+</html>

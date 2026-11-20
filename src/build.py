@@ -117,7 +117,7 @@ TOKENS = {
 EXTRA_CSS = "span.en{font-family:var(--display);font-style:italic;font-size:1.05em}span.why{font-size:22px;color:var(--ink3)}table.ex td{padding-top:10px;padding-bottom:10px;line-height:1.4}"
 
 
-def build(src, out, title, other_href, other_label):
+def build(src, out, title, other_href, other_label, extra_css="", nav=None):
     shell = (ROOT / "src/shell.html").read_text(encoding="utf-8")
     slides = (ROOT / src).read_text(encoding="utf-8")
     for k, v in TOKENS.items():
@@ -126,9 +126,9 @@ def build(src, out, title, other_href, other_label):
     slides = re.sub(r"\{\{PG\}\}", lambda m: (n.__setitem__(0, n[0] + 1), str(n[0]))[1], slides)
     left = re.findall(r"\{\{[A-Z_]+\}\}", slides)
     assert not left, f"unfilled tokens in {src}: {sorted(set(left))}"
-    nav = (f'<a href="{other_href}">{other_label}</a>'
+    nav = nav if nav is not None else (f'<a href="{other_href}">{other_label}</a>'
            f'<a class="main" href="https://github.com/phttinat/engenius-ai-40gb-report/blob/main/data/rounds.json" target="_blank" rel="noopener">ข้อมูลรายรอบ</a>')
-    html = (shell.replace("{{TITLE}}", title).replace("{{EXTRA_CSS}}", EXTRA_CSS)
+    html = (shell.replace("{{TITLE}}", title).replace("{{EXTRA_CSS}}", EXTRA_CSS + extra_css)
             .replace("{{NAVLINKS}}", nav).replace("<!--SLIDES-->", slides))
     (ROOT / out).write_text(html, encoding="utf-8", newline="\n")
     print(out, n[0], "slides")
@@ -136,3 +136,7 @@ def build(src, out, title, other_href, other_label):
 
 build("src/short.html", "index.html", "Engenius AI · ผลการทดสอบบนเครื่อง 40GB (ฉบับย่อ)", "full.html", "ฉบับเต็ม")
 build("src/long.html", "full.html", "Engenius AI · ผลการทดสอบบนเครื่อง 40GB (ฉบับเต็ม)", "index.html", "ฉบับย่อ")
+
+# Customer progress deck (2026-11-20): own running head, no links to the internal decks or raw data.
+build("src/customer.html", "customer.html", "Engenius AI · ความคืบหน้า AI ตรวจคำตอบ", "", "",
+      extra_css='.slide::before{content:"Engenius AI  ·  ความคืบหน้า AI ตรวจคำตอบ"}', nav="")
